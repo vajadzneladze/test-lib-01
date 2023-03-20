@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -79,13 +79,37 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var P = styled.p(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"], ["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"])));
+var P = styled.p(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"], ["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"])));
 var Typography = function (_a) {
     var text = _a.text, size = _a.size, props = __rest(_a, ["text", "size"]);
     return React.createElement(P, __assign({ style: { fontSize: size } }, props),
         " ",
         text);
 };
+var templateObject_1$1;
+
+var lightTheme = {
+    body: '#fbfbfb',
+    text: '#121620'
+};
+var darkTheme = {
+    body: '#333333',
+    text: 'white'
+};
+var GlobalStyles = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\n    body {\n        background: ", ",\n        color: ", ",\n    }\n"], ["\n\n    body {\n        background: ", ",\n        color: ", ",\n    }\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.body;
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.text;
+});
 var templateObject_1;
 
-export { Button, Typography };
+var ThemeProviderWrapper = function (_a) {
+    var variant = _a.variant, children = _a.children;
+    return React.createElement(ThemeProvider, { theme: variant !== 'dark' ? lightTheme : darkTheme },
+        React.createElement(GlobalStyles, null),
+        children);
+};
+
+export { Button, ThemeProviderWrapper, Typography };
