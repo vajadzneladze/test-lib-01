@@ -79,7 +79,10 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var P = styled.p(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"], ["\n  border:1px solid lightgray;\n  padding:10px 25px;\n"])));
+var P = styled.p(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  border:1px solid ", ";\n  padding:10px 5px;\n  color: ", ";\n"], ["\n  border:1px solid ", ";\n  padding:10px 5px;\n  color: ", ";\n"])), function (props) { return props.theme.text; }, function (_a) {
+    var theme = _a.theme;
+    return theme.text;
+});
 var Typography = function (_a) {
     var text = _a.text, size = _a.size, props = __rest(_a, ["text", "size"]);
     return React.createElement(P, __assign({ style: { fontSize: size } }, props),
@@ -90,19 +93,13 @@ var templateObject_1$1;
 
 var lightTheme = {
     body: '#fbfbfb',
-    text: '#121620'
+    text: 'red',
 };
 var darkTheme = {
     body: '#333333',
-    text: 'white'
+    text: 'green'
 };
-var GlobalStyles = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\n    body {\n        background: ", ",\n        color: ", ",\n    }\n"], ["\n\n    body {\n        background: ", ",\n        color: ", ",\n    }\n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.body;
-}, function (_a) {
-    var theme = _a.theme;
-    return theme.text;
-});
+var GlobalStyles = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n"], ["\n"])));
 var templateObject_1;
 
 var ThemeProviderWrapper = function (_a) {

@@ -8,8 +8,9 @@ export interface TypographyProps {
 }
 
 const P = styled.p`
-  border:1px solid lightgray;
-  padding:10px 25px;
+  border:1px solid ${ (props) => props.theme.text  };
+  padding:10px 5px;
+  color: ${ ({ theme }) => theme.text  };
 `;
 
 const Typography = ({ text , size , ...props }: TypographyProps) => {

@@ -13,11 +13,8 @@ const ThemeProviderWrapper = ({ variant, children } : ThemeProviderProps) => {
 
 
     return <ThemeProvider theme = { variant !== 'dark' ? lightTheme :  darkTheme }>
-        <GlobalStyles />    
-
-
-        {variant}
         
+        <GlobalStyles />    
 
         { children }
 

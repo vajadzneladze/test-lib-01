@@ -8,10 +8,16 @@ export default {
     component: ThemeProviderWrapper,
 } as ComponentMeta<typeof ThemeProviderWrapper>;
 
-const Template: ComponentStory<typeof ThemeProviderWrapper> = (args) => <ThemeProviderWrapper variant = 'dark' > asfasfasf </ThemeProviderWrapper>;
+const Template: ComponentStory<typeof ThemeProviderWrapper> = (args) => <ThemeProviderWrapper { ...args} >  </ThemeProviderWrapper>;
 
 export const Primary = Template.bind({});
+export const Secondary = Template.bind({});
 
 Primary.args = {
-    variant: 'dark'
+    variant: 'dark',
+};
+
+
+Secondary.args = {
+    variant: 'light',
 };
