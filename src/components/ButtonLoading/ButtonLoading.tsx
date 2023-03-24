@@ -11,7 +11,7 @@ export interface ButtonLoadingProps {
 // Define the ButtonLoading component
 const ButtonLoading = ({ ...props }: ButtonLoadingProps) => {
     return (
-        <ButtonWrap  {...props} >
+        <ButtonWrap  {...props} focusStateEnabled={false}>
             <LoadingWrapper onClick={e => e.stopPropagation()}>
                 <LoadingCircle variant={props.variant} />
                 <LoadingCircle variant={props.variant} />

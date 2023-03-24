@@ -51,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
                 size={size}
                 radius={radius}
                 icon={icon}
+                focusStateEnabled={false}
                 iconPosition={iconPosition} /> : <ButtonLoading 
                     variant={variant}
                     size={size}

@@ -66,6 +66,25 @@ export const ButtonWrap = styled(Button) <ButtonLoadingProps>`
         size === 'thiny' ? theme.typography.fontSize[0] : theme.typography.fontSize[1]};
     border-radius: ${({ radius, theme }) =>
         radius ? theme.size.radius[radius] : theme.size.radius['medium']};
+
+
+    &:focus{
+        outline:none;
+    }
+
+    // Disable hover state
+    &:hover {
+        background-color: ${({ variant, theme }) => variant === 'contained' ? theme.color.semantic.positive_100 : 'transparent'};
+        border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.color.semantic.positive_100}` : 'none'};
+        color: ${({ variant, theme }) => variant === 'contained' ? theme.color.text.static_primary : theme.color.text.primary};
+    }
+
+    // Disable active state
+    &:active {
+        background-color: ${({ variant, theme }) => variant === 'contained' ? theme.color.semantic.positive_100 : 'transparent'};
+        border: ${({ variant, theme }) => variant === 'outlined' ? `1px solid ${theme.color.semantic.positive_100}` : 'none'};
+        color: ${({ variant, theme }) => variant === 'contained' ? theme.color.text.static_primary : theme.color.text.primary};
+    }
 `;
 
 export const LoadingWrapper = styled.div`
@@ -82,6 +101,7 @@ export const LoadingCircle = styled.span<{ variant?: string }>`
     width:5px;
     height:5px;
     position:absolute;
+   
 
     &:nth-child(1) {
         left:0px;
