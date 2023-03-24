@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 
-const Template: ComponentStory<typeof Button> = (props) => <ThemeProvider variant='light'><Button {...props}/></ThemeProvider>
+const Template: ComponentStory<typeof Button> = (props) => <ThemeProvider variant='light' ><Button {...props}/></ThemeProvider>
 
 export const Primary = Template.bind({});
 export const Outlined = Template.bind({});
@@ -17,6 +17,8 @@ export const Text = Template.bind({});
 Primary.args = {
     text:'Submit',
     variant:'contained',
+    onClick: () => alert('wtf'),
+    style : { width:'500px' }
 }
 
 Outlined.args = {

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledButton } from './StyledButton';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 
-export interface ButtonProps {
+export interface  ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     text?: string;
     disabled?: boolean;
     variant?: 'contained' | 'text' | 'outlined';
@@ -38,7 +38,8 @@ const Button: React.FC<ButtonProps> = ({
     radius,
     iconPosition,
     icon,
-    isLoading
+    isLoading,
+    ...props
 }) => {
 
     return (
@@ -52,7 +53,9 @@ const Button: React.FC<ButtonProps> = ({
                 radius={radius}
                 icon={icon}
                 focusStateEnabled={false}
-                iconPosition={iconPosition} /> : <ButtonLoading 
+                iconPosition={iconPosition} 
+                {...props}
+                /> : <ButtonLoading 
                     variant={variant}
                     size={size}
                     radius={radius}
