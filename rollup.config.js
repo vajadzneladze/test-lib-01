@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import svg from 'rollup-plugin-svg';
 
 const packageJson = require("./package.json");
 
@@ -22,15 +23,19 @@ export default [
         sourcemap: true,
       },
       {
-        file: "example/src/reactComponentLib/index.js",
+        file: "dist/index.js",
         format: "es",
-        banner: "/* eslint-disable */"
-      }
+        banner: "/* eslint-disable */",
+        sourcemap: true,
+      },
     ],
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      svg(),
+      typescript({
+        tsconfig: "./tsconfig.json"
+      }),
       postcss(),
     ],
   },
