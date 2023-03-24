@@ -6,6 +6,7 @@ export interface ButtonLoadingProps {
     variant?: 'contained' | 'text' | 'outlined';
     size?: 'thiny' | 'small' | 'medium' | 'large';
     radius?: 'small' | 'medium' | 'large' | 'circle';
+    disabled: false
 }
 
 // Define the ButtonLoading component

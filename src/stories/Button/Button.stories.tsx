@@ -11,12 +11,21 @@ export default {
 const Template: ComponentStory<typeof Button> = (props) => <ThemeProvider variant='light'><Button {...props}/></ThemeProvider>
 
 export const Primary = Template.bind({});
-export const Loading = Template.bind({});
+export const Outlined = Template.bind({});
+export const Text = Template.bind({});
 
 Primary.args = {
-    text:'Here we go'
+    text:'Submit',
+    variant:'contained',
 }
 
-Loading.args = {
-    isLoading: true
+Outlined.args = {
+    text:'Submit',
+    variant:'outlined',
 }
+
+Text.args = {
+    text:'Submit',
+    variant:'text',
+}
+
