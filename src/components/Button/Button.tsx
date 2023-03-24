@@ -60,6 +60,7 @@ const Button: React.FC<ButtonProps> = ({
                     size={size}
                     radius={radius}
                     disabled = {false}
+                    {...props}
                  />
 
     );

@@ -17,7 +17,7 @@ export const Text = Template.bind({});
 Primary.args = {
     text:'Submit',
     variant:'contained',
-    onClick: () => alert('wtf'),
+    onClick: () => alert('Button Clickable'),
     style : { width:'500px' }
 }
 
