@@ -15,7 +15,7 @@ const defaultProps: ThemeProviderProps = {
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ variant, children }) => {
 
-    return <StyledComponetsThemeProvider theme={variant === 'light' ? lightTheme : darkTheme}>
+    return <StyledComponetsThemeProvider theme={variant !== 'dark' ? lightTheme : darkTheme}>
         <GlobalStyles />
         {children}
 

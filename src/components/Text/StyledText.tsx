@@ -82,7 +82,7 @@ export const StyledText = styled.div<StyledTextProps & VariantProps>`
         return `
           font-size: ${theme.typography.fontSize.fs_14};
           line-height: 16px;
-        `; 
+        `;
       case 'cap3':
         return `
           font-size: ${theme.typography.fontSize.fs_12};

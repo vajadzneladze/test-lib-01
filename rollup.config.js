@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import svg from 'rollup-plugin-svg';
+import del from 'rollup-plugin-delete';
 
 const packageJson = require("./package.json");
 
@@ -30,6 +31,7 @@ export default [
       },
     ],
     plugins: [
+      del({ targets: 'dist/*' }),
       resolve(),
       commonjs(),
       svg(),
