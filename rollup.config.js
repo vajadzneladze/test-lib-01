@@ -15,18 +15,18 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        sourcemap: false,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        sourcemap: false,
       },
       {
         file: "dist/index.js",
         format: "es",
         banner: "/* eslint-disable */",
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [
@@ -40,7 +40,7 @@ export default [
     ],
   },
   {
-    input: "dist/esm/types/index.d.ts",
+    input: "dist/esm/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.(css|less|scss)$/],
