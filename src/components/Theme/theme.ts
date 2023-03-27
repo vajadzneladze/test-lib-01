@@ -21,7 +21,7 @@ const typography = {
         medium: '500',
         bold: '700'
     },
-    fontSize: [
+    fontSize2: [
         '10px',
         '12px',
         '14px',
@@ -35,11 +35,30 @@ const typography = {
         '48px',
         '56px'
     ],
+    // fontSize: {
+    //     fs_10: '10px',
+    //     fs_12: '12px',
+    //     fs_14: '14px',
+    //     fs_16: '16px',
+    //     fs_18: '18px',
+    //     fs_24: '24px',
+    //     fs_28: '28px',
+    //     fs_32: '32px',
+    //     fs_36: '36px',
+    //     fs_44: '44px',
+    //     fs_48: '48px',
+    //     fs_56: '56px',
+    // },
     lineHeight: {
         sm: '1.5',
         md: '1.7',
         lg: '2'
-
+    },
+    align: {
+        left: 'left',
+        right: 'right',
+        center: 'center',
+        justify: 'justify'
     }
 }
 
@@ -114,7 +133,7 @@ export const lightTheme = {
             primary: '#15181A',
             seconday: '#566063',
             tertiary: '#6F787B',
-            disabled : '#A6ABAD',
+            disabled: '#A6ABAD',
             static_primary: 'rgba(255,255,255,1)',
             static_secondary: 'rgba(255,255,255,0.85)',
             static_tertiary: 'rgba(255,255,255,0.7)',
@@ -166,7 +185,7 @@ export const darkTheme = {
             primary: '#F9FAFA',
             seconday: '#A5AAAC',
             tertiary: '#899194',
-            disabled : '#6F787B',
+            disabled: '#6F787B',
             static_primary: 'rgba(255,255,255,1)',
             static_secondary: 'rgba(255,255,255,0.85)',
             static_tertiary: 'rgba(255,255,255,0.7)',

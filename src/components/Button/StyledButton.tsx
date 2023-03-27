@@ -80,7 +80,7 @@ export const StyledButton = styled(DxButton)<StyledButtonProps>`
   border: ${({ variant, theme }) => getBorderStyle(variant, theme)};
   width: ${({ size }) => getWidth(size)};
   height: ${({ size }) => getHeight(size)};
-  font-size: ${({ size, theme }) => size === 'thiny' ? theme.typography.fontSize[0] : theme.typography.fontSize[1]};
+  font-size: ${({ size, theme }) => size === 'thiny' ? theme.typography.fontSize.fs_10 : theme.typography.fontSize.fs_12};
   border-radius: ${({ radius, theme }) => getBorderRadius(radius, theme)};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
   .dx-icon {

@@ -63,7 +63,7 @@ export const ButtonWrap = styled(Button) <ButtonLoadingProps>`
         }
     }};
     font-size: ${({ size, theme }) =>
-        size === 'thiny' ? theme.typography.fontSize[0] : theme.typography.fontSize[1]};
+        size === 'thiny' ? theme.typography.fontSize.fs_10 : theme.typography.fontSize.fs_12};
     border-radius: ${({ radius, theme }) =>
         radius ? theme.size.radius[radius] : theme.size.radius['medium']};
 
