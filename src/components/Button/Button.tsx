@@ -1,24 +1,7 @@
 import React from 'react';
 import { StyledButton } from './StyledButton';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
-
-export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
-    text?: string;
-    disabled?: boolean;
-    variant?: 'contained' | 'text' | 'outlined';
-    size?: 'thiny' | 'small' | 'medium' | 'large';
-    radius?: 'small' | 'medium' | 'large' | 'circle';
-    iconPosition?: 'left' | 'right';
-    icon?: string,
-    isLoading?: boolean,
-    onClick?: (e: any) => void
-}
-
-export interface StyledButtonLoadingProps {
-    variant?: 'contained' | 'text' | 'outlined';
-    size?: 'thiny' | 'small' | 'medium' | 'large';
-    radius?: 'small' | 'medium' | 'large' | 'circle';
-}
+import { ButtonProps } from './Button.types';
 
 
 const defaultProps: ButtonProps = {

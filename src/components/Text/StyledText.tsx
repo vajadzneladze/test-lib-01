@@ -1,15 +1,5 @@
 import styled from 'styled-components';
-
-export interface StyledTextProps {
-  text?: string;
-  children?: React.ReactNode;
-  weight?: 'ultraLight' | 'thin' | 'light' | 'regular' | 'medium' | 'bold';
-  align?: 'left' | 'right' | 'center' | 'justify';
-}
-
-interface VariantProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p1' | 'p2' | 'p3' | 'p4' | 'cap1' | 'cap2' | 'cap3' | 'd1' | 'd2' | 'd3';
-}
+import { StyledTextProps, VariantProps } from './Text.types';
 
 export const StyledText = styled.div<StyledTextProps & VariantProps>`
   font-weight: ${({ theme, weight }) => theme.typography.fontWeight[weight || 'regular']};

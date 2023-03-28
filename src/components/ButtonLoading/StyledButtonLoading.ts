@@ -1,17 +1,10 @@
 import { Button } from "devextreme-react";
 import 'devextreme/dist/css/dx.light.css';
 import styled, { keyframes } from "styled-components";
-
-// Define the props for the ButtonLoading component
-export interface ButtonLoadingProps {
-    variant?: 'contained' | 'text' | 'outlined';
-    size?: 'thiny' | 'small' | 'medium' | 'large';
-    radius?: 'small' | 'medium' | 'large' | 'circle';
-}
+import { StyledButtonLoadingProps } from "./ButtonLoading.types";
 
 
-// Define the keyframes for the loading animation
-export const circlesAnimation = ({ top, left, color }: { top: string, left: string, color: string }) => keyframes`
+const circlesAnimation = ({ top, left, color }: { top: string, left: string, color: string }) => keyframes`
     0%,25%,75%,100% {
         border:3px solid ${color};
         width:5px;
@@ -26,8 +19,7 @@ export const circlesAnimation = ({ top, left, color }: { top: string, left: stri
     }
 `;
 
-// Define the styled components for the ButtonLoading component
-export const ButtonWrap = styled(Button) <ButtonLoadingProps>`
+export const ButtonWrap = styled(Button) <StyledButtonLoadingProps>`
     background-color: ${({ variant, theme }) =>
         variant === 'contained' ? theme.color.semantic.positive_100 : 'transparent'};
     color: ${({ variant, theme }) =>

@@ -1,17 +1,8 @@
 import React from 'react';
-import { toast, ToastOptions, Flip, Zoom, Slide, Bounce } from "react-toastify";
+import { toast, ToastOptions, Bounce } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components';
-
-export interface ToastNotificationProps {
-    message: string;
-    type?: 'success' | 'info' | 'warning' | 'error';
-    autoClose?: number;
-    onClose?: () => void;
-    position?: 'top-right' | 'top-center' | 'top-left' | 'bottom-right' | 'bottom-center' | 'bottom-left' | 'top-right',
-    closeButtonText?: string,
-    actionHandler?: () => void
-}
+import { ToastNotificationProps } from './ToastNotification.types';
 
 export const StyledAction = styled.div`
     margin-top: 6px;

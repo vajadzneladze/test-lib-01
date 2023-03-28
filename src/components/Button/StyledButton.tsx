@@ -1,13 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button as DxButton } from 'devextreme-react/button';
+import { StyledButtonProps } from './Button.types';
 
-export interface StyledButtonProps {
-  variant?: 'contained' | 'text' | 'outlined';
-  size?: 'thiny' | 'small' | 'medium' | 'large';
-  radius?: 'small' | 'medium' | 'large' | 'circle';
-  iconPosition?: 'left' | 'right';
-  disabled?: boolean;
-}
 
 export const getBackgroundColor = (variant: StyledButtonProps['variant'], theme: any) => {
   switch (variant) {
