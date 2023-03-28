@@ -52,25 +52,21 @@ export const StyledText = styled.div<StyledTextProps & VariantProps>`
       case 'p1':
         return `
           font-size: ${theme.typography.fontSize.fs_16};
-          font-weight: ${theme.typography.fontWeight.ultraLight};
           line-height: ${theme.typography.lineHeight.md};
         `;
       case 'p2':
         return `
           font-size: ${theme.typography.fontSize.fs_16};
-          font-weight: ${theme.typography.fontWeight.ultraLight};
           line-height: ${theme.typography.lineHeight.sm};
         `;
       case 'p3':
         return `
           font-size: ${theme.typography.fontSize.fs_12};
-          font-weight: ${theme.typography.fontWeight.ultraLight};
           line-height: ${theme.typography.lineHeight.md};
         `;
       case 'p4':
         return `
           font-size: ${theme.typography.fontSize.fs_14};
-          font-weight: ${theme.typography.fontWeight.ultraLight};
           line-height: ${theme.typography.lineHeight.md};
         `;
       case 'cap1':

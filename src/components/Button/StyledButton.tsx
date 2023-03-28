@@ -9,7 +9,7 @@ export interface StyledButtonProps {
   disabled?: boolean;
 }
 
-const getBackgroundColor = (variant: StyledButtonProps['variant'], theme: any) => {
+export const getBackgroundColor = (variant: StyledButtonProps['variant'], theme: any) => {
   switch (variant) {
     case 'contained':
       return theme.color.semantic.positive_100;
@@ -20,7 +20,7 @@ const getBackgroundColor = (variant: StyledButtonProps['variant'], theme: any) =
   }
 };
 
-const getTextColor = (variant: StyledButtonProps['variant'], theme: any) => {
+export const getTextColor = (variant: StyledButtonProps['variant'], theme: any) => {
   switch (variant) {
     case 'contained':
       return theme.color.text.static_primary;
@@ -31,7 +31,7 @@ const getTextColor = (variant: StyledButtonProps['variant'], theme: any) => {
   }
 };
 
-const getBorderStyle = (variant: StyledButtonProps['variant'], theme: any) => {
+export const getBorderStyle = (variant: StyledButtonProps['variant'], theme: any) => {
   switch (variant) {
     case 'outlined':
       return `1px solid ${theme.color.semantic.positive_100}`;
@@ -40,7 +40,7 @@ const getBorderStyle = (variant: StyledButtonProps['variant'], theme: any) => {
   }
 };
 
-const getWidth = (size: StyledButtonProps['size']) => {
+export const getWidth = (size: StyledButtonProps['size']) => {
   switch (size) {
     case 'thiny':
       return '100px';
@@ -55,7 +55,7 @@ const getWidth = (size: StyledButtonProps['size']) => {
   }
 };
 
-const getHeight = (size: StyledButtonProps['size']) => {
+export const getHeight = (size: StyledButtonProps['size']) => {
   switch (size) {
     case 'thiny':
       return '32px';
@@ -70,11 +70,11 @@ const getHeight = (size: StyledButtonProps['size']) => {
   }
 };
 
-const getBorderRadius = (radius: StyledButtonProps['radius'], theme: any) => {
+export const getBorderRadius = (radius: StyledButtonProps['radius'], theme: any) => {
   return radius ? theme.size.radius[radius] : theme.size.radius['medium'];
 };
 
-export const StyledButton = styled(DxButton)<StyledButtonProps>`
+export const StyledButton = styled(DxButton) <StyledButtonProps>`
   background-color: ${({ variant, theme }) => getBackgroundColor(variant, theme)};
   color: ${({ variant, theme }) => getTextColor(variant, theme)};
   border: ${({ variant, theme }) => getBorderStyle(variant, theme)};

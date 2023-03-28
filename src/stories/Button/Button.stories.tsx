@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button, ThemeProvider } from '../../components';
+import { Button, Notify, ThemeProvider } from '../../components';
+import { toast } from 'react-toastify';
 
 export default {
     title: 'UI-COMPONENTS/Button',
@@ -17,17 +18,18 @@ export const Text = Template.bind({});
 Primary.args = {
     text:'Submit',
     variant:'contained',
-    onClick: () => alert('Button Clickable'),
-    style : { width:'500px' }
+    onClick: () => alert('Button was Clicked'),
 }
 
 Outlined.args = {
     text:'Submit',
     variant:'outlined',
+    onClick: () => toast("Wow so easy !")
 }
 
 Text.args = {
     text:'Submit',
     variant:'text',
+    onClick: () => Notify({ message: 'Notification .... ', type: 'success', position : 'top-right' })
 }
 

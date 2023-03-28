@@ -10,7 +10,6 @@ declare module 'styled-components' {
     }
 }
 
-
 const typography = {
     fontFamily: 'Helvetica Neue',
     fontWeight: {
@@ -21,20 +20,6 @@ const typography = {
         medium: '500',
         bold: '700'
     },
-    // fontSize2: [
-    //     '10px',
-    //     '12px',
-    //     '14px',
-    //     '16px',
-    //     '18px',
-    //     '24px',
-    //     '28px',
-    //     '32px',
-    //     '36px',
-    //     '44px',
-    //     '48px',
-    //     '56px'
-    // ],
     fontSize: {
         fs_10: '10px',
         fs_12: '12px',
@@ -197,8 +182,19 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
 
+    
+
     body {
-        background-color: ${props => props.theme.color.steel.grey_00}
+        background-color: ${props => props.theme.color.steel.grey_00};
+
+        /* --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: red;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+
+        */
     }
 
 `;
