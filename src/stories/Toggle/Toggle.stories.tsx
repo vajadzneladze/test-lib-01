@@ -12,8 +12,5 @@ const Template: ComponentStory<typeof Toggle> = (props) => <ThemeProvider varian
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-   
-}
 
 

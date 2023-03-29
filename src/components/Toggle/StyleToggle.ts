@@ -1,6 +1,6 @@
 import styled from "styled-components";
-const sun = require('../../assets/sun.svg')
-const moon = require('../../assets/moon.svg')
+// import sun from '../../assets/sun.svg';
+// import moon from '../../assets/moon.svg';
 
 export const StyledToggle = styled.div<{ isDay: Boolean }>`
   width: 50px;
@@ -16,38 +16,33 @@ export const StyledToggle = styled.div<{ isDay: Boolean }>`
   justify-content:space-between;
   cursor:pointer;
 
-  &::before , &::after {
-    background-repeat:no-repeat;
+  &::before {
+    content: "";
+    float: left;
+    padding-left:6px;
     background-size:15px;
-    background-position:center center;
     display:block;
     width:100%;
     height:100%;
   }
 
-  &::before {
-    content: "";
-    background-image: url(${sun});
-    float: left;
-    padding-left:6px;
-  }
-
   &::after {
     content: "";
-    background-image: url(${moon});
     float: right;
     padding-right:6px;
+    background-size:15px;
+    display:block;
+    width:100%;
+    height:100%;
   }
-
-
 `;
 
 export const StyledToggleCircle = styled.div<{ isDay: Boolean }>`
   width:20px;
   height:20px;
   border-radius:100%;
-  background-color: ${ ({ isDay }) => isDay ? 'white' : '#283593' };
+  background-color: ${({ isDay }) => isDay ? 'white' : '#283593'};
   position:absolute;
   transition:500ms;
-  transform : translateX( ${ ({ isDay }) => !isDay ? `2px` : `27px`})
+  transform : translateX( ${({ isDay }) => !isDay ? `2px` : `27px`})
 `;
