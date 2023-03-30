@@ -1,4 +1,9 @@
 export interface ToggleProps {
-    isOn?: boolean;
-  }
-  
+  isOn?: boolean;
+  onClick?: () => void
+}
+
+export interface StyledToggleProps  {
+  isDay?: boolean;
+  onClick?: () => void;
+}
