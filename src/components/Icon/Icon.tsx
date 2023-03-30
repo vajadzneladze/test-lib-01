@@ -5,7 +5,7 @@ import { IconProps } from './Icon.types';
 
 const Icon = ({ name, ...props }: IconProps) => {
 
-    const IconComponent = require(`./assets/${name}.svg`).default;
+    const IconComponent = require(`../../assets/${name || 'moon'}.svg`).default ;
 
     return <IconComponent {...props} />;
 }
