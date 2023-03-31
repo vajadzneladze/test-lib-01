@@ -7,7 +7,7 @@ const Toggle = ({ isOn = false, ...props }: ToggleProps) => {
 
   return (
     <StyledToggle isDay={isOn} {...props}>
-      <StyledToggleCircle isDay={isOn} />
+      <StyledToggleCircle isDay={isOn}/>
     </StyledToggle>
   );
 };
