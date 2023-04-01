@@ -114,6 +114,14 @@ export const lightTheme = {
             positive_100: '#10B77F',
             positive_120: '#159E72',
         },
+        surface: {
+            surface_backdrop: 'rgba(20, 23, 25, 0.5)',
+            surface_minus_2: '#EEF1F1', // day/steelgrey/ 04
+            surface_minus_1: '#F3F5F6', // day / steelgrey / 03
+            surface_0: '#F9FAFA', // //day steel grey 01
+            surface_1: '#FFFFFF', // day / steelgrey 00 
+            surface_2: '#F9FAFA ' // day steel grey 03 
+        },
         text: {
             primary: '#15181A',
             seconday: '#566063',
@@ -165,6 +173,14 @@ export const darkTheme = {
             positive_80: '#269C75',
             positive_100: '#CEEDE3',
             positive_120: '#52C7A0',
+        },
+        surface: {
+            surface_backdrop: 'rgba(20, 23, 25, 0.8)',
+            surface_minus_2: '#171B1C', // night /steelgrey/ 02
+            surface_minus_1: '#1A1E1F', // night / steelgrey / 03
+            surface_0: '#23282A', // //night steel grey 05
+            surface_1: '#31383A ', // night / steelgrey 06 
+            surface_2: '#F3F5F6 ' // night steel grey 0308
         },
         text: {
             primary: '#F9FAFA',
