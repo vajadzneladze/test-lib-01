@@ -42,6 +42,9 @@ const Template: ComponentStory<typeof Modal> = (props) =>
                 turpis magna rhoncus porttitor. Ut blandit posuere aliquam morbi
                 pharetra amet quam risus. At est varius lobortis in iaculis scelerisque. Egestas ut integer amet duis.
             </Text>
+            <div style = {{ display:'flex', justifyContent:'space-between' , width:'80%', background:'grey', height:'300px', margin:'auto'}}>
+
+</div>
 
             <Button  variant='outlined' text =' here we go' />
         </Modal>
@@ -55,6 +58,7 @@ Primary.args = {
     size: 'md',
     title: 'Modal Header',
     confirmBtn: 'Submit',
-    onClick: () => alert('sadasf')
+    onSubmit: () => alert('ConFirm Button Was Clicked'),
+    onClose: () => alert('Modal should be close now')
 }
 

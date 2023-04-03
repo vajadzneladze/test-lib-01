@@ -5,7 +5,8 @@ export interface ModalProps {
     children?: JSX.Element | JSX.Element[],
     closeBtn?: string,
     confirmBtn? : string,
-    onClick:() => void,
+    onSubmit?:() => void,
+    onClose?:() => void,
 }
 
 export type ModalSizes = 'sm' | 'md' | 'lg';

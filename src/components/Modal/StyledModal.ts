@@ -51,7 +51,7 @@ export const StyledModal = styled.div<{ isOpen: boolean }>`
   height: 100vh;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
-
+  z-index: 999999;
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   justify-content: center;
   align-items: center;

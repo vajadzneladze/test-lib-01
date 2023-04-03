@@ -24,5 +24,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'Let"s go',
   value: '',
-  icon: '',
+  description: ''
 };

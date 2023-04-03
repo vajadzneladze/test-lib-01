@@ -14,7 +14,8 @@ const Modal = ({
   title = "",
   closeBtn,
   confirmBtn,
-  onClick,
+  onSubmit = () => { },
+  onClose = () => { },
   isOpen = false,
   children,
 }: ModalProps) => {
@@ -28,14 +29,14 @@ const Modal = ({
         {(closeBtn || confirmBtn) && (
           <StyledModalFooter>
             {closeBtn && size !== "sm" && (
-              <Button variant="outlined" size="small" text={closeBtn} />
+              <Button variant="outlined" size="small" text={closeBtn} onClick={onClose} />
             )}
             {confirmBtn && (
               <Button
                 variant="contained"
                 size="small"
                 text={confirmBtn}
-                onClick={() => onClick()}
+                onClick={onSubmit}
                 style={size === "sm" ? { width: "296px" } : {}}
               />
             )}

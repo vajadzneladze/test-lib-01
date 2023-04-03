@@ -1,4 +1,4 @@
-import { createGlobalStyle, DefaultTheme } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 
 declare module 'styled-components' {
@@ -113,6 +113,14 @@ export const lightTheme = {
             positive_80: '#3FC699',
             positive_100: '#10B77F',
             positive_120: '#159E72',
+
+            negative_05: '#F9F1F1',
+            negative_10: '#FAEBEB',
+            negative_20: '#F8D8D8',
+            negative_40: '#F6B1B1',
+            negative_80: '#F16A6A',
+            negative_100: '#EF4343',
+            negative_120: '#C63F3F',
         },
         surface: {
             surface_backdrop: 'rgba(20, 23, 25, 0.5)',
@@ -173,6 +181,14 @@ export const darkTheme = {
             positive_80: '#269C75',
             positive_100: '#CEEDE3',
             positive_120: '#52C7A0',
+
+            negative_05: '#2D2A2C',
+            negative_10: '#362B2C',
+            negative_20: '#4C2F30',
+            negative_40: '#763739',
+            negative_80: '#C84646',
+            negative_100: '#EF4D4D',
+            negative_120: '#F26E6E',
         },
         surface: {
             surface_backdrop: 'rgba(20, 23, 25, 0.8)',

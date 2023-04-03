@@ -1,27 +1,47 @@
-import React from "react";
-import { TextBox } from "devextreme-react";
-import { InputProps } from "./Input.types";
-import { InputContainer, InputIcon } from "./StyledInput";
-import Text from "../Text/Text";
+import React from 'react';
+import { TextBox } from 'devextreme-react';
+import { InputProps } from './Input.types';
+import { InputContainer, InputDescrpition, InputIcon } from './StyledInput';
+import Text from '../Text/Text';
+
+
+const defaultProps: InputProps = {
+  label: '',
+  value: '',
+  onChange: () => { },
+  icon: '',
+  description: '',
+  size: 'sm',
+  type: 'text',
+  disabled: false,
+}
+
 
 const Input: React.FC<InputProps> = ({
-  label = "",
-  value = "",
+  label,
+  value,
   onChange,
   icon,
-  description = "",
+  description,
+  size,
+  type,
+  disabled,
+  status,
   ...props
 }) => {
+
   return (
     <>
-      <InputContainer> 
+      <InputContainer size={size} status={disabled ? 'disabled' : status}>
         <TextBox
           value={value}
           onValueChanged={(e) => onChange(e.value)}
           label={label}
-          labelMode="floating"
-          onKeyUp={ ( e:any ) => onChange(e.event.target.value)}
-          { ...props}
+          labelMode='floating'
+          onKeyUp={(e: any) => onChange(e.event.target.value)}
+          disabled={disabled}
+          mode={type}
+          {...props}
         >
           {icon && (
             <InputIcon
@@ -32,12 +52,18 @@ const Input: React.FC<InputProps> = ({
       </InputContainer>
 
       {description && (
-        <Text variant="p3" style={{ marginTop: "8px", color: "green" }}>
-          {description}
-        </Text>
+        <InputDescrpition status = { disabled ? 'disabled' : status }>
+          <Text variant='p3' weight='regular' >
+            {description}
+          </Text>
+        </InputDescrpition>
+
       )}
     </>
   );
 };
+
+
+Input.defaultProps = defaultProps;
 
 export default Input;

@@ -6,4 +6,5 @@ export { default as Text } from './Text';
 export { default as Notify } from './ToastNotification';
 export { default as Toggle } from './Toggle';
 export { default as Icon } from './Icon';
+export { default as Input } from './Input';
 
