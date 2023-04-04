@@ -5,7 +5,7 @@ export interface InputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: string;
   description?: string;
-  size: size,
+  size?: size,
   type?: 'text' | 'email' | 'password',
   disabled: boolean,
   status?: status

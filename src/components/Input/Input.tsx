@@ -31,6 +31,12 @@ const Input = forwardRef(
     }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
+    const handleInitialized = (e: any) => {
+      if (ref) {
+        ref = e.component.instance();
+      }
+    };
+
     return (
       <>
         <InputContainer size={size} status={disabled ? "disabled" : status}>
@@ -42,6 +48,7 @@ const Input = forwardRef(
             onKeyUp={(e: any) => onChange(e.event.target.value)}
             disabled={disabled}
             mode={type}
+            onInitialized={handleInitialized}
             {...props}
           >
             {icon && <InputIcon className={`dx-icon-${icon}`} />}
