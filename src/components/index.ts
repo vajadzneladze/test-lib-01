@@ -7,4 +7,5 @@ export { default as Notify } from './ToastNotification';
 export { default as Toggle } from './Toggle';
 export { default as Icon } from './Icon';
 export { default as Input } from './Input';
+export { default as Tree } from './Tree';
 

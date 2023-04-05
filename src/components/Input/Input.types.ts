@@ -1,6 +1,6 @@
 
 export interface InputProps {
-  label?: string;
+  label: string;
   value?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: string;
