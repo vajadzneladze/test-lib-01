@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import HelveticaNeue from '../../assets/HelveticaNeueLTGEO65Medium.ttf';
+import HelveticaNeue from "../../assets/HelveticaNeueLTGEO65Medium.ttf";
 declare module "styled-components" {
   export interface DefaultTheme {
     typography: any;
@@ -209,25 +209,20 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
 
+body {
+      font-family:${({ theme }) => theme.typography.fontFamily}
+        background-color: ${({ theme }) => theme.color.steel.grey_00};
+        background:green;
+    }
+
+
     @font-face( 
-        font-family: 'Helvetica Neue';
-        src: url(${HelveticaNeue}) format('truetype');
-        font-weight: 500;
-        font-style: normal;
+      font-family: ${({ theme }) => theme.typography.fontFamily};
+      src: url('../../assets/fonts/HelveticaNeueLTGEO65Medium.ttf') format('ttf');
     )
 
     
-    body {
-        background-color: ${(props) => props.theme.color.steel.grey_00};
-
-        /* --toastify-color-light: #fff;
-        --toastify-color-dark: #121212;
-        --toastify-color-info: red;
-        --toastify-color-success: #07bc0c;
-        --toastify-color-warning: #f1c40f;
-        --toastify-color-error: #e74c3c;
-
-        */
+    div {
+      background-color: red;
     }
-
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
+import sun from "../../assets/icons/sun.svg";
+import moon from "../../assets/icons/moon.svg";
 import { StyledToggleProps } from "./Toggle.types";
 
 export const StyledToggle = styled.div<StyledToggleProps>`

@@ -20,7 +20,8 @@ Primary.args = {
   data: [
     {
       id:1,
-      title:'Fruits'
+      title:'Fruits',
+      icon:'user'
     },
     {
       id:2,

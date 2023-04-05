@@ -115,9 +115,9 @@ const Tree = ({
       // activeStateEnabled = { true }
       // disabled = {true}
       // focusStateEnabled = {false}
-      hint='This is the hint for this tree'
+      // hint='This is the hint for this tree'
       // hoverStateEnabled = { true }
-      tabIndex={1}
+      // tabIndex={1}
       visible={true} // დამალვა გამოჩენა მთლიანი ხის
       {...props}
     />
