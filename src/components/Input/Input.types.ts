@@ -8,7 +8,8 @@ export interface InputProps {
   size?: size,
   type?: 'text' | 'email' | 'password',
   disabled: boolean,
-  status?: status
+  status?: status,
+  style?: object
 }
 
 export interface StyledInputProps {

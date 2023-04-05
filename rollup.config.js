@@ -3,8 +3,9 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
-import svg from 'rollup-plugin-svg';
-import del from 'rollup-plugin-delete';
+import svg from "rollup-plugin-svg";
+import del from "rollup-plugin-delete";
+import url from 'rollup-plugin-url';
 
 const packageJson = require("./package.json");
 
@@ -31,12 +32,17 @@ export default [
       },
     ],
     plugins: [
-      del({ targets: 'dist/*' }),
+      del({ targets: "dist/*" }),
       resolve(),
       commonjs(),
       svg(),
       typescript({
-        tsconfig: "./tsconfig.json"
+        tsconfig: "./tsconfig.json",
+      }),
+      url({
+        limit: 10 * 1024, // inline files smaller than 10KB
+        include: ['**/*.ttf'], // load only .ttf files
+        emitFiles: true // copy files to output directory
       }),
       postcss(),
     ],

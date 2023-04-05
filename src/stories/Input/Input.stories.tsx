@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (props) => (
-  <ThemeProvider variant="dark">
+  <ThemeProvider variant="light">
     <Input
       {...props}
       onChange={(val) => {
