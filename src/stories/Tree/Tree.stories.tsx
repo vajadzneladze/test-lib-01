@@ -19,30 +19,23 @@ export const Primary = Template.bind({});
 Primary.args = {
   data: [
     {
-      id: 1,
-      parentId: 0,
-      name: "Parent Node",
-      icon: "folder",
+      id:1,
+      title:'Fruits'
     },
     {
-      id: 2,
-      parentId: 1,
-      name: "Child Node 1",
-      icon: "file",
+      id:2,
+      title:'Vegetables'
     },
     {
-      id: 7,
-      parentId: 2,
-      name: "Child Node 1",
-      icon: "file",
+      id:3,
+      parentId:1,
+      title:'Apple'
     },
     {
-      id: 3,
-      parentId: 1,
-      name: "Child Node 2",
-      icon: "file",
-    },
+      id:4,
+      parentId:1,
+      title:'Orange'
+    }
   ],
-  labelKey:'name',
-  dataStructure: 'tree'
+  labelKey:'title',
 };

@@ -91,7 +91,7 @@ const Tree = ({
   return (
     <StyledTree
       dataSource={data}
-      itemRender={(item) => <TreeItem showIcon = { showCheckBoxesMode === 'none' } {...item} />}
+      itemRender={(item) => <TreeItem showIcon = { showCheckBoxesMode === 'none' } name = { item[labelKey] } {...item} />}
       dataStructure={ dataStructure }
       animationEnabled={false}
       keyExpr={mainKey}
@@ -99,7 +99,7 @@ const Tree = ({
       selectionMode={selectionMode}
       showCheckBoxesMode={showCheckBoxesMode}
       selectNodesRecursive={selectAllChild}
-      displayExpr={labelKey}
+      displayExpr = {'title'}
       selectByClick={true}
       onContentReady={syncTreeViewSelection}
       onItemSelectionChanged={treeViewItemSelectionChanged}
