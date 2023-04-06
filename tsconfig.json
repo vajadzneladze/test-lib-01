@@ -20,6 +20,6 @@
   "include": [
     "src/**/*",
     "assets/**/*.svg",
-    "assets.d.ts"
+    "src/assets_files.d.d.ts"
   ]
 }

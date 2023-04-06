@@ -209,20 +209,14 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
 
-body {
-      font-family:${({ theme }) => theme.typography.fontFamily}
-        background-color: ${({ theme }) => theme.color.steel.grey_00};
-        background:green;
-    }
-
-
-    @font-face( 
+    @font-face {
       font-family: ${({ theme }) => theme.typography.fontFamily};
       src: url('../../assets/fonts/HelveticaNeueLTGEO65Medium.ttf') format('ttf');
-    )
-
-    
-    div {
-      background-color: red;
     }
+
+    body {
+      font-family:${({ theme }) => theme.typography.fontFamily};
+        background-color: ${({ theme }) => theme.color.steel.grey_00};
+    }
+
 `;
