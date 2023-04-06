@@ -6,6 +6,7 @@ import dts from "rollup-plugin-dts";
 import svg from "rollup-plugin-svg";
 import del from "rollup-plugin-delete";
 import url from 'rollup-plugin-url';
+import copy from 'rollup-plugin-copy';
 
 const packageJson = require("./package.json");
 
@@ -45,6 +46,11 @@ export default [
         emitFiles: true // copy files to output directory
       }),
       postcss(),
+      copy({
+        targets: [
+          { src: 'src/assets', dest: 'dist/assets' },
+        ],
+      })
     ],
   },
   {
