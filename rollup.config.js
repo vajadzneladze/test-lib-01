@@ -41,7 +41,7 @@ export default [
       }),
       url({
         limit: 10 * 1024, // inline files smaller than 10KB
-        include: ['**/*.ttf'], // load only .ttf files
+        include: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot'], // load only .ttf files
         emitFiles: true // copy files to output directory
       }),
       postcss(),

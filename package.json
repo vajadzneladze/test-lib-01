@@ -1,6 +1,6 @@
 {
   "name": "test-react-lib-01",
-  "version": "3.0.9",
+  "version": "3.1.0",
   "description": "React Design System",
   "scripts": {
     "rollup": "rollup -c",
@@ -46,7 +46,7 @@
     "sass": "^1.43.5",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
-    "test-react-lib-01": "^1.4.3",
+    "test-react-lib-01": "^3.0.9",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {

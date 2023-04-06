@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Text>;
 
 
-const Template: ComponentStory<typeof Text> = (props) => <ThemeProvider variant='light' > <Icon name = 'he' /><Text {...props}></Text></ThemeProvider>
+const Template: ComponentStory<typeof Text> = (props) => <ThemeProvider variant='light' > <Text {...props}></Text></ThemeProvider>
 
 export const Primary = Template.bind({});
 
