@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Button as DxButton } from "devextreme-react/button";
 import { StyledButtonProps } from "./Button.types";
 
 export const getBackgroundColor = (
@@ -79,7 +78,7 @@ export const getBorderRadius = (
   return radius ? theme.size.radius[radius] : theme.size.radius["medium"];
 };
 
-export const StyledButton = styled(DxButton)<StyledButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${({ variant, theme }) =>
     getBackgroundColor(variant, theme)};
   color: ${({ variant, theme }) => getTextColor(variant, theme)};
@@ -92,12 +91,13 @@ export const StyledButton = styled(DxButton)<StyledButtonProps>`
       : theme.typography.fontSize.fs_12};
   border-radius: ${({ radius, theme }) => getBorderRadius(radius, theme)};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  .dx-icon {
-    color: inherit;
-    font-size: inherit;
-  }
+  white-space: nowrap;
+  overflow: hidden;
 
-  ${({ style }) => style}
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
 
   &:hover {
     background-color: ${({ variant, theme }) =>

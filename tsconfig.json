@@ -17,5 +17,5 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "include": ["src/**/*", "assets/**/*.svg", "src/assets_files.d.d.ts"]
+  "include": ["src/**/*", "assets/**/*.svg", "src/assets_files.d.ts"]
 }

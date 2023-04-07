@@ -1,38 +1,38 @@
 import React from "react";
 import { StyledIcon } from "./StyledIcon";
 import { IconProps } from "./Icon.types";
+import styled from "styled-components";
+import SomeIcon from "./SomeIcon";
 // import sun from '../../assets/sun.svg';
 
-const Icon = ({ name, ...props }: IconProps) => {
-  // const IconComponent = require(`../../assets/${name || 'moon'}.svg`).default ;
+const IconContainer = styled.div`
+  svg {
+    width: 16px;
+    height: 16px;
+
+    path {
+      fill: red;
+    }
+  }
+`;
+
+const Icon = ({ name = "SomeIcon", fontSize, ...props }: IconProps) => {
+  let IconComponent = null;
+
+  try {
+    IconComponent = require(`../Icon/${name}`).default;
+  } catch (error) {
+    // console.error(`Error loading icon "${name}":`, error);
+  }
+
+  if (!IconComponent) {
+    return null;
+  }
 
   return (
-    <>
-      <svg
-        width="14"
-        height="13"
-        viewBox="0 0 14 13"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M14 5.96522C14 9.85061 10.6076 13 6.4228 13C5.13828 13.0004 3.87475 12.6974 2.75114 12.1195C1.62753 11.5415 0.680783 10.7076 0 9.69627C1.20413 10.3974 2.59719 10.7683 4.01855 10.7662C8.20333 10.7662 11.5957 7.61645 11.5957 3.73105C11.598 2.41139 11.1985 1.11801 10.4434 0C11.5326 0.632508 12.4306 1.51192 13.0527 2.55549C13.6749 3.59905 14.0009 4.77243 14 5.96522Z"
-          fill="#283593"
-        />
-        <path
-          d="M4.5 2L4.79205 2.71167C4.94764 3.09115 5.18164 3.40314 5.46625 3.6106L6 4L5.46625 4.3894C5.18164 4.59686 4.94764 4.90885 4.79205 5.28833L4.5 6L4.20824 5.28833C4.05264 4.90885 3.81865 4.59686 3.53404 4.3894L3 4L3.53404 3.6106C3.81865 3.40314 4.05264 3.09115 4.20824 2.71167L4.5 2Z"
-          fill="#283593"
-        />
-        <path
-          d="M7 6L7.19445 6.35594C7.29827 6.5457 7.4543 6.70173 7.64406 6.80555L8 7L7.64406 7.19483C7.45422 7.29854 7.29817 7.4546 7.19445 7.64443L7 8L6.80517 7.64443C6.70146 7.4546 6.5454 7.29854 6.35556 7.19483L6 7L6.35556 6.80555C6.54533 6.70173 6.70136 6.5457 6.80517 6.35594L7 6Z"
-          fill="#283593"
-        />
-        <path
-          d="M2.4998 6L2.59729 6.17827C2.64931 6.273 2.72728 6.35094 2.82205 6.40294L3 6.5L2.82205 6.59745C2.7272 6.64934 2.6492 6.72731 2.59729 6.82212L2.4998 7L2.4027 6.82212C2.35079 6.72731 2.2728 6.64934 2.17795 6.59745L2 6.5L2.17795 6.40294C2.27272 6.35094 2.35069 6.273 2.4027 6.17827L2.4998 6Z"
-          fill="#283593"
-        />
-      </svg>
-    </>
+    <IconContainer {...props}>
+      <IconComponent />
+    </IconContainer>
   );
 };
 

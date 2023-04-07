@@ -71,6 +71,12 @@ const size = {
     large: "6px",
     circle: "1000px",
   },
+  icon: {
+    xs:'16px',
+    sm:'18px',
+    md:'20px',
+    lg:'24px'
+  }
 };
 
 export const lightTheme = {
