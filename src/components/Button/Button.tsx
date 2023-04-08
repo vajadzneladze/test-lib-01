@@ -10,7 +10,7 @@ const defaultProps: ButtonProps = {
   size: "medium",
   radius: "medium",
   iconPosition: "left",
-  icon: "avatar",
+  icon: "SomeIcon",
   isLoading: false,
 };
 

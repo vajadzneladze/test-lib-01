@@ -1,3 +1,13 @@
 import styled from "styled-components";
 
-export const StyledIcon = styled.i``;
+
+export const IconContainer = styled.div`
+  svg {
+    width: 16px;
+    height: 16px;
+
+    path {
+      fill: red;
+    }
+  }
+`;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button, Notify, ThemeProvider } from '../../components';
+import { Button, Icon, Notify, ThemeProvider } from '../../components';
 import { toast } from 'react-toastify';
 
 export default {
@@ -9,7 +9,9 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 
-const Template: ComponentStory<typeof Button> = (props) => <ThemeProvider variant='light' ><Button {...props}/></ThemeProvider>
+const Template: ComponentStory<typeof Button> = (props) => <ThemeProvider variant='light' >
+    <Icon />
+    <Button {...props}/></ThemeProvider>
 
 export const Primary = Template.bind({});
 export const Outlined = Template.bind({});

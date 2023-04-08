@@ -7,6 +7,7 @@ import svg from "rollup-plugin-svg";
 import del from "rollup-plugin-delete";
 import url from 'rollup-plugin-url';
 import copy from 'rollup-plugin-copy';
+import path from 'path';
 
 const packageJson = require("./package.json");
 
@@ -34,11 +35,26 @@ export default [
     ],
     plugins: [
       del({ targets: "dist/*" }),
-      resolve(),
+      
+      resolve({
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        alias: {
+          '@': path.resolve(__dirname, 'src'),
+        },
+      }),
+      copy({
+        targets: [
+          { src: 'src/assets', dest: 'dist' },
+        ],
+      }),
       commonjs(),
-      svg(),
+      svg({
+        transform(svg, id) {
+          console.log('Processing SVG:', id);
+        },
+      }),
       typescript({
-        tsconfig: "./tsconfig.json",
+        tsconfig: './tsconfig.json',
       }),
       url({
         limit: 10 * 1024, // inline files smaller than 10KB
@@ -46,11 +62,6 @@ export default [
         emitFiles: true // copy files to output directory
       }),
       postcss(),
-      copy({
-        targets: [
-          { src: 'src/assets', dest: 'dist' },
-        ],
-      })
     ],
   },
   {
