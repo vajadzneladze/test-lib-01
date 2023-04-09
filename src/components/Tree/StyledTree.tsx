@@ -6,6 +6,14 @@ export const StyledTree = styled(TreeView)`
     background:white;
     max-height:200px; */
 
+    .dx-scrollable-container {
+      /* border:1px solid gray; */
+    }
+    .dx-treeview-node {
+      /* padding-left:; */
+    }
+
+    
   .dx-treeview-item {
     /* font-size: 16px;
     color: #333;

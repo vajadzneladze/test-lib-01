@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledInputProps, status } from "./Input.types";
+import { StyledSelectBoxProps, status } from "./SelectBox.types";
 
-export const InputContainer = styled.div<StyledInputProps>`
+export const SelectBoxContainer = styled.div<StyledSelectBoxProps>`
   position: relative;
   width: 100%;
   height: ${({ size }) => (size === "sm" ? "48px" : "56px")};
@@ -22,26 +22,33 @@ export const InputContainer = styled.div<StyledInputProps>`
 
   border-radius: ${({ theme }) => theme.size.radius.medium};
   background-color: ${({ theme }) => theme.color.surface.surface_1};
+
   overflow: hidden;
 
   &:focus-within {
     border-color: #283593;
   }
 
+  .dx-texteditor-input-container {
+    align-items: center !important;
+  }
+  .dx-list-item-content {
+    padding: 0px !important;
+  }
+
   .dx-textbox {
     margin: 0px !important;
     height: 100% !important;
-    background: red !important;
-    position:relative;
+    position: relative;
 
     svg {
       position: absolute;
       top: 50%;
       right: 10px;
       transform: translateY(-50%);
-      width : 20px;
+      width: 20px;
       height: 20px;
-      z-index:2;
+      z-index: 2;
       path {
         fill: ${({ theme }) => theme.color.text.seconday};
       }
@@ -50,15 +57,19 @@ export const InputContainer = styled.div<StyledInputProps>`
 
   .dx-texteditor-container {
     background-color: ${({ theme }) => theme.color.surface.surface_1};
+    background: #f9fafa !important;
+    overflow:initial !important;
+    clear: both;
+    position: relative;
+
 
     .dx-texteditor-input {
-      padding-left: 16px;
       font-size: ${({ theme }) => theme.typography.fontSize.fs_16};
       line-height: ${({ theme }) => theme.typography.lineHeight.md};
       color: ${({ theme }) => theme.color.text.primary};
 
-      margin-top: 10px;
-      padding-right: 38px;
+      padding-top: 22px;
+      padding-left:16px;
     }
   }
 
@@ -88,8 +99,6 @@ export const InputContainer = styled.div<StyledInputProps>`
         transform: translateY(-50%) !important;
       }
     }
-
-   
   }
 
   .dx-label {
@@ -135,18 +144,11 @@ export const InputContainer = styled.div<StyledInputProps>`
       }
     }
   }
-`;
 
-export const InputIcon = styled.i`
-  /* position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-
-  &::before {
-    font-size: 20px;
-    color: ${({ theme }) => theme.color.text.seconday};
-  } */
+  
+  .dx-popup-normal {
+    /* margin-top: 5px !important; */
+  }
 `;
 
 export const InputDescrpition = styled.div<{ status: status | "disabled" }>`

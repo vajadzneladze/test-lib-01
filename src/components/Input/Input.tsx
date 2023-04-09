@@ -3,6 +3,7 @@ import { TextBox, TreeView } from "devextreme-react";
 import { InputProps } from "./Input.types";
 import { InputContainer, InputDescrpition, InputIcon } from "./StyledInput";
 import Text from "../Text/Text";
+import Icon from "../Icon";
 
 const defaultProps: InputProps = {
   label: "",
@@ -41,7 +42,7 @@ const Input = forwardRef(
     };
 
     return (
-      <>
+      <div>
         <InputContainer
           size={size}
           status={disabled ? "disabled" : status}
@@ -57,8 +58,8 @@ const Input = forwardRef(
             mode={type}
             onInitialized={handleInitialized}
             {...props}
-          >
-            {icon && <InputIcon className={`dx-icon-${icon}`} />}
+          > 
+            {icon &&    <Icon name = {icon}/> }
           </TextBox>
         </InputContainer>
 
@@ -69,7 +70,7 @@ const Input = forwardRef(
             </Text>
           </InputDescrpition>
         )}
-      </>
+      </div>
     );
   }
 );

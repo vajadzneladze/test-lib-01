@@ -1,37 +1,40 @@
-import TreeView from 'devextreme-react/tree-view';
-import React from 'react';
-import TreeItem from './TreeItem';
-import styled from 'styled-components';
-import { TreeProps } from './Tree.types';
+import TreeView from "devextreme-react/tree-view";
+import React from "react";
+import TreeItem from "./TreeItem";
+import styled from "styled-components";
+import { TreeProps } from "./Tree.types";
+import { StyledTree } from "./StyledTree";
 
-const StyledTree = styled(TreeView)`
-  /* 
-    background:white;
-    max-height:200px; */
+// const StyledTree = styled(TreeView)`
+//   /*
+//     background:white;
+//     max-height:200px; */
 
-  .dx-treeview-item {
-    /* font-size: 16px;
-    color: #333;
-    padding: 10px;
-    border-bottom: 1px solid #ccc; */
-  }
+//   .dx-treeview-item {
+//     /* font-size: 16px;
+//     color: #333;
+//     padding: 10px;
+//     border-bottom: 1px solid #ccc; */
+//   }
 
-  .dx-treeview-item-selected {
-    /* background-color: #f5f5f5; */
-  }
-`;
-
-
+//   .dx-treeview-item-selected {
+//     /* background-color: #f5f5f5; */
+//   }
+// `;
 
 const defaultProps: TreeProps = {
   data: [],
-  mainKey: 'id',
-  parentKey: 'parentId',
-  labelKey: 'text',
-  selectionMode: 'single',
-  showCheckBoxesMode: 'none',
+  mainKey: "id",
+  parentKey: "parentId",
+  labelKey: "text",
+  selectionMode: "single",
+  showCheckBoxesMode: "none",
   selectAllChild: false,
-  dataStructure: 'tree',
+  dataStructure: "tree",
+  searchMode: "contains",
+  searchEnabled: false,
+  searchKey: "",
+  searchValue: "",
 };
 
 const Tree = ({
@@ -43,6 +46,10 @@ const Tree = ({
   showCheckBoxesMode,
   selectAllChild,
   dataStructure,
+  searchEnabled,
+  searchMode,
+  searchKey,
+  searchValue,
   ...props
 }: TreeProps) => {
   const treeViewItemSelectionChanged = (e: any) => {
@@ -91,16 +98,26 @@ const Tree = ({
   return (
     <StyledTree
       dataSource={data}
-      itemRender={(item: any) => <TreeItem showIcon = { showCheckBoxesMode === 'none' } icon = {item['icon']} name = { item[labelKey] } {...item} />}
-      dataStructure={ dataStructure }
+      itemRender={(item: any) => (
+        <TreeItem
+          showIcon={showCheckBoxesMode === "none"}
+          icon={item["icon"]}
+          name={item[labelKey]}
+          {...item}
+        />
+      )}
+      dataStructure={dataStructure}
       animationEnabled={false}
       keyExpr={mainKey}
       parentIdExpr={parentKey}
       selectionMode={selectionMode}
       showCheckBoxesMode={showCheckBoxesMode}
       selectNodesRecursive={selectAllChild}
-      displayExpr = {'title'}
+      displayExpr={"title"}
       selectByClick={true}
+      searchEnabled={searchEnabled}
+      searchMode={searchMode}
+      searchExpr={searchKey}
       onContentReady={syncTreeViewSelection}
       onItemSelectionChanged={treeViewItemSelectionChanged}
       //   onItemClick = { e => { console.log(e) } } // არჩევისდროს დაკლიკვის ივენთი
@@ -110,7 +127,7 @@ const Tree = ({
       // onOptionChanged = { e => { console.log('datis cvlilebis', e.name) } } // რა ივენთი მოხდა , hover , focus...
       // rtlEnabled = { true } // მარჯვნიდან მარცხნივ მიმართულებით რენდერი
       // height = '200px' // ხის სიმაღლე
-      width='100%' // ხის სიგანე
+      width="100%" // ხის სიგანე
       // accessKey = 'what'
       // activeStateEnabled = { true }
       // disabled = {true}

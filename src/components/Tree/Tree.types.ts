@@ -7,6 +7,10 @@ export interface TreeProps {
   selectAllChild?: boolean;
   labelKey: string;
   dataStructure?: "tree" | "plain";
+  searchMode?: 'contains' | 'equals' | 'startswith',
+  searchEnabled? : boolean,
+  searchKey?: string,
+  searchValue?: string | string[]
 }
 
 export interface TreeItemProps {

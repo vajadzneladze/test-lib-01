@@ -1,3 +1,4 @@
+import SelectBox from './SelectBox/SelectBox';
 export { default as ThemeProvider } from "./Theme";
 export { default as Modal } from "./Modal";
 export { default as Button } from "./Button";
@@ -8,3 +9,4 @@ export { default as Toggle } from './Toggle';
 export { default as Icon } from './Icon';
 export { default as Input } from './Input';
 export { default as Tree } from './Tree';
+export { default as SelectBox } from './SelectBox';

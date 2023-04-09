@@ -7,7 +7,7 @@ export interface InputProps {
   description?: string;
   size?: size,
   type?: 'text' | 'email' | 'password',
-  disabled: boolean,
+  disabled?: boolean,
   status?: status,
   style?: object
 }

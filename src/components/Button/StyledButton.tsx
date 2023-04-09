@@ -79,6 +79,7 @@ export const getBorderRadius = (
 };
 
 export const StyledButton = styled.button<StyledButtonProps>`
+  cursor:pointer;
   background-color: ${({ variant, theme }) =>
     getBackgroundColor(variant, theme)};
   color: ${({ variant, theme }) => getTextColor(variant, theme)};
