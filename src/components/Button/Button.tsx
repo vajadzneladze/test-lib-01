@@ -10,7 +10,6 @@ const defaultProps: ButtonProps = {
   size: "medium",
   radius: "medium",
   iconPosition: "left",
-  icon: "SomeIcon",
   isLoading: false,
 };
 
@@ -35,12 +34,12 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {(icon && iconPosition === "left" && (
-        <Icon name = { icon }  style={{ marginRight: "9px" }} />
+        <Icon name={icon} style={{ marginRight: "9px" }} />
       )) ||
         ""}
       {text || ""}
       {(icon && iconPosition === "right" && (
-        <Icon name = { icon }  style={{ marginLeft: "9px" }} />
+        <Icon name={icon} style={{ marginLeft: "9px" }} />
       )) ||
         ""}
     </StyledButton>

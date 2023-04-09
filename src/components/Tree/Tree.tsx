@@ -91,7 +91,7 @@ const Tree = ({
   return (
     <StyledTree
       dataSource={data}
-      itemRender={(item: any) => <TreeItem showIcon = { showCheckBoxesMode === 'none' } name = { item[labelKey] } {...item} />}
+      itemRender={(item: any) => <TreeItem showIcon = { showCheckBoxesMode === 'none' } icon = {item['icon']} name = { item[labelKey] } {...item} />}
       dataStructure={ dataStructure }
       animationEnabled={false}
       keyExpr={mainKey}

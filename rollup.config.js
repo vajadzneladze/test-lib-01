@@ -10,6 +10,7 @@ import copy from "rollup-plugin-copy";
 import path from "path";
 import rebase from "rollup-plugin-rebase";
 
+
 const packageJson = require("./package.json");
 
 export default [
@@ -36,12 +37,10 @@ export default [
     ],
     plugins: [
       del({ targets: "dist/*" }),
-
       rebase({
         assets: "src/assets",
         output: "dist/assets",
       }),
-
       resolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"],
         alias: {

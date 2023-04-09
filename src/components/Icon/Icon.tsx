@@ -1,24 +1,34 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { IconProps } from "./Icon.types";
 import { IconContainer } from "./StyledIcon";
-import SomeIcon from "./SomeIcon";
+import * as Icons from "../Icons";
 
-const Icon = ({ name = "", color, fontSize, ...props }: IconProps) => {
-  let IconComponent = null;
+type IconComponents = Record<string, React.ComponentType<IconProps>>;
 
-  try {
-    IconComponent = require(`../Icons/${name}`).default;
-  } catch (error) {
-    console.error(`Error loading icon "${name}":`, error);
-  }
+const iconComponents: IconComponents = Icons;
+
+const Icon = ({ name, color, size, ...props }: IconProps) => {
+  // let IconComponent = null;
+
+  // try {
+  //   // IconComponent = require(`../Icons/${name}`).default;
+  //   IconComponent = lazy(() => import(`../Icons/${name}`));
+
+  // } catch (error) {
+  //   console.error(error);
+  // }
+
+  const IconComponent = iconComponents[name];
 
   if (!IconComponent) {
     return null;
   }
 
   return (
-    <IconContainer {...props}>
-      <IconComponent />
+    <IconContainer size={size} color={color} {...props}>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <IconComponent name = {name}/>
+      {/* </Suspense> */}
     </IconContainer>
   );
 };

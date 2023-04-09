@@ -21,16 +21,19 @@ Primary.args = {
     {
       id:1,
       title:'Fruits',
-      icon:'user'
+      icon:'Lamp'
     },
     {
       id:2,
-      title:'Vegetables'
+      title:'3Dcube',
+      icon:'UserSearch'
     },
     {
       id:3,
       parentId:1,
-      title:'Apple'
+      title:'Apple',
+      icon:'3Dcube'
+
     },
     {
       id:4,

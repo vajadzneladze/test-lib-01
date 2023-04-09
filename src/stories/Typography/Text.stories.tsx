@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Icon, Text, ThemeProvider } from "../../components";
+import { Text, ThemeProvider } from "../../components";
 
 export default {
   title: "UI-COMPONENTS/Typography",
@@ -9,7 +9,6 @@ export default {
 
 const Template: ComponentStory<typeof Text> = (props) => (
   <ThemeProvider variant="light">
-    <Icon />
     <Text {...props}></Text>
   </ThemeProvider>
 );

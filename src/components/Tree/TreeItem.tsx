@@ -14,7 +14,7 @@ const TreeItem = ({ name, icon, showIcon }: TreeItemProps) => {
       {showIcon && icon !== "" && (
         // <i className={`dx-icon-${icon}`} style={{ paddingRight: "10px" }}></i>
 
-        <Icon />
+        <Icon name = { icon } size = "xs" style = {{ float:'left',paddingRight:'10px', paddingTop:'4px' }}/>
       )}
       <Text variant="p4" style={{ display: "inline" }}>
         {name}
