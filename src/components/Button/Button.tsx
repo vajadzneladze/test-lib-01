@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {(icon && iconPosition === "left" && (
-        <Icon name = { icon } style={{ marginRight: "9px" }} />
+        <Icon name = { icon }  style={{ marginRight: "9px" }} />
       )) ||
         ""}
       {text || ""}

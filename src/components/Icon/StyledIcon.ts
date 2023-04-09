@@ -7,7 +7,7 @@ export const IconContainer = styled.div`
     height: 16px;
 
     path {
-      fill: red;
+      fill: ${ ({ color , theme }) => color  || theme.color.steel.gery_13 };
     }
   }
 `;

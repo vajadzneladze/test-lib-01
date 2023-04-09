@@ -6,7 +6,8 @@
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-icons": "npx @svgr/cli --icon  --typescript --out-dir src/components/Icons src/assets/icons"
   },
   "author": "Vazha Dzneladze",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.9",
+    "@svgr/cli": "^7.0.0",
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^28.1.6",
     "@types/react": "^18.0.15",

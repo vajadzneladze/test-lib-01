@@ -98,6 +98,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   justify-content: center;
 
+  svg {
+    path {
+      fill: ${({ variant, theme }) => getTextColor(variant, theme)};
+    }
+  }
 
   &:hover {
     background-color: ${({ variant, theme }) =>

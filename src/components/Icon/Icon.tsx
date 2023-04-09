@@ -3,22 +3,22 @@ import { IconProps } from "./Icon.types";
 import { IconContainer } from "./StyledIcon";
 import SomeIcon from "./SomeIcon";
 
-const Icon = ({ name = "SomeIcon", color, fontSize, ...props }: IconProps) => {
-  // let IconComponent = null;
+const Icon = ({ name = "", color, fontSize, ...props }: IconProps) => {
+  let IconComponent = null;
 
-  // try {
-  //   IconComponent = require(`@/components/Icon/${name}`).default;
-  // } catch (error) {
-  //   console.error(`Error loading icon "${name}":`, error);
-  // }
+  try {
+    IconComponent = require(`../Icons/${name}`).default;
+  } catch (error) {
+    console.error(`Error loading icon "${name}":`, error);
+  }
 
-  // if (!IconComponent) {
-  //   return null;
-  // }
+  if (!IconComponent) {
+    return null;
+  }
 
   return (
     <IconContainer {...props}>
-      <SomeIcon />
+      <IconComponent />
     </IconContainer>
   );
 };
