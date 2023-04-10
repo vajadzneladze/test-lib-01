@@ -61,8 +61,10 @@ export default [
       }),
       url({
         limit: 10 * 1024, // inline files smaller than 10KB
-        include: ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.eot"], // load only .ttf files
+        include: ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.eot"], // load font files
         emitFiles: true, // copy files to output directory
+        publicPath: "/assets/fonts/", // set public path for font files
+        fileName: "HelveticaNeueLTGEO65Medium.ttf", // set file name for font files
       }),
       postcss(),
     ],

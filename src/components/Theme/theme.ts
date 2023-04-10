@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import HelveticaNeue from "../../assets/HelveticaNeueLTGEO65Medium.ttf";
+
 declare module "styled-components" {
   export interface DefaultTheme {
     typography: any;
@@ -217,8 +217,7 @@ export const GlobalStyles = createGlobalStyle`
 
     @font-face {
       font-family: ${({ theme }) => theme.typography.fontFamily};
-      src: url('../../assets/fonts/HelveticaNeueLTGEO65Medium.ttf') format('ttf');
-    }
+      src: url('/assets/fonts/HelveticaNeueLTGEOCaps-45Light.ttf') format('truetype');    }
 
     body {
       font-family:${({ theme }) => theme.typography.fontFamily};
@@ -250,11 +249,11 @@ export const GlobalStyles = createGlobalStyle`
           background-color:#F9FAFA !important;
 
           &.dx-state-active {
-            color: ${ ({ theme }) => theme.color.text.primary} !important;
+            color: ${({ theme }) => theme.color.text.primary} !important;
           }
 
           &.dx-state-focused {
-            color: ${ ({ theme }) => theme.color.text.primary} !important;
+            color: ${({ theme }) => theme.color.text.primary} !important;
           }
         }
         .dx-popup-content {
