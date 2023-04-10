@@ -1,6 +1,6 @@
 {
   "name": "test-react-lib-01",
-  "version": "3.3.9",
+  "version": "3.4.2",
   "description": "React Design System",
   "scripts": {
     "rollup": "rollup -c",
@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d storybook-static",
     "build-icons": "npx @svgr/cli --icon  --typescript --out-dir src/components/Icons src/assets/icons"
   },
-  "homepage": "https://vajadzneladze.github.io/test-lib-01/",
+  "homepage": "http://vajadzneladze.github.io/test-lib-01",
   "author": "Vazha Dzneladze",
   "license": "ISC",
   "devDependencies": {

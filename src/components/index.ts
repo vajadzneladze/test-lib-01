@@ -10,3 +10,4 @@ export { default as Icon } from './Icon';
 export { default as Input } from './Input';
 export { default as Tree } from './Tree';
 export { default as SelectBox } from './SelectBox';
+export { default as Grid } from './Grid';

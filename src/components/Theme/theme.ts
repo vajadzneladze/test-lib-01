@@ -214,21 +214,14 @@ export const darkTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`
-
-    @font-face {
-      font-family: ${({ theme }) => theme.typography.fontFamily};
-      src: url('/assets/fonts/HelveticaNeueLTGEO65Medium.ttf');    
-    }
-
     body {
-      font-family:${({ theme }) => theme.typography.fontFamily};
-        background-color: ${({ theme }) => theme.color.steel.grey_00};
+      background-color: ${({ theme }) => theme.color.steel.grey_00};
     }
-
 
     .dx-overlay-wrapper {
       transform: translate(17px, 19px) !important;
     }
+    
     .dx-dropdowneditor-overlay  {
       top: 11px !important;
     }
