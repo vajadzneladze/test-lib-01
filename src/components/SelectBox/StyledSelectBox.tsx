@@ -25,6 +25,10 @@ export const SelectBoxContainer = styled.div<StyledSelectBoxProps>`
 
   overflow: hidden;
 
+  .dx-dropdowneditor-dropdown {
+    margin-top:10px;
+  }
+
   &:focus-within {
     border-color: #283593;
   }

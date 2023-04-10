@@ -217,7 +217,8 @@ export const GlobalStyles = createGlobalStyle`
 
     @font-face {
       font-family: ${({ theme }) => theme.typography.fontFamily};
-      src: url('/assets/fonts/HelveticaNeueLTGEOCaps-45Light.ttf') format('truetype');    }
+      src: url('/assets/fonts/HelveticaNeueLTGEO65Medium.ttf');    
+    }
 
     body {
       font-family:${({ theme }) => theme.typography.fontFamily};
@@ -229,7 +230,7 @@ export const GlobalStyles = createGlobalStyle`
       transform: translate(17px, 19px) !important;
     }
     .dx-dropdowneditor-overlay  {
-      top:4px !important;
+      top: 11px !important;
     }
     .dx-popup-wrapper >  {
       .dx-overlay-content {
