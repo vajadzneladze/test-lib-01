@@ -2,6 +2,8 @@ import { DataGrid } from "devextreme-react";
 import React, { useState } from "react";
 import { StyledGridContainer } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
+import { Column, Editing, FilterRow, GroupItem, GroupPanel, Paging, Scrolling, Selection, Summary, TotalItem, ValueFormat } from "devextreme-react/data-grid";
+import Text from "../Text/Text";
 
 const defaultProps: GridProps = {
   selectMode: "single",
@@ -9,7 +11,8 @@ const defaultProps: GridProps = {
   primaryField: "id",
   data: [],
   columns: [],
-  onRowClick: (e) => console.log(e.data),
+  withFilter: false,
+  onRowClick: (e) => { },
 };
 
 const Grid = ({
@@ -18,9 +21,11 @@ const Grid = ({
   primaryField,
   data,
   columns,
+  withFilter,
   onRowClick,
+
 }: GridProps) => {
-  
+
 
   const [selectedRows, setSelectedRows] = useState(() => {
     if (selectedItems && selectedItems.length > 0 && data && data.length > 0 && selectMode !== 'none') {
@@ -32,31 +37,91 @@ const Grid = ({
     return [];
   });
 
-  const onSelectionChanged = ({ selectedRowsData }: any) => {
-    console.log(selectedRowsData);
+
+  const handleSelectionChange = ({ selectedRowsData }: any) => {
     setSelectedRows(selectedRowsData);
   };
-  
+
+  const handleFilterChange = (filters: any) => {
+    console.log(filters);
+  };
+
+
+  // const onSelectionChanged = ({ selectedRowsData }: any) => {
+  //   console.log(selectedRowsData);
+  //   setSelectedRows(selectedRowsData);
+  // };
+
 
   return (
     <StyledGridContainer>
       <DataGrid
         dataSource={data}
-        keyExpr="ID"
-        defaultColumns={columns}
+        keyExpr={primaryField}
+        // defaultColumns={columns}
+        columnAutoWidth={false}
         selection={{ mode: selectMode }} // single, multiple , none
-        selectedRowKeys={selectedRows.map((item: any) => item.ID)}
-        onSelectionChanged={onSelectionChanged}
-        columnAutoWidth={true}
-        // showBorders={true}
-        // onRowClick={(e) => onClickHandlr(e) }
-        // focusedRowEnabled={true}
-        // focusedRowKey={selectedRow}
-        // onSelectionChanged={onSelectionChanged}
+        selectedRowKeys={selectedRows.map((item: any) => item[primaryField || 'ID'])}
+        onSelectionChanged={handleSelectionChange}
+        onFilterPanelChange={handleFilterChange}
 
-        // rowAlternationEnabled={true}
-        // hoverStateEnabled={true}
-      />
+      // showBorders={true}
+      // onRowClick={(e) => onClickHandlr(e) }
+      // focusedRowEnabled={true}
+      // focusedRowKey={selectedRow}
+      // onSelectionChanged={onSelectionChanged}
+
+      // rowAlternationEnabled={true}
+      // hoverStateEnabled={true}
+      >
+
+        <FilterRow visible={withFilter} />
+
+        <Paging defaultPageSize={10} />
+
+        {
+          columns && columns.length > 0 && columns.map((item: any, index: any) => {
+
+            return <Column
+              width={item.width || 'auto'}
+              key={index}
+              allowFiltering={item.allowFiltering}
+              allowSorting={item.allowSorting}
+              dataField={item.dataField}
+              caption={item.caption}
+              alignment={item.align || 'left'}
+              cellRender={item.renderColumn}
+            />
+          })
+        }
+
+
+
+        {/* <FilterRow visible={withFilter} /> */}
+
+        {/* <GroupPanel visible={true} /> */}
+        {/* <Scrolling mode="virtual" /> */}
+        {/* <Editing
+                      mode="row"
+                      allowAdding={true}
+                      allowDeleting={true}
+                      allowUpdating={true}
+                    /> */}
+        {/* 
+                      <Summary>
+                          <TotalItem column="ID" summaryType="sum">
+                            <ValueFormat type="decimal" precision={2} />
+                          </TotalItem>
+
+                          <GroupItem column="Freight" summaryType="sum">
+                            <ValueFormat type="decimal" precision={2} />
+                          </GroupItem>
+
+                          <GroupItem summaryType="count" />
+
+                        </Summary> */}
+
+      </DataGrid>
     </StyledGridContainer>
   );
 };

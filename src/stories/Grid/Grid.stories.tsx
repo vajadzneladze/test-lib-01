@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeProvider } from "../../components";
+import { Text, ThemeProvider } from "../../components";
 import Grid from "../../components/Grid/Grid";
 
 export default {
@@ -11,7 +11,7 @@ export default {
 
 const data = [
   {
-    ID: 1,
+    id: 1,
     CompanyName: "Super Mart of the West",
     Address: "702 SW 8th Street",
     City: "Bentonville",
@@ -20,9 +20,10 @@ const data = [
     Phone: "(800) 555-2797",
     Fax: "(800) 555-2171",
     Website: "http://www.nowebsitesupermart.com",
+    status: 'success'
   },
   {
-    ID: 2,
+    id: 2,
     CompanyName: "Electronics Depot",
     Address: "2455 Paces Ferry Road NW",
     City: "Atlanta",
@@ -31,9 +32,11 @@ const data = [
     Phone: "(800) 595-3232",
     Fax: "(800) 595-3231",
     Website: "http://www.nowebsitedepot.com",
+    status: 'success'
+
   },
   {
-    ID: 3,
+    id: 3,
     CompanyName: "K&S Music",
     Address: "1000 Nicllet Mall",
     City: "Minneapolis",
@@ -42,9 +45,10 @@ const data = [
     Phone: "(612) 304-6073",
     Fax: "(612) 304-6074",
     Website: "http://www.nowebsitemusic.com",
+    status: 'warning'
   },
   {
-    ID: 4,
+    id: 4,
     CompanyName: "Tom's Club",
     Address: "999 Lake Drive",
     City: "Issaquah",
@@ -53,9 +57,11 @@ const data = [
     Phone: "(800) 955-2292",
     Fax: "(800) 955-2293",
     Website: "http://www.nowebsitetomsclub.com",
+    status: 'rejected'
+
   },
   {
-    ID: 5,
+    id: 5,
     CompanyName: "E-Mart",
     Address: "3333 Beverly Rd",
     City: "Hoffman Estates",
@@ -64,9 +70,10 @@ const data = [
     Phone: "(847) 286-2500",
     Fax: "(847) 286-2501",
     Website: "http://www.nowebsiteemart.com",
+    status: 'info'
   },
   {
-    ID: 6,
+    id: 6,
     CompanyName: "Walters",
     Address: "200 Wilmot Rd",
     City: "Deerfield",
@@ -75,9 +82,10 @@ const data = [
     Phone: "(847) 940-2500",
     Fax: "(847) 940-2501",
     Website: "http://www.nowebsitewalters.com",
+    status: 'info'
   },
   {
-    ID: 7,
+    id: 7,
     CompanyName: "StereoShack",
     Address: "400 Commerce S",
     City: "Fort Worth",
@@ -86,9 +94,12 @@ const data = [
     Phone: "(817) 820-0741",
     Fax: "(817) 820-0742",
     Website: "http://www.nowebsiteshack.com",
+    status: 'info'
+
+
   },
   {
-    ID: 8,
+    id: 8,
     CompanyName: "Circuit Town",
     Address: "2200 Kensington Court",
     City: "Oak Brook",
@@ -97,9 +108,11 @@ const data = [
     Phone: "(800) 955-2929",
     Fax: "(800) 955-9392",
     Website: "http://www.nowebsitecircuittown.com",
+    status: 'info'
+
   },
   {
-    ID: 9,
+    id: 9,
     CompanyName: "Premier Buy",
     Address: "7601 Penn Avenue South",
     City: "Richfield",
@@ -108,9 +121,11 @@ const data = [
     Phone: "(612) 291-1000",
     Fax: "(612) 291-2001",
     Website: "http://www.nowebsitepremierbuy.com",
+    status: 'info'
+
   },
   {
-    ID: 10,
+    id: 10,
     CompanyName: "ElectrixMax",
     Address: "263 Shuman Blvd",
     City: "Naperville",
@@ -119,9 +134,11 @@ const data = [
     Phone: "(630) 438-7800",
     Fax: "(630) 438-7801",
     Website: "http://www.nowebsiteelectrixmax.com",
+    status: 'info'
+
   },
   {
-    ID: 11,
+    id: 11,
     CompanyName: "Video Emporium",
     Address: "1201 Elm Street",
     City: "Dallas",
@@ -130,9 +147,11 @@ const data = [
     Phone: "(214) 854-3000",
     Fax: "(214) 854-3001",
     Website: "http://www.nowebsitevideoemporium.com",
+    status: 'info'
+
   },
   {
-    ID: 12,
+    id: 12,
     CompanyName: "Screen Shop",
     Address: "1000 Lowes Blvd",
     City: "Mooresville",
@@ -141,10 +160,76 @@ const data = [
     Phone: "(800) 445-6937",
     Fax: "(800) 445-6938",
     Website: "http://www.nowebsitescreenshop.com",
+    status: 'info'
+
   },
 ];
 
-const columns = ["ID","CompanyName", "City", "State", "Phone", "Fax"];
+// const columns = ["id","CompanyName", "City", "State", "Phone", "Fax"];
+
+const columns = [
+  {
+    dataField: "id",
+    caption: "ID",
+    align: "center",
+    dataType: "number",
+    width: '50px',
+    // format: "#,##0",
+    cssClass: "primary-field",
+  },
+  {
+    dataField: "CompanyName",
+    caption: "Company Name",
+    align: "center",
+    width: '200px',
+    allowFilter: false,
+    allowSorting: false
+  },
+  {
+    dataField: "City",
+    caption: "City",
+    align: "center",
+  },
+  {
+    dataField: "Address",
+    caption: "Address",
+    align: "center",
+    width: '200px',
+  },
+
+  {
+    dataField: "status",
+    caption: "Status",
+    align: "center",
+    width: '150px',
+    renderColumn: (data: any) => {
+      return <div className={`status-${data.value === 'rejected' ? 'error' : data.value}`} style={{ margin: 'auto' }}> {data.value.charAt(0).toUpperCase()
+        + data.value.slice(1)} </div>
+    }
+  },
+  {
+    dataField: "Phone",
+    caption: "Phone",
+    align: "center",
+    width:'200px'
+  },
+  {
+    dataField: "Zipcode",
+    caption: "Zip Code",
+    align: "center",
+    width: '100px',
+  },
+
+
+  {
+    dataField: "Website",
+    caption: "URL",
+    align: "center",
+    renderColumn: (data: any) => {
+      return <a href={data.value}> {data.value.split("www.")[1].split('.')[0]} </a>
+    }
+  }
+];
 
 
 
@@ -161,6 +246,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   columns: columns,
   data: data,
-  selectedItems: [ 2 ,4 ,5,1],
-  onRowClick : ( e ) => console.log(e)
+  onRowClick: (e) => { }
 };

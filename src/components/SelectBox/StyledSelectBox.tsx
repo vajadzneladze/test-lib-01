@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { StyledSelectBoxProps, status } from "./SelectBox.types";
 
 export const SelectBoxContainer = styled.div<StyledSelectBoxProps>`
+
+.dx-overlay-content {
+  margin-top:200px !important;
+}
+
+
   position: relative;
   width: 100%;
   height: ${({ size }) => (size === "sm" ? "48px" : "56px")};

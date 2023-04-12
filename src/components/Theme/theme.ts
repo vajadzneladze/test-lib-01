@@ -124,6 +124,14 @@ export const lightTheme = {
       negative_80: "#F16A6A",
       negative_100: "#EF4343",
       negative_120: "#C63F3F",
+
+      warning_05: "#F9F8F0",
+      warning_10: "#F9F6E7",
+      warning_20: "#F7EECF",
+      warning_40: "#F4E1A4",
+      warning_80: "#EEC64F",
+      warning_100: "#EBB924",
+      warning_120: "#C19C25",
     },
     surface: {
       surface_backdrop: "rgba(20, 23, 25, 0.5)",
@@ -191,6 +199,14 @@ export const darkTheme = {
       negative_80: "#C84646",
       negative_100: "#EF4D4D",
       negative_120: "#F26E6E",
+
+      warning_05: "#2C2E29",
+      warning_10: "#383829",
+      warning_20: "#4C452A",
+      warning_40: "#726227",
+      warning_80: "#C19C25",
+      warning_100: "#EBB924",
+      warning_120: "#EEC64F",
     },
     surface: {
       surface_backdrop: "rgba(20, 23, 25, 0.8)",
@@ -214,6 +230,7 @@ export const darkTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`
+
     body {
       background-color: ${({ theme }) => theme.color.steel.grey_00};
     }
@@ -233,6 +250,7 @@ export const GlobalStyles = createGlobalStyle`
         border-bottom-width:1px;
         box-shadow: 0px 36px 40px -15px rgba(12, 43, 67, 0.05);
         border-radius: 4px;
+        transform: translate(0px, 3px) !important;
 
        .dx-scrollable-scrollbar {
         display:none;

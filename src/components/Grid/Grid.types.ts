@@ -3,6 +3,7 @@ export interface GridProps {
     selectedItems: any[],
     primaryField?:  string | undefined,
     data: any[];
+    withFilter?: boolean; 
     columns: any[];
     onRowClick?: (e: any) => void;
 }
