@@ -46,6 +46,7 @@ export default [
         alias: {
           "@": path.resolve(__dirname, "src"),
         },
+        mainFields: ['dev:module', 'module', 'main'],
       }),
       copy({
         targets: [{ src: "src/assets", dest: "dist" }],

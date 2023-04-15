@@ -6,6 +6,8 @@ export const StyledGridContainer = styled.div`
   }
 
   .dx-datagrid {
+
+    width:100%;
     
     .dx-row {
       height: 52px !important;
@@ -28,8 +30,6 @@ export const StyledGridContainer = styled.div`
 
       td {
         font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-
-
 
         .dx-checkbox-indeterminate {
 

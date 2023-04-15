@@ -12,7 +12,8 @@ const defaultProps: GridProps = {
   data: [],
   columns: [],
   withFilter: false,
-  onRowClick: (e) => { },
+  onRowClick: (e) => {},
+  style: {}
 };
 
 const Grid = ({
@@ -23,7 +24,7 @@ const Grid = ({
   columns,
   withFilter,
   onRowClick,
-
+  style
 }: GridProps) => {
 
 
@@ -54,7 +55,7 @@ const Grid = ({
 
 
   return (
-    <StyledGridContainer>
+    <StyledGridContainer style = {style}>
       <DataGrid
         dataSource={data}
         keyExpr={primaryField}

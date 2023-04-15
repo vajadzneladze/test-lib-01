@@ -8,7 +8,6 @@ export default {
   component: Grid,
 } as ComponentMeta<typeof Grid>;
 
-
 const data = [
   {
     id: 1,
@@ -20,7 +19,7 @@ const data = [
     Phone: "(800) 555-2797",
     Fax: "(800) 555-2171",
     Website: "http://www.nowebsitesupermart.com",
-    status: 'success'
+    status: "success",
   },
   {
     id: 2,
@@ -32,8 +31,7 @@ const data = [
     Phone: "(800) 595-3232",
     Fax: "(800) 595-3231",
     Website: "http://www.nowebsitedepot.com",
-    status: 'success'
-
+    status: "success",
   },
   {
     id: 3,
@@ -45,7 +43,7 @@ const data = [
     Phone: "(612) 304-6073",
     Fax: "(612) 304-6074",
     Website: "http://www.nowebsitemusic.com",
-    status: 'warning'
+    status: "warning",
   },
   {
     id: 4,
@@ -57,8 +55,7 @@ const data = [
     Phone: "(800) 955-2292",
     Fax: "(800) 955-2293",
     Website: "http://www.nowebsitetomsclub.com",
-    status: 'rejected'
-
+    status: "rejected",
   },
   {
     id: 5,
@@ -70,7 +67,7 @@ const data = [
     Phone: "(847) 286-2500",
     Fax: "(847) 286-2501",
     Website: "http://www.nowebsiteemart.com",
-    status: 'info'
+    status: "info",
   },
   {
     id: 6,
@@ -82,7 +79,7 @@ const data = [
     Phone: "(847) 940-2500",
     Fax: "(847) 940-2501",
     Website: "http://www.nowebsitewalters.com",
-    status: 'info'
+    status: "info",
   },
   {
     id: 7,
@@ -94,9 +91,7 @@ const data = [
     Phone: "(817) 820-0741",
     Fax: "(817) 820-0742",
     Website: "http://www.nowebsiteshack.com",
-    status: 'info'
-
-
+    status: "info",
   },
   {
     id: 8,
@@ -108,8 +103,7 @@ const data = [
     Phone: "(800) 955-2929",
     Fax: "(800) 955-9392",
     Website: "http://www.nowebsitecircuittown.com",
-    status: 'info'
-
+    status: "info",
   },
   {
     id: 9,
@@ -121,8 +115,7 @@ const data = [
     Phone: "(612) 291-1000",
     Fax: "(612) 291-2001",
     Website: "http://www.nowebsitepremierbuy.com",
-    status: 'info'
-
+    status: "info",
   },
   {
     id: 10,
@@ -134,8 +127,7 @@ const data = [
     Phone: "(630) 438-7800",
     Fax: "(630) 438-7801",
     Website: "http://www.nowebsiteelectrixmax.com",
-    status: 'info'
-
+    status: "info",
   },
   {
     id: 11,
@@ -147,8 +139,7 @@ const data = [
     Phone: "(214) 854-3000",
     Fax: "(214) 854-3001",
     Website: "http://www.nowebsitevideoemporium.com",
-    status: 'info'
-
+    status: "info",
   },
   {
     id: 12,
@@ -160,8 +151,7 @@ const data = [
     Phone: "(800) 445-6937",
     Fax: "(800) 445-6938",
     Website: "http://www.nowebsitescreenshop.com",
-    status: 'info'
-
+    status: "info",
   },
 ];
 
@@ -173,7 +163,7 @@ const columns = [
     caption: "ID",
     align: "center",
     dataType: "number",
-    width: '50px',
+    width: "50px",
     // format: "#,##0",
     cssClass: "primary-field",
   },
@@ -181,9 +171,9 @@ const columns = [
     dataField: "CompanyName",
     caption: "Company Name",
     align: "center",
-    width: '200px',
+    width: "200px",
     allowFilter: false,
-    allowSorting: false
+    allowSorting: false,
   },
   {
     dataField: "City",
@@ -194,50 +184,56 @@ const columns = [
     dataField: "Address",
     caption: "Address",
     align: "center",
-    width: '200px',
+    width: "200px",
   },
 
   {
     dataField: "status",
     caption: "Status",
     align: "center",
-    width: '150px',
+    width: "150px",
     renderColumn: (data: any) => {
-      return <div className={`status-${data.value === 'rejected' ? 'error' : data.value}`} style={{ margin: 'auto' }}> {data.value.charAt(0).toUpperCase()
-        + data.value.slice(1)} </div>
-    }
+      return (
+        <div
+          className={`status-${
+            data.value === "rejected" ? "error" : data.value
+          }`}
+          style={{ margin: "auto" }}
+        >
+          {" "}
+          {data.value.charAt(0).toUpperCase() + data.value.slice(1)}{" "}
+        </div>
+      );
+    },
   },
   {
     dataField: "Phone",
     caption: "Phone",
     align: "center",
-    width:'200px'
+    width: "200px",
   },
   {
     dataField: "Zipcode",
     caption: "Zip Code",
     align: "center",
-    width: '100px',
+    width: "100px",
   },
-
 
   {
     dataField: "Website",
     caption: "URL",
     align: "center",
     renderColumn: (data: any) => {
-      return <a href={data.value}> {data.value.split("www.")[1].split('.')[0]} </a>
-    }
-  }
+      return (
+        <a href={data.value}> {data.value.split("www.")[1].split(".")[0]} </a>
+      );
+    },
+  },
 ];
-
-
 
 const Template: ComponentStory<typeof Grid> = (props) => (
   <ThemeProvider variant="light">
-    <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
-      <Grid {...props} />
-    </div>
+    <Grid {...props} />
   </ThemeProvider>
 );
 
@@ -246,5 +242,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   columns: columns,
   data: data,
-  onRowClick: (e) => { }
+  onRowClick: (e) => {},
 };
