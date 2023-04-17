@@ -10,7 +10,6 @@ import copy from "rollup-plugin-copy";
 import path from "path";
 import rebase from "rollup-plugin-rebase";
 
-
 const packageJson = require("./package.json");
 
 export default [
@@ -46,7 +45,13 @@ export default [
         alias: {
           "@": path.resolve(__dirname, "src"),
         },
-        mainFields: ['dev:module', 'module', 'main'],
+        mainFields: ["dev:module", "module", "main"],
+        browser: true,
+        preferBuiltins: false,
+        fallback: {
+          events: require.resolve("events/"),
+          buffer: require.resolve("buffer/"),
+        },
       }),
       copy({
         targets: [{ src: "src/assets", dest: "dist" }],
