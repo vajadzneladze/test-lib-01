@@ -1,5 +1,5 @@
 import { DataGrid } from "devextreme-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyledGridContainer } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
 import {
@@ -10,6 +10,7 @@ import {
   GroupItem,
   GroupPanel,
   MasterDetail,
+  Pager,
   Paging,
   Scrolling,
   Selection,
@@ -22,6 +23,19 @@ import GridMasterTemplate from "./GridMasterTemplate";
 import { exportDataGrid } from 'devextreme/excel_exporter';
 import { Workbook } from 'exceljs';
 import { saveAs } from 'file-saver-es';
+import CustomStore from "devextreme/data/custom_store";
+
+
+
+
+const createCustomStore = (fetchData: any, primaryKey: string) => {
+
+  return new CustomStore({
+    key: primaryKey,
+    load: (loadOptions: any) => fetchData(loadOptions)
+  });
+}
+
 
 const defaultProps: GridProps = {
   selectMode: "single",
@@ -30,10 +44,15 @@ const defaultProps: GridProps = {
   data: [],
   columns: [],
   withFilter: false,
-  onRowClick: (e) => {},
+  onRowClick: (e) => { },
   style: {},
   hasDetails: false,
+  fetchData: () => { }
 };
+
+
+const allowedPageSizes = [8, 12, 20];
+
 
 const Grid = ({
   selectMode,
@@ -46,7 +65,10 @@ const Grid = ({
   DetailsComponent,
   style,
   hasDetails,
+  fetchData
 }: GridProps) => {
+
+
   const [selectedRows, setSelectedRows] = useState(() => {
     if (
       selectedItems &&
@@ -63,74 +85,43 @@ const Grid = ({
     return [];
   });
 
-  const handleSelectionChange = ({ selectedRowsData }: any) => {
-    setSelectedRows(selectedRowsData);
-  };
-
-  const handleFilterChange = (filters: any) => {
-    // console.log(filters);
-  };
-
-  // const onSelectionChanged = ({ selectedRowsData }: any) => {
-  //   console.log(selectedRowsData);
-  //   setSelectedRows(selectedRowsData);
-  // };
+  const [dataSource, setDataSource] = useState<any>(null);
 
 
-  // const onExporting = (e:any) =>  {
-  //   const workbook = new Workbook();
-  //   const worksheet = workbook.addWorksheet('Main sheet');
+  useEffect(() => {
 
-  //   exportDataGrid({
-  //     component: e.component,
-  //     worksheet,
-  //     autoFilterEnabled: true,
-  //   }).then(() => {
-  //     workbook.xlsx.writeBuffer().then((buffer) => {
-  //       saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
-  //     });
-  //   });
-  //   e.cancel = true;
-  // }
+    console.log(fetchData, primaryField)
+    if (fetchData && primaryField) {
+      const customStore = createCustomStore(fetchData, primaryField);
+      setDataSource(customStore);
+    }
+  }, [fetchData, primaryField]);
 
-  
+
 
   return (
     <StyledGridContainer style={style}>
       <DataGrid
-        dataSource={data}
+        dataSource={dataSource}
+        remoteOperations={true}
         keyExpr={primaryField}
-        // defaultColumns={columns}
-        columnAutoWidth={false}
-        selection={{ mode: selectMode }} // single, multiple , none
+        columnAutoWidth={true}
+        selection={{ mode: selectMode }}
         selectedRowKeys={selectedRows.map(
-          (item: any) => item[primaryField || "ID"]
+          (item: any) => item[primaryField || "id"]
         )}
-        onSelectionChanged={handleSelectionChange}
-        onFilterPanelChange={handleFilterChange}
         allowColumnReordering={true}
-
-        // onExporting={onExporting}
       >
         <FilterRow visible={withFilter} />
         {DetailsComponent && (
           <MasterDetail enabled={hasDetails} component={DetailsComponent} />
         )}
 
-{/* <Editing
-          allowUpdating={true}
-          allowDeleting={true}
-          selectTextOnEditStart={true}
-          useIcons={true}
-        /> */}
-
-        {/* <Export
-          enabled={true}
-          formats={["pdf"]}
-          allowExportSelectedData={true}
-        /> */}
-
-        <Paging defaultPageSize={10} />
+        <Paging defaultPageSize={12} />
+        <Pager
+          showPageSizeSelector={true}
+          allowedPageSizes={allowedPageSizes}
+        />
 
         {columns &&
           columns.length > 0 &&
