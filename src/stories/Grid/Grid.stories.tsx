@@ -232,7 +232,7 @@ const columns = [
 ];
 
 
-export const GridMasterTemplate2 = ({data}:any) => {
+const GridMasterTemplate2 = ({data}:any) => {
 
   const { CompanyName } =  data.data;
     
