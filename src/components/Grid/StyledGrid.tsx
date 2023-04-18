@@ -33,6 +33,50 @@ export const StyledGridContainer = styled.div`
       td {
         font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
 
+
+        .dx-checkbox {
+            &.dx-state-hover {
+              .dx-checkbox-icon {
+                background: ${({ theme }) => theme.color.semantic.positive_20};
+                border: 1px solid
+                  ${({ theme }) => theme.color.semantic.positive_80};
+              }
+            }
+
+            &.dx-state-focused {
+              .dx-checkbox-icon {
+                background: ${({ theme }) => theme.color.semantic.positive_20};
+                border: 1px solid
+                  ${({ theme }) => theme.color.semantic.positive_120};
+              }
+            }
+          }
+          
+        .dx-checkbox-checked {
+            .dx-checkbox-icon {
+              color: ${({ theme }) => theme.color.text.static_primary};
+              background: ${({ theme }) => theme.color.semantic.positive_80};
+              border: 1px solid
+                ${({ theme }) => theme.color.semantic.positive_80};
+            }
+
+            &.dx-state-hover {
+              .dx-checkbox-icon {
+                background: ${({ theme }) => theme.color.semantic.positive_120};
+                border: 1px solid
+                  ${({ theme }) => theme.color.semantic.positive_120};
+              }
+            }
+
+            &.dx-state-focused {
+              .dx-checkbox-icon {
+                background: ${({ theme }) => theme.color.semantic.positive_80};
+                border: 1px solid
+                  ${({ theme }) => theme.color.semantic.positive_120};
+              }
+            }
+          }
+
         .dx-checkbox-indeterminate {
           &.dx-state-hover {
             .dx-checkbox-icon {

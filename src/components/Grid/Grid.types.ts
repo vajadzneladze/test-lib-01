@@ -7,4 +7,6 @@ export interface GridProps {
   columns: any[];
   onRowClick?: (e: any) => void;
   style?: React.CSSProperties;
+  DetailsComponent?: any,
+  hasDetails?: boolean
 }

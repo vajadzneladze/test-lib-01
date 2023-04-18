@@ -231,6 +231,15 @@ const columns = [
   },
 ];
 
+
+export const GridMasterTemplate2 = ({data}:any) => {
+
+  const { CompanyName } =  data.data;
+    
+   return <div style = {{ width:'80%', height:'300px', display:'flex', justifyContent:'center', alignItems:'center' }}>{CompanyName}</div>;
+ };
+
+ 
 const Template: ComponentStory<typeof Grid> = (props) => (
   <ThemeProvider variant="light">
     <Grid {...props} />
@@ -242,5 +251,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   columns: columns,
   data: data,
+  selectedItems:[1,2],
+  selectMode:'multiple',
   onRowClick: (e) => {},
+  DetailsComponent: GridMasterTemplate2
 };

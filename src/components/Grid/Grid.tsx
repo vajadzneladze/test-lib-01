@@ -2,8 +2,22 @@ import { DataGrid } from "devextreme-react";
 import React, { useState } from "react";
 import { StyledGridContainer } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
-import { Column, Editing, FilterRow, GroupItem, GroupPanel, Paging, Scrolling, Selection, Summary, TotalItem, ValueFormat } from "devextreme-react/data-grid";
+import {
+  Column,
+  Editing,
+  FilterRow,
+  GroupItem,
+  GroupPanel,
+  MasterDetail,
+  Paging,
+  Scrolling,
+  Selection,
+  Summary,
+  TotalItem,
+  ValueFormat,
+} from "devextreme-react/data-grid";
 import Text from "../Text/Text";
+import GridMasterTemplate from "./GridMasterTemplate";
 
 const defaultProps: GridProps = {
   selectMode: "single",
@@ -13,7 +27,8 @@ const defaultProps: GridProps = {
   columns: [],
   withFilter: false,
   onRowClick: (e) => {},
-  style: {}
+  style: {},
+  hasDetails: false,
 };
 
 const Grid = ({
@@ -24,12 +39,18 @@ const Grid = ({
   columns,
   withFilter,
   onRowClick,
-  style
+  DetailsComponent,
+  style,
+  hasDetails,
 }: GridProps) => {
-
-
   const [selectedRows, setSelectedRows] = useState(() => {
-    if (selectedItems && selectedItems.length > 0 && data && data.length > 0 && selectMode !== 'none') {
+    if (
+      selectedItems &&
+      selectedItems.length > 0 &&
+      data &&
+      data.length > 0 &&
+      selectMode !== "none"
+    ) {
       return data.filter((item: any) =>
         selectedItems.includes(item[primaryField || "id"])
       );
@@ -38,65 +59,65 @@ const Grid = ({
     return [];
   });
 
-
   const handleSelectionChange = ({ selectedRowsData }: any) => {
     setSelectedRows(selectedRowsData);
   };
 
   const handleFilterChange = (filters: any) => {
-    console.log(filters);
+    // console.log(filters);
   };
-
 
   // const onSelectionChanged = ({ selectedRowsData }: any) => {
   //   console.log(selectedRowsData);
   //   setSelectedRows(selectedRowsData);
   // };
 
-
   return (
-    <StyledGridContainer style = {style}>
+    <StyledGridContainer style={style}>
       <DataGrid
         dataSource={data}
         keyExpr={primaryField}
         // defaultColumns={columns}
         columnAutoWidth={false}
         selection={{ mode: selectMode }} // single, multiple , none
-        selectedRowKeys={selectedRows.map((item: any) => item[primaryField || 'ID'])}
+        selectedRowKeys={selectedRows.map(
+          (item: any) => item[primaryField || "ID"]
+        )}
         onSelectionChanged={handleSelectionChange}
         onFilterPanelChange={handleFilterChange}
 
-      // showBorders={true}
-      // onRowClick={(e) => onClickHandlr(e) }
-      // focusedRowEnabled={true}
-      // focusedRowKey={selectedRow}
-      // onSelectionChanged={onSelectionChanged}
+        // showBorders={true}
+        // onRowClick={(e) => onClickHandlr(e) }
+        // focusedRowEnabled={true}
+        // focusedRowKey={selectedRow}
+        // onSelectionChanged={onSelectionChanged}
 
-      // rowAlternationEnabled={true}
-      // hoverStateEnabled={true}
+        // rowAlternationEnabled={true}
+        // hoverStateEnabled={true}
       >
-
         <FilterRow visible={withFilter} />
+        {DetailsComponent && (
+          <MasterDetail enabled={hasDetails} component={DetailsComponent} />
+        )}
 
         <Paging defaultPageSize={10} />
 
-        {
-          columns && columns.length > 0 && columns.map((item: any, index: any) => {
-
-            return <Column
-              width={item.width || 'auto'}
-              key={index}
-              allowFiltering={item.allowFiltering}
-              allowSorting={item.allowSorting}
-              dataField={item.dataField}
-              caption={item.caption}
-              alignment={item.align || 'left'}
-              cellRender={item.renderColumn}
-            />
-          })
-        }
-
-
+        {columns &&
+          columns.length > 0 &&
+          columns.map((item: any, index: any) => {
+            return (
+              <Column
+                width={item.width || "auto"}
+                key={index}
+                allowFiltering={item.allowFiltering}
+                allowSorting={item.allowSorting}
+                dataField={item.dataField}
+                caption={item.caption}
+                alignment={item.align || "left"}
+                cellRender={item.renderColumn}
+              />
+            );
+          })}
 
         {/* <FilterRow visible={withFilter} /> */}
 
@@ -121,7 +142,6 @@ const Grid = ({
                           <GroupItem summaryType="count" />
 
                         </Summary> */}
-
       </DataGrid>
     </StyledGridContainer>
   );
