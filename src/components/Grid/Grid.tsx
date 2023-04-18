@@ -5,6 +5,7 @@ import { GridProps } from "./Grid.types";
 import {
   Column,
   Editing,
+  Export,
   FilterRow,
   GroupItem,
   GroupPanel,
@@ -18,6 +19,9 @@ import {
 } from "devextreme-react/data-grid";
 import Text from "../Text/Text";
 import GridMasterTemplate from "./GridMasterTemplate";
+import { exportDataGrid } from 'devextreme/excel_exporter';
+import { Workbook } from 'exceljs';
+import { saveAs } from 'file-saver-es';
 
 const defaultProps: GridProps = {
   selectMode: "single",
@@ -72,6 +76,25 @@ const Grid = ({
   //   setSelectedRows(selectedRowsData);
   // };
 
+
+  // const onExporting = (e:any) =>  {
+  //   const workbook = new Workbook();
+  //   const worksheet = workbook.addWorksheet('Main sheet');
+
+  //   exportDataGrid({
+  //     component: e.component,
+  //     worksheet,
+  //     autoFilterEnabled: true,
+  //   }).then(() => {
+  //     workbook.xlsx.writeBuffer().then((buffer) => {
+  //       saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'DataGrid.xlsx');
+  //     });
+  //   });
+  //   e.cancel = true;
+  // }
+
+  
+
   return (
     <StyledGridContainer style={style}>
       <DataGrid
@@ -85,20 +108,25 @@ const Grid = ({
         )}
         onSelectionChanged={handleSelectionChange}
         onFilterPanelChange={handleFilterChange}
-
-        // showBorders={true}
-        // onRowClick={(e) => onClickHandlr(e) }
-        // focusedRowEnabled={true}
-        // focusedRowKey={selectedRow}
-        // onSelectionChanged={onSelectionChanged}
-
-        // rowAlternationEnabled={true}
-        // hoverStateEnabled={true}
+        // onExporting={onExporting}
       >
         <FilterRow visible={withFilter} />
         {DetailsComponent && (
           <MasterDetail enabled={hasDetails} component={DetailsComponent} />
         )}
+
+{/* <Editing
+          allowUpdating={true}
+          allowDeleting={true}
+          selectTextOnEditStart={true}
+          useIcons={true}
+        /> */}
+
+        {/* <Export
+          enabled={true}
+          formats={["pdf"]}
+          allowExportSelectedData={true}
+        /> */}
 
         <Paging defaultPageSize={10} />
 

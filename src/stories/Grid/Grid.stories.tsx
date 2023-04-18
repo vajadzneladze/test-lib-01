@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Text, ThemeProvider } from "../../components";
+import { Icon, Text, ThemeProvider } from "../../components";
 import Grid from "../../components/Grid/Grid";
 
 export default {
@@ -223,11 +223,29 @@ const columns = [
     dataField: "Website",
     caption: "URL",
     align: "center",
+    width:'250px',
     renderColumn: (data: any) => {
       return (
         <a href={data.value}> {data.value.split("www.")[1].split(".")[0]} </a>
       );
     },
+  },
+
+  {
+    dataField: "action",
+    caption: "Action",
+    align: "center",
+    width: "50px",
+    allowFiltering: false,
+    renderColumn: (data: any) => (
+      <div style = {{ display:'flex', justifyContent:'center', textAlign:'center', gap:'10px' }} onClick = { e => e.stopPropagation()}>
+
+        <Icon name = 'Edit' />
+        <Icon name = 'Edit' />
+        {/* <i className="icon-edit" onClick={() => console.log(data.d ata)}></i>
+        <i className="icon-delete" onClick={() => console.log(data.data)}></i> */}
+      </div>
+    )
   },
 ];
 
@@ -241,7 +259,7 @@ const GridMasterTemplate2 = ({data}:any) => {
 
  
 const Template: ComponentStory<typeof Grid> = (props) => (
-  <ThemeProvider variant="light">
+  <ThemeProvider variant="dark">
     <Grid {...props} />
   </ThemeProvider>
 );
@@ -251,7 +269,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   columns: columns,
   data: data,
-  selectedItems:[1,2],
+  // selectedItems:[1,2],
   selectMode:'multiple',
   onRowClick: (e) => {},
   DetailsComponent: GridMasterTemplate2
