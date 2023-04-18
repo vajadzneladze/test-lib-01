@@ -302,5 +302,4 @@ Primary.args = {
   },
   onRowClick: (e) => {},
   DetailsComponent: GridMasterTemplate2,
-  
 };

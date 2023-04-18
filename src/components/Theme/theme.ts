@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
+import PrimaryFontFamily from '../../assets/fonts/bpg_nino_mtavruli_bold.ttf';
+import UpGamingFont from '../../assets/fonts/HelveticaNeueLTGEO45Light.ttf';
+
 declare module "styled-components" {
   export interface DefaultTheme {
     typography: any;
@@ -230,6 +233,14 @@ export const darkTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`
+
+
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(${UpGamingFont}) format('truetype');
+}
+
 
     body {
       background-color: ${({ theme }) => theme.color.steel.grey_00};

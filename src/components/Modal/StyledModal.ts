@@ -74,6 +74,7 @@ export const StyledModalHeader = styled.h2`
   font-size: ${({ theme }) => theme.typography.fontSize.fs_24};
   line-height: ${({ theme }) => theme.typography.lineHeight.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  font-family: ${({ theme }) => theme.typography.fontFamily};
   color: ${({ theme }) => theme.color.text.primary};
   margin-bottom: ${({ theme }) => theme.size.s_4};
   margin-top: 0px;
