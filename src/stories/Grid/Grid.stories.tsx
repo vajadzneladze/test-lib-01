@@ -259,7 +259,7 @@ const GridMasterTemplate2 = ({data}:any) => {
 
  
 const Template: ComponentStory<typeof Grid> = (props) => (
-  <ThemeProvider variant="dark">
+  <ThemeProvider variant="light">
     <Grid {...props} />
   </ThemeProvider>
 );

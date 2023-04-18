@@ -108,6 +108,8 @@ const Grid = ({
         )}
         onSelectionChanged={handleSelectionChange}
         onFilterPanelChange={handleFilterChange}
+        allowColumnReordering={true}
+
         // onExporting={onExporting}
       >
         <FilterRow visible={withFilter} />
