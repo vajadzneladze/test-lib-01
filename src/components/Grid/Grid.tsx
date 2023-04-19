@@ -123,6 +123,7 @@ const Grid = ({
                 caption={item.caption}
                 alignment={item.align || "left"}
                 cellRender={item.renderColumn}
+                filterOperations = { item.filterOperations }
               />
             );
           })}
