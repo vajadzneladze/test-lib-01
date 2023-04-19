@@ -1,38 +1,31 @@
-import { DataGrid } from "devextreme-react";
+import { DataGrid } from 'devextreme-react/data-grid';
 import React, { useEffect, useState } from "react";
 import { StyledGridContainer } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
 import {
   Column,
-  Editing,
-  Export,
   FilterRow,
-  GroupItem,
-  GroupPanel,
   MasterDetail,
   Pager,
   Paging,
-  Scrolling,
-  Selection,
-  Summary,
-  TotalItem,
-  ValueFormat,
 } from "devextreme-react/data-grid";
-import Text from "../Text/Text";
-import GridMasterTemplate from "./GridMasterTemplate";
-import { exportDataGrid } from 'devextreme/excel_exporter';
-import { Workbook } from 'exceljs';
-import { saveAs } from 'file-saver-es';
 import CustomStore from "devextreme/data/custom_store";
 
 
 
-
 const createCustomStore = (fetchData: any, primaryKey: string) => {
-
   return new CustomStore({
     key: primaryKey,
-    load: (loadOptions: any) => fetchData(loadOptions)
+    load: async (loadOptions) => {
+      const data = await fetchData(loadOptions);
+
+      return {
+        data: data.data,
+        totalCount: data.totalCount,
+        // summary: data.summary,
+        // groupCount: data.groupCount
+      };
+    },
   });
 }
 
@@ -52,7 +45,6 @@ const defaultProps: GridProps = {
 
 
 const allowedPageSizes = [8, 12, 20];
-
 
 const Grid = ({
   selectMode,
@@ -87,25 +79,20 @@ const Grid = ({
 
   const [dataSource, setDataSource] = useState<any>(null);
 
-
   useEffect(() => {
 
-    console.log(fetchData, primaryField)
-    if (fetchData && primaryField) {
+    if (fetchData && primaryField && dataSource === null) {
       const customStore = createCustomStore(fetchData, primaryField);
       setDataSource(customStore);
     }
   }, [fetchData, primaryField]);
-
-
 
   return (
     <StyledGridContainer style={style}>
       <DataGrid
         dataSource={dataSource}
         remoteOperations={true}
-        keyExpr={primaryField}
-        columnAutoWidth={true}
+        columnAutoWidth={false}
         selection={{ mode: selectMode }}
         selectedRowKeys={selectedRows.map(
           (item: any) => item[primaryField || "id"]
@@ -139,30 +126,6 @@ const Grid = ({
               />
             );
           })}
-
-        {/* <FilterRow visible={withFilter} /> */}
-
-        {/* <GroupPanel visible={true} /> */}
-        {/* <Scrolling mode="virtual" /> */}
-        {/* <Editing
-                      mode="row"
-                      allowAdding={true}
-                      allowDeleting={true}
-                      allowUpdating={true}
-                    /> */}
-        {/* 
-                      <Summary>
-                          <TotalItem column="ID" summaryType="sum">
-                            <ValueFormat type="decimal" precision={2} />
-                          </TotalItem>
-
-                          <GroupItem column="Freight" summaryType="sum">
-                            <ValueFormat type="decimal" precision={2} />
-                          </GroupItem>
-
-                          <GroupItem summaryType="count" />
-
-                        </Summary> */}
       </DataGrid>
     </StyledGridContainer>
   );

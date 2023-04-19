@@ -267,7 +267,7 @@ const postsColumns = [
   {
     dataField: "CreateTime",
     caption: "CreateTime",
-    dataType:'date'
+    dataType: 'date'
   },
 ]
 
@@ -281,25 +281,49 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   columns: postsColumns,
-   primaryField :'ID' ,  // data: 'https://jsonplaceholder.typicode.com/posts',
+  primaryField: 'ID',  // data: 'https://jsonplaceholder.typicode.com/posts',
   // selectedItems:[1,2],
   selectMode: 'none',
-  fetchData: (loadOptions: any) => {
-    return fetch('https://newadmin.upgaming.dev/api/Organizations/Get', {
-      method: "POST",
+
+  fetchData: async (loadOptions: any): Promise<any[]>  => {
+    const response = await fetch('https://newadmin.upgaming.dev/api/Organizations/Get', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         "Authorization": "bearer fd3642ef-f91c-4a14-ab2f-bbf2e6bd672c",
         "ug-proxy": "oneadmin"
       },
-      body: JSON.stringify({ ...loadOptions }),
-    }).then((response: any) => response.json()).then((data) => ({
-      data: data.data,
-      totalCount: data.totalCount,
-      summary: data.summary,
-      groupCount: data.groupCount
-    })).catch(() => { throw new Error('Data Loading Error'); })
+      body: JSON.stringify(loadOptions),
+    });
+
+    const data = await response.json();
+    return data;
   },
-  onRowClick: (e) => {},
+  // fetchData: async (loadOptions: any) => {
+  //   try {
+  //     const requestOptions = {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Authorization": "bearer fd3642ef-f91c-4a14-ab2f-bbf2e6bd672c",
+  //         "ug-proxy": "oneadmin"
+  //       },
+  //       body: JSON.stringify(loadOptions),
+  //     };
+
+  //     const response = await fetch('https://newadmin.upgaming.dev/api/Organizations/Get', requestOptions);
+  //     const data = await response.json();
+
+  //     return {
+  //       data: data.data,
+  //       totalCount: data.totalCount,
+  //       // summary: data.summary,
+  //       // groupCount: data.groupCount
+  //     };
+  //   } catch (error) {
+  //     throw new Error('Data Loading Error');
+  //   }
+  // },
+  onRowClick: (e) => { },
   DetailsComponent: GridMasterTemplate2,
 };
