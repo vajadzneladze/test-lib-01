@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Icon, Text, ThemeProvider } from "../../components";
+import { FormToggle, Icon, Text, ThemeProvider, Toggle } from "../../components";
 import Grid from "../../components/Grid/Grid";
 
 export default {
@@ -157,99 +157,116 @@ const data = [
 
 // const columns = ["id","CompanyName", "City", "State", "Phone", "Fax"];
 
-const columns = [
-  {
-    dataField: "id",
-    caption: "ID",
-    dataType: "number",
-    width: "50px",
-    // format: "#,##0",
-    cssClass: "primary-field",
-  },
-  {
-    dataField: "CompanyName",
-    caption: "Company Name",
-    width: "200px",
-    allowFilter: false,
-    allowSorting: false,
-  },
-  {
-    dataField: "City",
-    caption: "City",
-  },
-  {
-    dataField: "Address",
-    caption: "Address",
-    width: "200px",
-  },
+// const columns = [
+//   {
+//     dataField: "id",
+//     caption: "ID",
+//     dataType: "number",
+//     width: "50px",
+//     // format: "#,##0",
+//     cssClass: "primary-field",
+//   },
+//   {
+//     dataField: "CompanyName",
+//     caption: "Company Name",
+//     width: "200px",
+//     allowFilter: false,
+//     allowSorting: false,
+//   },
+//   {
+//     dataField: "City",
+//     caption: "City",
+//   },
+//   {
+//     dataField: "Address",
+//     caption: "Address",
+//     width: "200px",
+//   },
 
-  {
-    dataField: "status",
-    caption: "Status",
-    width: "150px",
-    renderColumn: (data: any) => {
-      return (
-        <div
-          className={`status-${data.value === "rejected" ? "error" : data.value
-            }`}
-          style={{ margin: "auto" }}
-        >
-          {data.value.charAt(0).toUpperCase() + data.value.slice(1)}
-        </div>
-      );
-    },
-  },
-  {
-    dataField: "Phone",
-    caption: "Phone",
-    align: "center",
-    width: "200px",
-  },
-  {
-    dataField: "Zipcode",
-    caption: "Zip Code",
-    align: "center",
-    width: "100px",
-  },
+//   {
+//     dataField: "status",
+//     caption: "Status",
+//     width: "150px",
+//     renderColumn: (data: any) => {
+//       return (
+//         <div
+//           className={`status-${
+//             data.value === "rejected" ? "error" : data.value
+//           }`}
+//           style={{ margin: "auto" }}
+//         >
+//           {data.value.charAt(0).toUpperCase() + data.value.slice(1)}
+//         </div>
+//       );
+//     },
+//   },
+//   {
+//     dataField: "Phone",
+//     caption: "Phone",
+//     align: "center",
+//     width: "200px",
+//   },
+//   {
+//     dataField: "Zipcode",
+//     caption: "Zip Code",
+//     align: "center",
+//     width: "100px",
+//   },
 
-  {
-    dataField: "Website",
-    caption: "URL",
-    align: "center",
-    width: '250px',
-    renderColumn: (data: any) => {
-      return (
-        <a href={data.value}> {data.value.split("www.")[1].split(".")[0]} </a>
-      );
-    },
-  },
+//   {
+//     dataField: "Website",
+//     caption: "URL",
+//     align: "center",
+//     width: "250px",
+//     renderColumn: (data: any) => {
+//       return (
+//         <a href={data.value}> {data.value.split("www.")[1].split(".")[0]} </a>
+//       );
+//     },
+//   },
 
-  {
-    dataField: "action",
-    caption: "Action",
-    align: "center",
-    width: "50px",
-    allowFiltering: false,
-    renderColumn: (data: any) => (
-      <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', gap: '10px' }} onClick={e => e.stopPropagation()}>
-
-        <Icon name='Edit' />
-        <Icon name='Edit' />
-        {/* <i className="icon-edit" onClick={() => console.log(data.d ata)}></i>
-        <i className="icon-delete" onClick={() => console.log(data.data)}></i> */}
-      </div>
-    )
-  },
-];
-
+//   {
+//     dataField: "action",
+//     caption: "Action",
+//     align: "center",
+//     width: "50px",
+//     allowFiltering: false,
+//     renderColumn: (data: any) => (
+//       <div
+//         style={{
+//           display: "flex",
+//           justifyContent: "center",
+//           textAlign: "center",
+//           gap: "10px",
+//         }}
+//         onClick={(e) => e.stopPropagation()}
+//       >
+//         <Icon name="Edit" />
+//         <Icon name="Edit" />
+//         {/* <i className="icon-edit" onClick={() => console.log(data.d ata)}></i>
+//         <i className="icon-delete" onClick={() => console.log(data.data)}></i> */}
+//       </div>
+//     ),
+//   },
+// ];
 
 const GridMasterTemplate2 = ({ data }: any) => {
-
   const { CompanyName } = data.data;
 
-  return <div style={{ width: '80%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{CompanyName}</div>;
+  return (
+    <div
+      style={{
+        width: "80%",
+        height: "300px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {CompanyName}
+    </div>
+  );
 };
-
 
 const postsColumns = [
   {
@@ -267,9 +284,9 @@ const postsColumns = [
   {
     dataField: "CreateTime",
     caption: "CreateTime",
-    dataType: 'date'
+    dataType: "date",
   },
-]
+];
 
 const Template: ComponentStory<typeof Grid> = (props) => (
   <ThemeProvider variant="light">
@@ -294,7 +311,7 @@ const dataColumns = [
       "anyof",
       "noneof",
     ],
-    allowFiltering: true,
+    allowFiltering: false,
   },
   {
     dataField: "Name",
@@ -328,7 +345,7 @@ const dataColumns = [
       "startswith",
       "endswith",
     ],
-    allowFiltering: true,
+    allowFiltering: false,
   },
   {
     dataField: "Status",
@@ -346,7 +363,8 @@ const dataColumns = [
       "anyof",
       "noneof",
     ],
-    allowFiltering: true,
+    renderColumn: (data: any) => <FormToggle isOn={data.data.Status} changeHandler={e => console.log(data.data.ID, e)} />,
+    allowFiltering: false,
   },
   {
     dataField: "CreateTime",
@@ -381,7 +399,7 @@ const dataColumns = [
       "startswith",
       "endswith",
     ],
-    allowFiltering: true,
+    allowFiltering: false,
   },
   {
     dataField: "Brands",
@@ -398,58 +416,35 @@ const dataColumns = [
       "startswith",
       "endswith",
     ],
-    allowFiltering: true,
+    allowFiltering: false,
   },
 ];
-
 
 export const Primary = Template.bind({});
 
 Primary.args = {
   columns: dataColumns,
-  primaryField: 'ID',  // data: 'https://jsonplaceholder.typicode.com/posts',
-  // selectedItems:[1,2],
-  selectMode: 'none',
-
-  fetchData: async (loadOptions: any): Promise<any[]>  => {
-    const response = await fetch('https://newadmin.upgaming.dev/api/Organizations/Get', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": "bearer fd3642ef-f91c-4a14-ab2f-bbf2e6bd672c",
-        "ug-proxy": "oneadmin"
-      },
-      body: JSON.stringify(loadOptions),
-    });
+  primaryField: "ID", // data: 'https://jsonplaceholder.typicode.com/posts',
+  selectedItems: [1, 2],
+  selectMode: "none",
+  onDelete: (e) => console.log(e),
+  fetchData: async (loadOptions: any): Promise<any[]> => {
+    const response = await fetch(
+      "https://newadmin.upgaming.dev/api/Organizations/Get",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "bearer fd3642ef-f91c-4a14-ab2f-bbf2e6bd672c",
+          "ug-proxy": "oneadmin",
+        },
+        body: JSON.stringify(loadOptions),
+      }
+    );
 
     const data = await response.json();
     return data;
   },
-  // fetchData: async (loadOptions: any) => {
-  //   try {
-  //     const requestOptions = {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Authorization": "bearer fd3642ef-f91c-4a14-ab2f-bbf2e6bd672c",
-  //         "ug-proxy": "oneadmin"
-  //       },
-  //       body: JSON.stringify(loadOptions),
-  //     };
-
-  //     const response = await fetch('https://newadmin.upgaming.dev/api/Organizations/Get', requestOptions);
-  //     const data = await response.json();
-
-  //     return {
-  //       data: data.data,
-  //       totalCount: data.totalCount,
-  //       // summary: data.summary,
-  //       // groupCount: data.groupCount
-  //     };
-  //   } catch (error) {
-  //     throw new Error('Data Loading Error');
-  //   }
-  // },
   onRowClick: (e) => { },
   DetailsComponent: GridMasterTemplate2,
 };

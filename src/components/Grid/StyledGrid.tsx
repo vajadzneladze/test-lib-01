@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import FilterButton from '../../assets/icons/filter-1.svg';
+import ArrowDown from '../../assets/icons/arrow-down.svg';
 
 export const StyledGridContainer = styled.div`
   .dx-datagrid-focus-overlay {
@@ -6,13 +8,13 @@ export const StyledGridContainer = styled.div`
   }
   .dx-widget {
     width: auto;
-    max-width:none !important;
+    max-width: none !important;
   }
   .dx-datagrid {
     width: 100%;
 
     .dx-row {
-      height: 52px !important;
+      height: 55px !important;
       td {
         padding: 15px 8px !important;
         border-left-width: 0px;
@@ -30,52 +32,133 @@ export const StyledGridContainer = styled.div`
       background-color: ${({ theme }) => theme.color.steel.grey_05};
       border-width: 0px;
 
+      .dx-datagrid-text-content {
+        width:100%;
+      }
+
+
       td {
         font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
 
+        .dx-column-indicators > {
+          .dx-sort {
+            opacity: 0 !important;
+          }
+        }
 
-        .dx-checkbox {
-            &.dx-state-hover {
-              .dx-checkbox-icon {
-                background: ${({ theme }) => theme.color.semantic.positive_20};
-                border: 1px solid
-                  ${({ theme }) => theme.color.semantic.positive_80};
-              }
-            }
 
-            &.dx-state-focused {
-              .dx-checkbox-icon {
-                background: ${({ theme }) => theme.color.semantic.positive_20};
-                border: 1px solid
-                  ${({ theme }) => theme.color.semantic.positive_120};
-              }
+        .dx-header-filter::before {
+          content : '';
+          width: 15px;
+          height: 15px;
+          transform:translateY(3px);
+          background-size:15px;
+          background-image: url(  ${FilterButton as any} );
+          background-repeat: no-repeat;
+          background-position: center;
+          display:block;
+        }
+
+
+        .dx-sort-indicator {
+          position:relative;
+
+          &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-bottom: 4px solid ${({ theme }) => theme.color.text.disabled};
+          margin-right: 10px;
+          top: 4px;
+          left: 0;
+          float:right;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          position: relative;
+          float: left;
+          width: 0;
+          height: 0;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top: 4px solid ${({ theme }) => theme.color.text.disabled};
+          margin-right: 10px;
+          top: 12px;
+          left: 0;
+        }
+
+        }
+        
+
+
+
+        &[aria-sort="descending"] {
+
+          .dx-sort-indicator {
+             
+            &::before {
+              border-top-color:${({ theme }) => theme.color.text.primary};
             }
           }
-          
-        .dx-checkbox-checked {
+        }
+
+        &[aria-sort="ascending"] {
+
+          .dx-sort-indicator {
+            
+            &::after {
+              border-bottom-color:${({ theme }) => theme.color.text.primary};
+            }
+          }
+        }
+
+        .dx-checkbox {
+          &.dx-state-hover {
             .dx-checkbox-icon {
-              color: ${({ theme }) => theme.color.text.static_primary};
-              background: ${({ theme }) => theme.color.semantic.positive_80};
+              background: ${({ theme }) => theme.color.semantic.positive_20};
               border: 1px solid
                 ${({ theme }) => theme.color.semantic.positive_80};
             }
+          }
 
-            &.dx-state-hover {
-              .dx-checkbox-icon {
-                background: ${({ theme }) => theme.color.semantic.positive_120};
-                border: 1px solid
-                  ${({ theme }) => theme.color.semantic.positive_120};
-              }
-            }
-
-            &.dx-state-focused {
-              .dx-checkbox-icon {
-                background: ${({ theme }) => theme.color.semantic.positive_80};
-                border: 1px solid
-                  ${({ theme }) => theme.color.semantic.positive_120};
-              }
+          &.dx-state-focused {
+            .dx-checkbox-icon {
+              background: ${({ theme }) => theme.color.semantic.positive_20};
+              border: 1px solid
+                ${({ theme }) => theme.color.semantic.positive_120};
             }
           }
+        }
+
+        .dx-checkbox-checked {
+          .dx-checkbox-icon {
+            color: ${({ theme }) => theme.color.text.static_primary};
+            background: ${({ theme }) => theme.color.semantic.positive_80};
+            border: 1px solid ${({ theme }) => theme.color.semantic.positive_80};
+          }
+
+          &.dx-state-hover {
+            .dx-checkbox-icon {
+              background: ${({ theme }) => theme.color.semantic.positive_120};
+              border: 1px solid
+                ${({ theme }) => theme.color.semantic.positive_120};
+            }
+          }
+
+          &.dx-state-focused {
+            .dx-checkbox-icon {
+              background: ${({ theme }) => theme.color.semantic.positive_80};
+              border: 1px solid
+                ${({ theme }) => theme.color.semantic.positive_120};
+            }
+          }
+        }
 
         .dx-checkbox-indeterminate {
           &.dx-state-hover {
@@ -110,7 +193,7 @@ export const StyledGridContainer = styled.div`
               width: 8px;
               height: 2px;
               background-color: ${({ theme }) =>
-                theme.color.text.static_primary};
+    theme.color.text.static_primary};
               border-radius: 1px;
             }
           }
@@ -229,10 +312,30 @@ export const StyledGridContainer = styled.div`
             background-color: #e7faff !important;
             color: ${({ theme }) => theme.color.text.primary} !important;
             border-color: ${({ theme }) =>
-              theme.color.steel.grey_06} !important;
+    theme.color.steel.grey_06} !important;
           }
         }
       }
+    }
+  }
+`;
+
+export const StyledGridDeleteSection = styled.div`
+  display: flex;
+  float:left;
+  margin-bottom:14px;
+  gap:8px;
+  align-items: center;
+
+  svg {
+    padding:8px;
+    background-color: ${({ theme }) => theme.color.steel.grey_04};
+    cursor:pointer;
+    border-radius: ${({ theme }) => theme.size.radius.medium};
+    width: auto;
+    height: auto;
+    path {
+      fill: ${({ theme }) => theme.color.semantic.negative_100}
     }
   }
 `;

@@ -247,7 +247,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .dx-overlay-wrapper {
-      transform: translate(17px, 19px) !important;
+      /* transform: translate(17px, 19px) !important; */
     }
     
     .dx-dropdowneditor-overlay  {

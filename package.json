@@ -1,6 +1,6 @@
 {
   "name": "test-react-lib-01",
-  "version": "3.6.9",
+  "version": "3.7.7",
   "description": "React Design System",
   "scripts": {
     "rollup": "rollup -c",
