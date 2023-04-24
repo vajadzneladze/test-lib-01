@@ -6,7 +6,7 @@
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "deploy": "gh-pages -d storybook-static",
     "build-icons": "npx @svgr/cli --icon  --typescript --out-dir src/components/Icons src/assets/icons"
   },
