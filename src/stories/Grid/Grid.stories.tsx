@@ -418,6 +418,13 @@ const dataColumns = [
     ],
     allowFiltering: false,
   },
+  {
+    dataField: "Action",
+    caption:'Action',
+    allowFiltering: false,
+    allowSorting:false,
+    show: true
+  },
 ];
 
 export const Primary = Template.bind({});

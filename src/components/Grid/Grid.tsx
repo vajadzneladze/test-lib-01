@@ -1,4 +1,4 @@
-import React, { useEffect,  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid, HeaderFilter } from "devextreme-react/data-grid";
 import { StyledGridContainer } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
@@ -10,6 +10,8 @@ import {
 } from "devextreme-react/data-grid";
 import CustomStore from "devextreme/data/custom_store";
 import GridDeleteComponent from "./GridDeleteComponent";
+import GridDrag from "../GridDrag/GridDrag";
+import Icon from "../Icon/Icon";
 
 
 const createCustomStore = (
@@ -78,11 +80,16 @@ const Grid = ({
 }: GridProps) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
+  const [selectedColumnKeys, setSelectedColumnKeys] = useState<any>(() => columns.map(item => item.dataField));
   const [dataSource, setDataSource] = useState<any>(null);
+  const [dataColumns, setDataColumns] = useState(columns);
+  const [showDrag, setShowDrag] = useState(false);
 
   const handleDeleteRows = (keys: any) => {
 
-    if(onDelete){
+    setShowDrag(false);
+
+    if (onDelete) {
       onDelete(selectedRowKeys);
     }
     // console.log("Selected rows:", selectedRowKeys);
@@ -110,79 +117,153 @@ const Grid = ({
   }, [fetchData, primaryField, dataSource]);
 
 
+  const columnDragHandler = (e: any) => {
+    const visibleRows = e.component.getVisibleRows();
+    const arr = [...dataColumns];
+
+    const toIndex = arr.findIndex((item) => item.dataField === visibleRows[e.toIndex].data.dataField);
+
+    const fromIndex = arr.findIndex((item) => item.dataField === e.itemData.dataField);
+
+    arr.splice(fromIndex, 1);
+    arr.splice(toIndex, 0, e.itemData);
+
+    setDataColumns(arr);
+  }
+
+  const cols = dataColumns && dataColumns.map(item => {
+    const display: boolean = !selectedColumnKeys.includes(item.dataField) ? false : true;
+    return {
+      ...item,
+      show: display
+    }
+  })
+
+
   return (
-    <StyledGridContainer style={style}>
-      <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} />
-      <DataGrid
-        dataSource={dataSource as CustomStore<any, any>}
-        remoteOperations={true}
-        columnAutoWidth={false}
-        selection={{ mode: selectMode }}
-        selectedRowKeys={selectedRowKeys}
-        onSelectionChanged={(e) => setSelectedRowKeys(e.selectedRowKeys)}
-        allowColumnReordering={true}
-        allowColumnResizing={true}
-        cellHintEnabled={true}
-        onCellPrepared={(e: any) => {
-          if (e.rowType === 'data' && e.column.dataType === 'datetime') {
-              e.cellElement.innerHTML = ` ${e.cellElement.innerHTML} ` 
-          }
 
-          
-        }}
+    <div style={{ position: 'relative' }} onClick={() => { if (showDrag) setShowDrag(false) }}>
+      <div className="toggleDrag" style={{
+        position: 'absolute',
+        right: '10px',
+        top: '59px',
+        paddingTop:'5px',
+        boxSizing:'border-box',
+        zIndex: '999',
+        cursor: 'pointer',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '36px',
+        height: '36px',
+        backgroundColor: '#D1D5D6',
+        borderRadius:'6px'
+
+      }} onClick={(e) => {
+        e.stopPropagation()
+        setShowDrag(prev => !prev)
+      }}>
+        <Icon name='AlignHorizontally' size="md" />
+      </div>
+      {showDrag && <GridDrag columns={cols} selectColumnHandler={setSelectedColumnKeys} onReorder={columnDragHandler} isOpen={true} />}
+      <StyledGridContainer style={style}>
+        <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} />
+        <DataGrid
+          dataSource={dataSource as CustomStore<any, any>}
+          remoteOperations={true}
+          columnAutoWidth={false}
+          selection={{ mode: selectMode }}
+          selectedRowKeys={selectedRowKeys}
+          onSelectionChanged={(e) => setSelectedRowKeys(e.selectedRowKeys)}
+          allowColumnReordering={false}
+          allowColumnResizing={true}
+          cellHintEnabled={true}
+          onCellPrepared={(e: any) => {
+            if (e.rowType === 'data' && e.column.dataType === 'datetime') {
+              e.cellElement.innerHTML = ` ${e.cellElement.innerHTML} `
+            }
+          }}
 
 
-      // selectedRowKeys={selectedRows.map(
-      //   (item: any) => item[primaryField || "id"]
-      // )}
-      // onSelectionChanged={handleSelectionChanged}
-      >
+        // selectedRowKeys={selectedRows.map(
+        //   (item: any) => item[primaryField || "id"]
+        // )}
+        // onSelectionChanged={handleSelectionChanged}
+        >
 
-        <HeaderFilter
-          allowSearch={true}
-          visible={withFilter}
-        />
+          <HeaderFilter
+            allowSearch={true}
+            visible={withFilter}
+          />
 
-        {columns &&
-          columns.length > 0 &&
-          columns.map((item: any, index: any) => {
+          {cols &&
+            cols.length > 0 &&
+            cols.map((item: any, index: any) => {
 
-            return (
-              <Column
-                // width={item.width || "auto"} 
-                key={index}
-                dataField={item.dataField}
-                caption={item.caption}
-                dataType={item.dataType}
-                cellRender={ item.renderColumn}
-                headerCellRender={item.renderHeader}
-                allowFiltering={item.allowFiltering}
-                allowSorting={item.allowSorting}
-                alignment={item.align || "left"}
-                fixed={true}
-                filterOperations={item.filterOperations}
-              >
-                {
-                  item.dataField === 'CreateTime' &&
-                  <HeaderFilter allowSearch={true} dataSource={datesHeaderFilter}
-                  />
-                }
+              return (
+                <Column
+                  // width={item.width || "auto"} 
+                  key={item.dataField}
+                  dataField={item.dataField}
+                  caption={item.dataField === 'Action' ? '' : item.caption}
+                  dataType={item.dataType}
+                  cellRender={item.renderColumn}
+                  headerCellRender={item.renderHeader}
+                  allowFiltering={item.allowFiltering}
+                  allowSorting={item.allowSorting}
+                  alignment={item.align || "left"}
+                  fixed={true}
+                  filterOperations={item.filterOperations}
+                  visible={item.show}
+                >
+                  {
+                    item.dataField === 'CreateTime' &&
+                    <HeaderFilter allowSearch={true} dataSource={datesHeaderFilter}
+                    />
+                  }
+                </Column>
+              );
+            })}
 
-              </Column>
-            );
-          })}
 
-        {DetailsComponent && (
-          <MasterDetail enabled={hasDetails} component={DetailsComponent} />
-        )}
+          {/* 
+          <Column
+            key={'action'}
+            dataField={'action'}
+            caption={'action'}
+            dataType={'string'}
+            cellRender={(data: any) => {
 
-        {/* <Paging defaultPageSize={12} />
+              return (
+                <div> here we go</div>
+              )
+            }}
+            headerCellRender={(data: any) => {
+
+              return (
+                <div> here you go</div>
+              )
+            }}
+            allowFiltering={false}
+            allowSorting={false}
+            alignment={'center'}
+            fixed={true}
+          /> */}
+
+
+
+          {DetailsComponent && (
+            <MasterDetail enabled={hasDetails} component={DetailsComponent} />
+          )}
+
+          {/* <Paging defaultPageSize={12} />
         <Pager
           showPageSizeSelector={true}
           allowedPageSizes={allowedPageSizes}
         /> */}
-      </DataGrid>
-    </StyledGridContainer>
+        </DataGrid>
+      </StyledGridContainer>
+    </div >
   );
 };
 

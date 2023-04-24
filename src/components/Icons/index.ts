@@ -18,6 +18,7 @@ export { default as Airpod } from "./Airpod";
 export { default as Airpods } from "./Airpods";
 export { default as Alarm } from "./Alarm";
 export { default as AlignBottom } from "./AlignBottom";
+export { default as AlignHorizontallyOutlined } from "./AlignHorizontallyOutlined";
 export { default as AlignHorizontally } from "./AlignHorizontally";
 export { default as AlignLeft } from "./AlignLeft";
 export { default as AlignRight } from "./AlignRight";

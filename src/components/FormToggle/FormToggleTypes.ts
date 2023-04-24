@@ -3,7 +3,7 @@ export interface FormToggleProps {
   changeHandler: (e: any) => void;
   withIcon?: boolean,
   onIcon?:string,
-  offIcon?:string
+  offIcon?:string,
   disabled?: boolean
 }
 

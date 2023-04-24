@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const SvgAlignHorizontally = (props: SVGProps<SVGSVGElement>) => (
+const SvgAlignHorizontallyOutlined = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -18,4 +18,4 @@ const SvgAlignHorizontally = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default SvgAlignHorizontally;
+export default SvgAlignHorizontallyOutlined;
