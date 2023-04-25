@@ -7,7 +7,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build",
-    "deploy": "gh-pages -d storybook-static",
+    "deploy": "gh-pages -d docs-build",
     "build-icons": "npx @svgr/cli --icon  --typescript --out-dir src/components/Icons src/assets/icons"
   },
   "homepage": "http://vajadzneladze.github.io/test-lib-01",
