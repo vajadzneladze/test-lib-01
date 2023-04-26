@@ -49,6 +49,7 @@ const defaultProps: GridProps = {
   hasDetails: false,
   fetchData: () => { },
   onDelete: () => { },
+  DetailsComponentFixedHeigh: false
 };
 
 const allowedPageSizes = [8, 12, 20];
@@ -58,7 +59,7 @@ const datesHeaderFilter = [{
   value: ['CreateTime', '<=', '3/15/2023'],
 }, {
   text: 'Two Week',
-  value: [['CreateTime', '>=', '04-10-2023'] ],
+  value: [['CreateTime', '>=', '04-10-2023']],
 }, {
   text: 'One Month',
   value: [['CreateTime', '>=', '4/20/2023']],
@@ -77,6 +78,7 @@ const Grid = ({
   hasDetails,
   fetchData,
   onDelete,
+  DetailsComponentFixedHeigh
 }: GridProps) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
@@ -147,8 +149,8 @@ const Grid = ({
         position: 'absolute',
         right: '10px',
         top: '59px',
-        paddingTop:'5px',
-        boxSizing:'border-box',
+        paddingTop: '5px',
+        boxSizing: 'border-box',
         zIndex: '999',
         cursor: 'pointer',
         display: 'flex',
@@ -157,7 +159,7 @@ const Grid = ({
         width: '36px',
         height: '36px',
         backgroundColor: '#D1D5D6',
-        borderRadius:'6px'
+        borderRadius: '6px'
 
       }} onClick={(e) => {
         e.stopPropagation()
@@ -253,7 +255,16 @@ const Grid = ({
 
 
           {DetailsComponent && (
-            <MasterDetail enabled={hasDetails} component={(data) => <div><DetailsComponent data = {data}/></div>} />
+            <MasterDetail
+              enabled={hasDetails}
+              component={
+                (data) => <div style={{
+                  height: DetailsComponentFixedHeigh ? '336px' : 'auto',
+                  overflowY: DetailsComponentFixedHeigh ? 'scroll' : 'visible',
+                }}>
+                  <DetailsComponent data={data} />
+                </div>
+              } />
           )}
 
           {/* <Paging defaultPageSize={12} />

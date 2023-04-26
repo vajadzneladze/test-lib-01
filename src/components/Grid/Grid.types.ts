@@ -8,6 +8,7 @@ export interface GridProps {
   onRowClick?: (e: any) => void;
   style?: React.CSSProperties;
   DetailsComponent?: any;
+  DetailsComponentFixedHeigh?:boolean, 
   hasDetails?: boolean;
   fetchData?: any;
   onDelete?: (e: any) => void;

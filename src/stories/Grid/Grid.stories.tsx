@@ -55,19 +55,21 @@ export default {
 } as ComponentMeta<typeof Grid>;
 
 const GridMasterTemplate2 = ({ data }: any) => {
-  const { Brands } = data.data;
+  const { Brands } = data.data.data;
 
   return (
     <div
       style={{
         width: "80%",
-        height: "300px",
+        margin:'auto',
+        height: "500px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background:'orange',
+        color:'white',
       }}
     >
-
       {Brands}
     </div>
   );
