@@ -55,7 +55,7 @@ export default {
 } as ComponentMeta<typeof Grid>;
 
 const GridMasterTemplate2 = ({ data }: any) => {
-  const { CompanyName } = data.data;
+  const { Brands } = data.data;
 
   return (
     <div
@@ -67,7 +67,8 @@ const GridMasterTemplate2 = ({ data }: any) => {
         alignItems: "center",
       }}
     >
-      {CompanyName}
+
+      {Brands}
     </div>
   );
 };
@@ -235,7 +236,7 @@ Primary.args = {
 
     const data = await response.json();
     return data;
-  },
+  }, 
   onRowClick: (e) => { },
   DetailsComponent: GridMasterTemplate2,
 };

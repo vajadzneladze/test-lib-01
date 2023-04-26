@@ -58,7 +58,7 @@ const datesHeaderFilter = [{
   value: ['CreateTime', '<=', '3/15/2023'],
 }, {
   text: 'Two Week',
-  value: [['CreateTime', '>=', '04-10-2023']],
+  value: [['CreateTime', '>=', '04-10-2023'] ],
 }, {
   text: 'One Month',
   value: [['CreateTime', '>=', '4/20/2023']],
@@ -253,7 +253,7 @@ const Grid = ({
 
 
           {DetailsComponent && (
-            <MasterDetail enabled={hasDetails} component={DetailsComponent} />
+            <MasterDetail enabled={hasDetails} component={(data) => <div><DetailsComponent data = {data}/></div>} />
           )}
 
           {/* <Paging defaultPageSize={12} />

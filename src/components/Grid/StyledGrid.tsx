@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import FilterButton from '../../assets/icons/filter-1.svg';
-import ArrowDown from '../../assets/icons/arrow-down.svg';
 
 export const StyledGridContainer = styled.div`
+
   .dx-datagrid-focus-overlay {
     display: none !important;
   }
@@ -11,7 +11,7 @@ export const StyledGridContainer = styled.div`
     max-width: none !important;
   }
   .dx-datagrid {
-    width: 100%;
+    width: 100%; 
 
     .dx-row {
       height: 55px !important;
@@ -24,7 +24,7 @@ export const StyledGridContainer = styled.div`
         font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
         font-weight: ${({ theme }) => theme.typography.fontWeight.regular};
         line-height: ${({ theme }) => theme.typography.lineHeight.md};
-        font-family: ${({ theme }) => theme.typography.fontFamily};
+        font-family: ${({ theme }) => theme.typography.font.regular};
       }
     }
 
@@ -38,7 +38,8 @@ export const StyledGridContainer = styled.div`
 
 
       td {
-        font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+        /* font-weight: ${({ theme }) => theme.typography.fontWeight.medium}; */
+        font-family: ${({ theme }) => theme.typography.font.medium};
 
         .dx-column-indicators > {
           .dx-sort {

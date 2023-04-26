@@ -24,7 +24,7 @@ const typography = {
     thin: "Helvetica Neue Thin",
     light: "Helvetica Neue Light",
     regular: "Helvetica Neue Regular",
-    medium: "Helvetica Neue Medium" ,
+    medium: "Helvetica Neue Medium",
     bold: "Helvetica Neue Bold",
   },
   fontWeight: {
@@ -257,49 +257,54 @@ export const GlobalStyles = createGlobalStyle`
 
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.ultraLight };
+  font-family: ${({ theme }) => theme.typography.font.ultraLight};
   src: url(${HelveticaUltraLight}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.ultraLight}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.ultraLight}; */
 }
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.thin };
+  font-family: ${({ theme }) => theme.typography.font.thin};
   src: url(${HelveticaThin}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.thin}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.thin}; */
 }
 
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.light };
+  font-family: ${({ theme }) => theme.typography.font.light};
   src: url(${HelveticaLight}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.light}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.light}; */
 }
 
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.regular };
+  font-family: ${({ theme }) => theme.typography.font.regular};
   src: url(${HelveticaRegular}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.regular}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.regular}; */
 }
 
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.medium };
+  font-family: ${({ theme }) => theme.typography.font.medium};
   src: url(${HelveticaMedium}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.medium}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.medium}; */
 }
 
 
 @font-face {
-  font-family: ${ ({ theme }) => theme.typography.font.bold };
+  font-family: ${({ theme }) => theme.typography.font.bold};
   src: url(${HelveticaBold}) format('truetype');
-  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.bold}; */
+  /* font-weight: ${({ theme }) => theme.typography.fontWeight.bold}; */
 }
 
+    * {
+      font-family: ${({ theme }) => theme.typography.font.regular};
+    }
 
-    /* body {
-      background-color: ${({ theme }) => theme.color.steel.grey_00};
-    } */
+
+    .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-text {
+      font-family: ${({ theme }) => theme.typography.font.regular};
+    }
+
 
     body  .bg-for-stories-light {
       background-color: white;
@@ -365,7 +370,7 @@ export const GlobalStyles = createGlobalStyle`
             background-color: #ECE8FE  !important;
           } 
         }
-      }
+      } 
 
 
      
