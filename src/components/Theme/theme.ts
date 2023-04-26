@@ -1,7 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 import PrimaryFontFamily from '../../assets/fonts/bpg_nino_mtavruli_bold.ttf';
-import UpGamingFont from '../../assets/fonts/HelveticaNeueLTGEO45Light.ttf';
+import UpGamingFont from '../../assets/fonts/helvetica_ultraLight.ttf';
+import HelveticaUltraLight from '../../assets/fonts/helvetica_ultraLight.ttf';
+import HelveticaThin from '../../assets/fonts/helvetica_thin.ttf';
+import HelveticaLight from '../../assets/fonts/helvetica_light.ttf';
+import HelveticaRegular from '../../assets/fonts/helvetica_regular.ttf';
+import HelveticaMedium from '../../assets/fonts/helvetica_medium.ttf';
+import HelveticaBold from '../../assets/fonts/helvetica_bold.ttf';
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -13,6 +19,14 @@ declare module "styled-components" {
 
 const typography = {
   fontFamily: "Helvetica Neue",
+  font: {
+    ultraLight: "Helvetica Neue UltraLight",
+    thin: "Helvetica Neue Thin",
+    light: "Helvetica Neue Light",
+    regular: "Helvetica Neue Regular",
+    medium: "Helvetica Neue Medium" ,
+    bold: "Helvetica Neue Bold",
+  },
   fontWeight: {
     ultraLight: "100",
     thin: "200 ",
@@ -242,8 +256,62 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 
-    body {
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.ultraLight };
+  src: url(${HelveticaUltraLight}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.ultraLight}; */
+}
+
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.thin };
+  src: url(${HelveticaThin}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.thin}; */
+}
+
+
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.light };
+  src: url(${HelveticaLight}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.light}; */
+}
+
+
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.regular };
+  src: url(${HelveticaRegular}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.regular}; */
+}
+
+
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.medium };
+  src: url(${HelveticaMedium}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.medium}; */
+}
+
+
+@font-face {
+  font-family: ${ ({ theme }) => theme.typography.font.bold };
+  src: url(${HelveticaBold}) format('truetype');
+  /* font-weight: ${ ({ theme }) => theme.typography.fontWeight.bold}; */
+}
+
+
+    /* body {
       background-color: ${({ theme }) => theme.color.steel.grey_00};
+    } */
+
+    body  .bg-for-stories-light {
+      background-color: white;
+      width:1080px;
+      padding:50px;
+      margin-bottom:80px;
+    }
+
+    body  .bg-for-stories-dark {
+      background-color: #0F1215;
+      width:1080px;
+      padding:50px;
     }
 
     .dx-overlay-wrapper {

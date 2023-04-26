@@ -3,15 +3,61 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button, Icon, Notify, ThemeProvider } from "../../components";
 import { toast } from "react-toastify";
 
+
+
+const withColorScheme = (Story: any, { globals }: any) => {
+
+  let { scheme } = globals;
+
+
+  return (
+    <div>
+      {
+        scheme === 'light' && <ThemeProvider variant='light'>
+          <div className="bg-for-stories-light">
+            <Story />
+          </div>
+        </ThemeProvider>
+      }
+
+      {
+        scheme === 'dark' && <ThemeProvider variant="dark">
+          <div className="bg-for-stories-dark">
+            <Story />
+          </div>
+        </ThemeProvider>
+      }
+
+      {
+        scheme === 'both' &&
+        <>
+          <ThemeProvider variant="light">
+            <div className="bg-for-stories-light">
+              <Story />
+            </div>
+          </ThemeProvider>
+
+          <ThemeProvider variant="dark">
+            <div className="bg-for-stories-dark">
+              <Story />
+            </div>
+          </ThemeProvider>
+        </>
+      }
+
+    </div>
+  )
+}
+
+
 export default {
   title: "UI-COMPONENTS/Button",
+  decorators: [withColorScheme],
   component: Button,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (props) => (
-  <ThemeProvider variant="light">
-    <Button {...props} />
-  </ThemeProvider>
+  <Button {...props} />
 );
 
 export const Primary = Template.bind({});

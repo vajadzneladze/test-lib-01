@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (props) => (
-  <ThemeProvider variant="dark">
+  <ThemeProvider variant="light">
     <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
       <Input {...props} style={{ width: "350px" }} />
       <Input

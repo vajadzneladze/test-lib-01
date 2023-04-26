@@ -3,7 +3,7 @@ import { StyledTextProps, VariantProps } from './Text.types';
 
 export const StyledText = styled.div<StyledTextProps & VariantProps>`
   font-weight: ${({ theme, weight }) => theme.typography.fontWeight[weight || 'regular']};
-  font-family: ${({ theme }) => theme.typography.fontFamily};
+  font-family: ${({ theme, weight }) => theme.typography.font[weight || 'regular']};
   text-align: ${({ theme, align }) => theme.typography.align[align || 'left']};
 
 

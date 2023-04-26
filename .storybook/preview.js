@@ -7,3 +7,16 @@ export const parameters = {
     },
   },
 }
+
+export const globalTypes = {
+  scheme: {
+    name: "Scheme",
+    description : "Color Mode Switcher" ,
+    defaultValue: "both",
+    toolbar: {
+      icon:"mirror",
+      items: ['light', 'dark', 'both'],
+      dynamicTitle:true
+    },
+  }
+}

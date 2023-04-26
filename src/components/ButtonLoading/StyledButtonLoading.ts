@@ -82,7 +82,7 @@ export const ButtonWrap = styled(Button) <StyledButtonLoadingProps>`
 export const LoadingWrapper = styled.div`
     display:flex;
     position:relative;
-    width:60px;
+    width:30px; 
     justify-content:center;
 `;
 

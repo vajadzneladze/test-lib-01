@@ -56,7 +56,25 @@ export const getWidth = (size: StyledButtonProps["size"]) => {
   }
 };
 
+
+
 export const getHeight = (size: StyledButtonProps["size"]) => {
+  switch (size) {
+    case "thiny":
+      return "32px";
+    case "small":
+      return "48px";
+    case "medium":
+      return "56px";
+    case "large":
+      return "64px";
+    default:
+      return "56px";
+  }
+};
+
+
+export const getFonts = (size: StyledButtonProps["size"]) => {
   switch (size) {
     case "thiny":
       return "32px";
@@ -79,6 +97,7 @@ export const getBorderRadius = (
 };
 
 export const StyledButton = styled.button<StyledButtonProps>`
+  font-family: ${ ({ theme }) => theme.typography.font.bold };
   cursor:pointer;
   background-color: ${({ variant, theme }) =>
     getBackgroundColor(variant, theme)};
