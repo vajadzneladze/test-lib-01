@@ -149,6 +149,7 @@ export const lightTheme = {
       warning_80: "#EEC64F",
       warning_100: "#EBB924",
       warning_120: "#C19C25",
+
     },
     surface: {
       surface_backdrop: "rgba(20, 23, 25, 0.5)",
@@ -157,6 +158,9 @@ export const lightTheme = {
       surface_0: "#F9FAFA", // //day steel grey 01
       surface_1: "#FFFFFF", // day / steelgrey 00
       surface_2: "#F9FAFA ", // day steel grey 03
+    },
+    brand: {
+      brand_80: "#7580D9"
     },
     text: {
       primary: "#15181A",
@@ -232,6 +236,9 @@ export const darkTheme = {
       surface_0: "#23282A", // //night steel grey 05
       surface_1: "#31383A ", // night / steelgrey 06
       surface_2: "#F3F5F6 ", // night steel grey 0308
+    },
+    brand: {
+      brand_80: "#808BDC"
     },
     text: {
       primary: "#F9FAFA",

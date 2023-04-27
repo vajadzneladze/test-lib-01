@@ -12,6 +12,7 @@ import CustomStore from "devextreme/data/custom_store";
 import GridDeleteComponent from "./GridDeleteComponent";
 import GridDrag from "../GridDrag/GridDrag";
 import Icon from "../Icon/Icon";
+import { StyledMasterDetails } from "../Modal/StyledModal";
 
 
 const createCustomStore = (
@@ -258,12 +259,12 @@ const Grid = ({
             <MasterDetail
               enabled={hasDetails}
               component={
-                (data) => <div style={{
+                (data) => <StyledMasterDetails style={{
                   height: DetailsComponentFixedHeigh ? '336px' : 'auto',
                   overflowY: DetailsComponentFixedHeigh ? 'scroll' : 'visible',
                 }}>
                   <DetailsComponent data={data} />
-                </div>
+                </StyledMasterDetails>
               } />
           )}
 

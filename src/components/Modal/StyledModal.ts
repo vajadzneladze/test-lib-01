@@ -107,3 +107,25 @@ export const StyledModalBody = styled.div`
     height: 50px;
   }
 `;
+
+export const StyledMasterDetails = styled.div`
+  height: 300px;
+  position: relative;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.color.brand.brand_80};
+    border-radius: ${({ theme }) => theme.size.radius.large};
+    cursor: pointer;
+    height: 50px;
+  }
+`;
+
