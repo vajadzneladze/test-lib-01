@@ -210,7 +210,7 @@ export const darkTheme = {
       positive_20: "#25463E",
       positive_40: "#24604E",
       positive_80: "#269C75",
-      positive_100: "#CEEDE3",
+      positive_100: "#27B989",
       positive_120: "#52C7A0",
 
       negative_05: "#2D2A2C",

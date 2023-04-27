@@ -9,12 +9,12 @@ export const FormToggleWrapper = styled.div<StyledFormToggleProps>`
     disabled
       ? ` background-color: ${
           isActive
-            ? withIcon
+            ? withIcon 
               ? "#D3C8FF"
               : theme.color.semantic.positive_40
             : withIcon
             ? "#E9EBEC"
-            : theme.color.steel.grey_05
+            : theme.color.steel.grey_06
         }  `
       : ` background-color: ${
           isActive
