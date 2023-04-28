@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FilterButton from '../../assets/icons/filter-1.svg';
+import ArrorDownOutlinedSVG from '../../assets/icons/arrow-down-outlined.svg'; 
 
 export const StyledGridContainer = styled.div`
 
@@ -236,6 +237,41 @@ export const StyledGridContainer = styled.div`
             height: fit-content;
             border-radius: 6px;
             color: white;
+          }
+
+          .dx-datagrid-group-closed {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            &::before {
+              content: '';
+              width:13px;
+              height:13px;
+              display:flex;
+              background-image:url(${ArrorDownOutlinedSVG as any});
+              background-repeat: no-repeat;
+              background-position:center;
+              background-size:13px;
+              transition:1s ease;
+              transform:rotate(-90deg)
+            }
+          }
+
+          .dx-datagrid-group-opened {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            &::before {
+              content: '';
+              width:13px;
+              height:13px;
+              display:flex;
+              background-image:url(${ArrorDownOutlinedSVG as any});
+              background-repeat: no-repeat;
+              background-position:center;
+              background-size:13px;
+              transition:1s ease;
+            }
           }
 
           .status-success {
