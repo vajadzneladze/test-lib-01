@@ -264,47 +264,41 @@ export const GlobalStyles = createGlobalStyle`
 
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.ultraLight};
+  font-family: "Helvetica Neue UltraLight";
   src: url(${HelveticaUltraLight}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.ultraLight}; */
 }
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.thin};
+  font-family: "Helvetica Neue Thin";
   src: url(${HelveticaThin}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.thin}; */
 }
 
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.light};
+  font-family: "Helvetica Neue Light";
   src: url(${HelveticaLight}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.light}; */
 }
 
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.regular};
+  font-family: "Helvetica Neue Regular";
   src: url(${HelveticaRegular}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.regular}; */
 }
 
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.medium};
+  font-family: "Helvetica Neue Medium";
   src: url(${HelveticaMedium}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.medium}; */
 }
 
 
 @font-face {
-  font-family: ${({ theme }) => theme.typography.font.bold};
+  font-family:  "Helvetica Neue Bold";
   src: url(${HelveticaBold}) format('truetype');
-  /* font-weight: ${({ theme }) => theme.typography.fontWeight.bold}; */
 }
 
     * {
-      font-family: ${({ theme }) => theme.typography.font.regular};
+      /* font-family: ${({ theme }) => theme.typography.font.regular}; */
     }
 
 
@@ -378,12 +372,6 @@ export const GlobalStyles = createGlobalStyle`
           } 
         }
       } 
-
-
-     
-      .dx-list-item-selected {
-
-      }
     }
 
 `;
