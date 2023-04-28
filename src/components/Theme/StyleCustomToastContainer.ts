@@ -32,7 +32,7 @@ export const CustomToastContainer = styled.div`
                         &:last-child {
 
                             font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
-                            font-family: ${({ theme }) => theme.typography.fontFamily};
+                            font-family: ${({ theme }) => theme.typography.font.helvetica_regular};
                             line-height: ${({ theme }) => theme.typography.lineHeight.sm};
                             font-weight: ${({ theme }) => theme.typography.fontWeight.regular}
                         }
