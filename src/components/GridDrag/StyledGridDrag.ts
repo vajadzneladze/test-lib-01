@@ -67,6 +67,12 @@ export const StyledGridDragContainer = styled.div<any>`
   }
 
   .dx-checkbox {
+ 
+    .dx-checkbox-icon {
+      background: ${({ theme }) => theme.color.steel.grey_01};
+      border: 1px solid ${({ theme }) => theme.color.steel.grey_07}; 
+    }
+
     &.dx-state-hover {
       .dx-checkbox-icon {
         background: ${({ theme }) => theme.color.semantic.positive_20};

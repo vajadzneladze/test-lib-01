@@ -17,6 +17,22 @@ export const StyledGridContainer = styled.div`
     width: auto;
     max-width: none !important;
   }
+
+  .dx-datagrid-pager {
+    background-color: ${({ theme }) => theme.color.steel.grey_00};
+    border-top:0px;
+
+    .dx-page {
+      color:${ ({ theme }) => theme.color.text.primary};
+      font-family: ${ ({ theme }) => theme.typography.font.regular};
+
+      &.dx-selection {
+        background-color:${ ({ theme }) => theme.color.text.primary};
+        color:${ ({ theme }) => theme.color.steel.grey_00};
+        font-family: ${ ({ theme }) => theme.typography.font.regular};
+      }
+    }
+  }
   .dx-datagrid {
     width: 100%; 
 
@@ -155,6 +171,13 @@ export const StyledGridContainer = styled.div`
         }
 
         .dx-checkbox {
+
+          .dx-checkbox-icon {
+              background: ${({ theme }) => theme.color.steel.grey_01};
+              border: 1px solid ${({ theme }) => theme.color.steel.grey_07}; 
+            }
+
+
           &.dx-state-hover {
             .dx-checkbox-icon {
               background: ${({ theme }) => theme.color.semantic.positive_20};
@@ -197,6 +220,8 @@ export const StyledGridContainer = styled.div`
         }
 
         .dx-checkbox-indeterminate {
+
+
           &.dx-state-hover {
             .dx-checkbox-icon {
               background: ${({ theme }) => theme.color.semantic.positive_80};
@@ -258,6 +283,9 @@ export const StyledGridContainer = styled.div`
     .dx-datagrid-rowsview {
       border-top:1px solid ${({ theme }) => theme.color.steel.grey_06};
 
+      .dx-master-detail-cell {
+        background:transparent;
+      }
       .dx-row {
         transition: background-color 0.3s ease-in-out;
         background-color: ${({ theme }) => theme.color.steel.grey_00};
@@ -312,7 +340,10 @@ export const StyledGridContainer = styled.div`
               background-position:center;
               background-size:13px;
               transition:1s ease;
+              margin-left:13px;
+              margin-right:13px;
             }
+          
           }
 
           .dx-datagrid-group-opened {
@@ -329,8 +360,9 @@ export const StyledGridContainer = styled.div`
               background-position:center;
               background-size:13px;
               transition:1s ease;
-              transform:rotate(-180deg)
-
+              transform:rotate(-180deg);
+              margin-left:13px;
+              margin-right:13px;
             }
           }
 

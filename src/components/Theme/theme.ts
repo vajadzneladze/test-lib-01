@@ -14,7 +14,7 @@ declare module "styled-components" {
     typography: any;
     size: any;
     color: any;
-    mode: 'day' | 'night';
+    mode?: any;
   }
 }
 
@@ -99,9 +99,6 @@ const size = {
 
 export const lightTheme = {
   mode:'day',  
-  mode2: {
-    state:'day'
-  },
   typography,
   size,
   color: {
@@ -260,8 +257,6 @@ export const darkTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`
-
-
 
 @font-face {
   font-family: 'Helvetica Neue';
