@@ -14,6 +14,7 @@ declare module "styled-components" {
     typography: any;
     size: any;
     color: any;
+    mode: 'day' | 'night';
   }
 }
 
@@ -97,6 +98,10 @@ const size = {
 };
 
 export const lightTheme = {
+  mode:'day',  
+  mode2: {
+    state:'day'
+  },
   typography,
   size,
   color: {
@@ -173,9 +178,10 @@ export const lightTheme = {
       static_disabled: "rgba(255,255,255,0.6)",
     },
   },
-};
+}; 
 
 export const darkTheme = {
+  mode:'night',
   typography,
   size,
   color: {

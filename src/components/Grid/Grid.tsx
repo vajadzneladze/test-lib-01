@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid, HeaderFilter } from "devextreme-react/data-grid";
-import { StyledGridContainer } from "./StyledGrid";
+import { StyledGridContainer, StyledGridDragShowButton } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
 import {
   Column,
@@ -146,28 +146,12 @@ const Grid = ({
   return (
 
     <div style={{ position: 'relative' }} onClick={() => { if (showDrag) setShowDrag(false) }}>
-      <div className="toggleDrag" style={{
-        position: 'absolute',
-        right: '10px',
-        top: '59px',
-        paddingTop: '5px',
-        boxSizing: 'border-box',
-        zIndex: '999',
-        cursor: 'pointer',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '36px',
-        height: '36px',
-        backgroundColor: '#D1D5D6',
-        borderRadius: '6px'
-
-      }} onClick={(e) => {
+      <StyledGridDragShowButton onClick={(e) => {
         e.stopPropagation()
-        setShowDrag(prev => !prev)
+        setShowDrag(prev => !prev) 
       }}>
         <Icon name='AlignHorizontally' size="md" />
-      </div>
+      </StyledGridDragShowButton>
       {showDrag && <GridDrag columns={cols} selectColumnHandler={setSelectedColumnKeys} onReorder={columnDragHandler} isOpen={true} />}
       <StyledGridContainer style={style}>
         <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} />

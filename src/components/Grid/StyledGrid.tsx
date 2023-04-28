@@ -1,11 +1,17 @@
+
 import styled from "styled-components";
 import FilterButton from '../../assets/icons/filter-1.svg';
-import ArrorDownOutlinedSVG from '../../assets/icons/arrow-down-outlined.svg'; 
+import FilterButtonDark from '../../assets/icons/filter-1-dark.svg';
+import ArrorDownOutlinedSVG from '../../assets/icons/arrow-down-outlined.svg';
 
 export const StyledGridContainer = styled.div`
 
   .dx-datagrid-focus-overlay {
     display: none !important;
+  }
+
+  .dx-datagrid-columns-separator {
+    display:none;
   }
   .dx-widget {
     width: auto;
@@ -15,11 +21,10 @@ export const StyledGridContainer = styled.div`
     width: 100%; 
 
     .dx-row {
-      height: 55px !important;
+      /* height: 55px !important; */
       td {
-        padding: 15px 8px !important;
-        border-left-width: 0px;
-        border-right-width: 0px;
+        /* padding: 15px 8px !important; */
+        border: 0px;
 
         color: ${({ theme }) => theme.color.text.primary};
         font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
@@ -32,33 +37,62 @@ export const StyledGridContainer = styled.div`
     .dx-header-row {
       background-color: ${({ theme }) => theme.color.steel.grey_05};
       border-width: 0px;
-
+      height:50px; 
+      border-left:1px solid ${({ theme }) => theme.color.steel.grey_06};
+      border-right:1px solid ${({ theme }) => theme.color.steel.grey_06};
       .dx-datagrid-text-content {
         width:100%;
       }
 
 
       td {
-        /* font-weight: ${({ theme }) => theme.typography.fontWeight.medium}; */
         font-family: ${({ theme }) => theme.typography.font.medium};
+        padding:0px 8px;
+        vertical-align: middle;
+        transition:200ms;
+        &:active {
+          background: ${({ theme }) => theme.color.steel.grey_06};
+        }
 
+        &.dx-command-select {
+          &:active {
+            background: transparent;
+            box-shadow: none;
+          }
+        }
         .dx-column-indicators > {
           .dx-sort {
             opacity: 0 !important;
           }
+        } 
+        .dx-column-indicators {
+          height:16px;
+          overflow:hidden;
+        }
+        &.dx-datagrid-group-space {
+          &:active {
+            background: transparent;
+            box-shadow: none;
+          }
+          padding-top:0px;
+        } 
+
+        .dx-header-filter-empty::after {
+          display:none
         }
 
-
         .dx-header-filter::before {
-          content : '';
+          content : '';   
           width: 15px;
           height: 15px;
-          transform:translateY(3px);
-          background-size:15px;
-          background-image: url(  ${FilterButton as any} );
+          background-size:14px;
+          background-image: url(  ${({ theme }) => theme.mode === 'day' ? FilterButton as {} : FilterButtonDark as {}} );
           background-repeat: no-repeat;
           background-position: center;
           display:block;
+          line-height:7px;
+          font-size:14px;
+          transform:translateY(2px)
         }
 
 
@@ -222,12 +256,37 @@ export const StyledGridContainer = styled.div`
     }
 
     .dx-datagrid-rowsview {
+      border-top:1px solid ${({ theme }) => theme.color.steel.grey_06};
+
       .dx-row {
         transition: background-color 0.3s ease-in-out;
         background-color: ${({ theme }) => theme.color.steel.grey_00};
-        border-bottom: 1px solid ${({ theme }) => theme.color.steel.grey_06};
+        border-bottom: 1px solid ${({ theme }) => theme.color.steel.grey_06} !important;
+        border-top:0px;
+        height:50px;
+        
+        &.dx-selection {
+
+
+          td {
+            color: ${({ theme }) => theme.color.text.primary} !important;
+            border-color: ${({ theme }) => theme.color.steel.grey_06} !important;
+            border-bottom:0px;
+            border-top:0px;
+            background-color: ${({ theme }) => theme.mode === 'day' ? '#E7FAFF' : '#23353A'} !important;
+
+          }
+        }
+
 
         td {
+
+          vertical-align: middle;
+
+          &.dx-datagrid-group-space  {
+            padding-top:0px;
+          }
+
           .status-success,
           .status-warning,
           .status-error,
@@ -253,7 +312,6 @@ export const StyledGridContainer = styled.div`
               background-position:center;
               background-size:13px;
               transition:1s ease;
-              transform:rotate(-90deg)
             }
           }
 
@@ -271,6 +329,8 @@ export const StyledGridContainer = styled.div`
               background-position:center;
               background-size:13px;
               transition:1s ease;
+              transform:rotate(-180deg)
+
             }
           }
 
@@ -343,15 +403,7 @@ export const StyledGridContainer = styled.div`
         &:hover {
           background-color: ${({ theme }) => theme.color.steel.grey_02};
         }
-
-        &.dx-selection {
-          td {
-            background-color: #e7faff !important;
-            color: ${({ theme }) => theme.color.text.primary} !important;
-            border-color: ${({ theme }) =>
-    theme.color.steel.grey_06} !important;
-          }
-        }
+     
       }
     }
   }
@@ -373,6 +425,30 @@ export const StyledGridDeleteSection = styled.div`
     height: auto;
     path {
       fill: ${({ theme }) => theme.color.semantic.negative_100}
+    }
+  }
+`;
+
+export const StyledGridDragShowButton = styled.div`
+  position:absolute;
+  right:10px;
+  top: 56px;
+  padding-top:5px;
+  box-sizing:border-box;
+  z-index:999;
+  cursor:pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:36px;
+  height:36px;
+  background-color: ${({ theme }) => theme.color.steel.grey_07};
+  border-radius: ${({ theme }) => theme.size.radius.large};
+
+  svg {
+    path {
+      stroke:${({ theme }) => theme.color.text.primary};
+
     }
   }
 `;
