@@ -438,6 +438,22 @@ export const StyledGridContainer = styled.div`
      
       }
     }
+
+
+    .dx-loadpanel {
+      
+      .dx-loadpanel-content {
+        background-color:${ ({ theme }) => theme.color.steel.grey_00} !important;
+        border-color: ${ ({ theme }) => theme.color.steel.grey_06} !important;
+
+        .dx-loadpanel-message {
+          font-family: ${ ({ theme }) => theme.typography.font.regular} !important;
+          color: ${ ({ theme }) => theme.color.text.primary} !important;
+          font-size: ${ ({ theme  }) => theme.typography.fontSize.fs_12};
+          line-height: ${ ({ theme }) => theme.typography.lineHeight.md}
+        }
+      }
+    }
   }
 `;
 

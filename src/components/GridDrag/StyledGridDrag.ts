@@ -31,6 +31,8 @@ export const StyledGridDragContainer = styled.div<any>`
 
     .dx-datagrid-rowsview {
       .dx-row {
+        height: 40px !important;
+
         td > div {
           color: ${({ theme  }) => theme.color.text.primary};
         }
