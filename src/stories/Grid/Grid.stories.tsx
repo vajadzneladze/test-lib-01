@@ -97,7 +97,7 @@ const dataColumns = [
       "anyof",
       "noneof",
     ],
-    allowFiltering: false,
+    allowFiltering: true,
   },
   {
     dataField: "Name",

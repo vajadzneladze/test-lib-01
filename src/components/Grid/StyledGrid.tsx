@@ -36,6 +36,9 @@ export const StyledGridContainer = styled.div`
   .dx-datagrid {
     width: 100%; 
 
+    .dx-error-row {
+      display:none;
+    }
     .dx-row {
       /* height: 55px !important; */
       td {

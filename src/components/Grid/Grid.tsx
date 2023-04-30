@@ -158,8 +158,8 @@ const Grid = ({
         <DataGrid
           dataSource={dataSource as CustomStore<any, any>}
           remoteOperations={true}
-          columnAutoWidth={false}   
-          selection={{ mode: selectMode }}
+          columnAutoWidth={false}     
+          selection={{ mode: selectedColumnKeys && selectedColumnKeys.length > 0  ? selectMode : 'single' }}
           selectedRowKeys={selectedRowKeys}
           onSelectionChanged={(e) => setSelectedRowKeys(e.selectedRowKeys)}
           allowColumnReordering={false}
