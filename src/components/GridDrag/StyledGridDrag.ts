@@ -14,7 +14,7 @@ export const StyledGridDragContainer = styled.div<any>`
     overflow: hidden;
     padding-top: 10px;
     padding-bottom: 10px;
-    box-shadow: 0px 0px 4px #C6C6C6;
+    box-shadow: 0px 0px 4px #c6c6c6;
     background: ${({ theme }) => theme.color.surface.surface_1};
     /* border:1px solid ${({ theme }) => theme.color.steel.grey_01}; */
 
@@ -34,16 +34,30 @@ export const StyledGridDragContainer = styled.div<any>`
         height: 40px !important;
 
         td > div {
-          color: ${({ theme  }) => theme.color.text.primary};
+          color: ${({ theme }) => theme.color.text.primary};
         }
 
         td {
-          font-family: ${({ theme }) => theme.typography.font.regular };
-          font-size: ${ ({ theme }) => theme.typography.fontSize.fs_12};
-          line-height:  ${ ({ theme }) => theme.typography.lineHeight.large };
+          font-family: ${({ theme }) => theme.typography.font.regular};
+          font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+          line-height: ${({ theme }) => theme.typography.lineHeight.large};
+          color: ${({ theme }) => theme.color.text.disabled};
+
           .dx-datagrid-drag-icon {
             &::before {
-              color: ${({ theme }) => theme.color.text.primary}
+              color: ${({ theme }) => theme.color.text.disabled};
+            }
+          }
+        }   
+  
+        &.dx-selection {
+          td {
+            color: ${({ theme }) => theme.color.text.primary};
+
+            .dx-datagrid-drag-icon {
+              &::before {
+                color: ${({ theme }) => theme.color.text.primary};
+              }
             }
           }
         }
