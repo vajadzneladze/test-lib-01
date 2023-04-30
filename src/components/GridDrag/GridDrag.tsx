@@ -50,9 +50,7 @@ const GridDrag = ({ columns, selectColumnHandler, onReorder, isOpen }: GridDragP
                     />
                     <Sorting mode="none" />
                     <Scrolling mode="virtual" />
-                    <Column dataField="dataField" cellRender={
-                        (data: any) => <Text text={data.value} variant='p3' />
-                    } />
+                    <Column dataField="dataField"  />
 
                 </DataGrid>
             </StyledGridDragContainer>}

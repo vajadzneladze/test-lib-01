@@ -14,7 +14,9 @@ export const StyledGridDragContainer = styled.div<any>`
     overflow: hidden;
     padding-top: 10px;
     padding-bottom: 10px;
-    box-shadow: 0px 0px 4px 1px lightgray;
+    box-shadow: 0px 0px 4px #C6C6C6;
+    background: ${({ theme }) => theme.color.surface.surface_1};
+    /* border:1px solid ${({ theme }) => theme.color.steel.grey_01}; */
 
     .dx-data-row {
       height: 40px;
@@ -28,6 +30,23 @@ export const StyledGridDragContainer = styled.div<any>`
     }
 
     .dx-datagrid-rowsview {
+      .dx-row {
+        td > div {
+          color: ${({ theme  }) => theme.color.text.primary};
+        }
+
+        td {
+          font-family: ${({ theme }) => theme.typography.font.regular };
+          font-size: ${ ({ theme }) => theme.typography.fontSize.fs_12};
+          line-height:  ${ ({ theme }) => theme.typography.lineHeight.large };
+          .dx-datagrid-drag-icon {
+            &::before {
+              color: ${({ theme }) => theme.color.text.primary}
+            }
+          }
+        }
+      }
+
       .dx-command-select {
         text-align: left !important;
         /* transform:translateX(-28px); */
@@ -67,10 +86,9 @@ export const StyledGridDragContainer = styled.div<any>`
   }
 
   .dx-checkbox {
- 
     .dx-checkbox-icon {
       background: ${({ theme }) => theme.color.steel.grey_01};
-      border: 1px solid ${({ theme }) => theme.color.steel.grey_07}; 
+      border: 1px solid ${({ theme }) => theme.color.steel.grey_07};
     }
 
     &.dx-state-hover {
