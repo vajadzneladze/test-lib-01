@@ -17,13 +17,13 @@ export const getWidth = (size: ModalSizes) => {
 export const getPadding = (size: ModalSizes) => {
   switch (size) {
     case "sm":
-      return "s_6";
+      return "s_7";
     case "md":
-      return "s_4";
+      return "s_7";
     case "lg":
-      return "s_4";
+      return "s_7";
     default:
-      return "s_4";
+      return "s_7";
   }
 };
 
@@ -74,7 +74,7 @@ export const StyledModalHeader = styled.h2`
   font-size: ${({ theme }) => theme.typography.fontSize.fs_24};
   line-height: ${({ theme }) => theme.typography.lineHeight.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  font-family: ${({ theme }) => theme.typography.fontFamily};
+  font-family: ${({ theme }) => theme.typography.font.bold};
   color: ${({ theme }) => theme.color.text.primary};
   margin-bottom: ${({ theme }) => theme.size.s_4};
   margin-top: 0px;
