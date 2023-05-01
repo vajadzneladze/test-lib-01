@@ -1,15 +1,14 @@
 import React, { forwardRef, ForwardedRef } from "react";
-import { TextBox, TreeView } from "devextreme-react";
+import { TextBox } from "devextreme-react";
 import { InputProps } from "./Input.types";
-import { InputContainer, InputDescrpition, InputIcon } from "./StyledInput";
-import Text from "../Text/Text";
+import { InputContainer, InputDescription } from "./StyledInput";
 import Icon from "../Icon";
 
 const defaultProps: InputProps = {
   label: "",
   value: "",
   onChange: () => {},
-  icon: "",
+  icon: "InfoCircleOutlined",
   description: "",
   size: "sm",
   type: "text",
@@ -64,11 +63,9 @@ const Input = forwardRef(
         </InputContainer>
 
         {description && (
-          <InputDescrpition status={disabled ? "disabled" : status}>
-            <Text variant="p3" weight="regular">
+          <InputDescription status={disabled ? "disabled" : status} size = { size }>
               {description}
-            </Text>
-          </InputDescrpition>
+          </InputDescription>
         )}
       </div>
     );

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const SvgFilter1 = (props: SVGProps<SVGSVGElement>) => (
+const SvgFilter1Dark = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -10,7 +10,7 @@ const SvgFilter1 = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      stroke="#566063"
+      stroke="#A5AAAC"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={10}
@@ -19,4 +19,4 @@ const SvgFilter1 = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default SvgFilter1;
+export default SvgFilter1Dark;
