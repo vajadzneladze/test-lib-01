@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DataGrid, HeaderFilter } from "devextreme-react/data-grid";
-import { StyledGridContainer, StyledGridDragShowButton } from "./StyledGrid";
+import { StyledGridContainer, StyledGridDialogContainer, StyledGridDragShowButton } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
 import {
   Column,
@@ -69,6 +69,42 @@ const datesHeaderFilter = [{
   value: [['CreateTime', '>=', '4/20/2023']],
 }];
 
+
+export const DialogButton = (data: any) => {
+
+  const dialRef = useRef<HTMLDialogElement>(null);
+
+  const clickHandler = (e: any) => {
+
+    e.stopPropagation();
+
+    document.querySelectorAll('dialog')?.forEach((item: any) => {
+      item.close()
+    });
+    dialRef.current?.show()
+
+    console.log(dialRef.current?.getBoundingClientRect());
+  }
+
+  return (
+    <StyledGridDialogContainer>
+      <div onClick={clickHandler} className="more-btn"> <Icon name="MoreOutlined" /> </div>
+      <dialog ref={dialRef} onClick={(e: any) => {
+        e.stopPropagation();
+        dialRef.current?.close()
+      }}>
+        <ul>
+          <li className='more-action-edit'>
+            <Icon name="EditOutlined" />   Edit
+          </li>
+          <li className="more-action-delete">
+            <Icon name="TrashOutlined" />   Delete
+          </li>
+        </ul>
+      </dialog>
+    </StyledGridDialogContainer>
+  )
+}
 const Grid = ({
   selectMode,
   primaryField,
@@ -148,7 +184,7 @@ const Grid = ({
     <div style={{ position: 'relative' }} onClick={() => { if (showDrag) setShowDrag(false) }}>
       <StyledGridDragShowButton onClick={(e) => {
         e.stopPropagation()
-        setShowDrag(prev => !prev) 
+        setShowDrag(prev => !prev)
       }}>
         <Icon name='AlignHorizontally' size="md" />
       </StyledGridDragShowButton>
@@ -158,8 +194,8 @@ const Grid = ({
         <DataGrid
           dataSource={dataSource as CustomStore<any, any>}
           remoteOperations={true}
-          columnAutoWidth={false}     
-          selection={{ mode: selectedColumnKeys && selectedColumnKeys.length > 0  ? selectMode : 'single' }}
+          columnAutoWidth={false}
+          selection={{ mode: selectedColumnKeys && selectedColumnKeys.length > 0 ? selectMode : 'single' }}
           selectedRowKeys={selectedRowKeys}
           onSelectionChanged={(e) => setSelectedRowKeys(e.selectedRowKeys)}
           allowColumnReordering={false}
@@ -189,12 +225,12 @@ const Grid = ({
 
               return (
                 <Column
-                  // width={item.width || "auto"} 
+                  width={item.width || "auto"}
                   key={item.dataField}
                   dataField={item.dataField}
                   caption={item.dataField === 'Action' ? '' : item.caption}
                   dataType={item.dataType}
-                  cellRender={item.renderColumn}
+                  cellRender={item.dataField === 'Action' ? (data: any) => <DialogButton /> : item.renderColumn}
                   headerCellRender={item.renderHeader}
                   allowFiltering={item.allowFiltering}
                   allowSorting={item.allowSorting}
@@ -211,6 +247,22 @@ const Grid = ({
                 </Column>
               );
             })}
+
+
+
+          <Column
+            width={'36px'}
+            key={'more-action'}
+            caption=""
+            cellRender={(data: any) => <DialogButton primaryField={primaryField}  {...data.data} />}
+            allowFiltering={false}
+            allowSorting={false}
+            alignment={"left"}
+            fixed={true}
+            visible={true}
+          >
+
+          </Column>
 
 
           {/* 

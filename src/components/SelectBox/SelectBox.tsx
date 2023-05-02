@@ -17,7 +17,7 @@ export const dummyData = [
 const defaultProps: SelectBoxProps = {
   label: "Select",
   value: 2,
-  onChange: () => {},
+  onChange: () => { },
   description: "",
   size: "sm",
   disabled: false,
@@ -61,9 +61,8 @@ const SelectBox = ({
 
   const renderDropdownButton = (e: any) => {
     return (
-      <div className="dx-dropdown-button-content">
-        <span></span>
-        <Icon name={isOpen ? "ArrowUp" : "ArrowDown"} />
+      <div className="dx-dropdown-button-content ">
+        <Icon name={isOpen ? "ArrowUpOutlined" : "ArrowDownOutlined"} />
       </div>
     );
   };

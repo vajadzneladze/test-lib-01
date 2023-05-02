@@ -17,4 +17,4 @@ export interface SelectBoxProps {
   
   
   export type status = 'success' | 'error' | undefined;
-  export type size = 'sm' | 'md' | undefined;
+  export type size = 'xs' | 'sm' | 'md' | 'lg' | undefined;

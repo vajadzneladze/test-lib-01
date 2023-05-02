@@ -13,9 +13,17 @@ export const StyledGridContainer = styled.div`
   .dx-datagrid-columns-separator {
     display:none;
   }
-  .dx-widget {
+  .dx-widget {  
     width: auto;
     max-width: none !important;
+  }
+
+  .dx-data-row {
+    &:last-child {
+      dialog {
+        transform: translateX(-225px) translateY(-90px) !important;
+      }
+    }
   }
 
   .dx-datagrid-pager {
@@ -502,4 +510,80 @@ export const StyledGridDragShowButton = styled.div`
 
     }
   }
+`;
+
+export const StyledGridDialogContainer  = styled.div`
+
+  .more-btn {
+    cursor:pointer;
+    text-align:center;
+
+    svg {
+
+      path {
+        stroke: ${({ theme }) => theme.color.text.primary}
+      }
+    }
+  }
+
+  dialog {
+    margin-left:100%;
+    transform: translateX(-225px);
+    padding:0px;
+
+    width:180px;
+    min-height:72px;
+
+    background-color: ${ ({ theme }) => theme.color.surface.surface_1};
+    box-shadow: 0px 0px 4px #C6C6C6;
+    border:0px;
+    border-radius: ${({ theme }) => theme.size.radius.large};
+
+    padding:8px;
+
+
+   
+
+    ul {
+      list-style-type:none;
+      display:flex;
+      flex-direction: column;
+      gap:13px;
+      padding:0px;
+      margin:0px;
+
+      li {
+        display:flex;
+        gap:9px;
+        cursor:pointer;
+
+        font-family: ${({ theme }) => theme.typography.font.regular};
+        font-size: ${({ theme }) => theme.typography.fontSize.fs_12px};
+        line-height: ${({ theme  }) => theme.typography.lineHeight.md};
+        color : ${ ({ theme }) => theme.color.text.primary}; 
+      
+
+        svg {
+
+          path {
+            stroke :${ ({ theme }) => theme.color.text.primary}; 
+          }
+        }
+        
+        &.more-action-delete {
+          color : ${({ theme}) =>theme.color.semantic.negative_100};
+
+          svg {
+            width:16px;
+            vertical-align: middle;
+
+            path {
+              stroke : ${({ theme}) =>theme.color.semantic.negative_100};
+            }
+          }
+        }
+      }
+    }
+  }
+
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FormToggle, ThemeProvider } from "../../components";
 import Grid from "../../components/Grid/Grid";
@@ -61,13 +61,13 @@ const GridMasterTemplate2 = ({ data }: any) => {
     <div
       style={{
         width: "80%",
-        margin:'auto',
+        margin: 'auto',
         height: "500px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background:'orange',
-        color:'white',
+        background: 'orange',
+        color: 'white',
       }}
     >
       {Brands}
@@ -162,7 +162,7 @@ const dataColumns = [
       "<",
       ">",
       "<=",
-      ">=",
+      ">=", 
       "between",
       "isblank",
       "isnotblank",
@@ -205,13 +205,13 @@ const dataColumns = [
     ],
     allowFiltering: false,
   },
-  {
-    dataField: "Action",
-    caption: 'Action',
-    allowFiltering: false,
-    allowSorting: false,
-    show: true
-  },
+  // {
+  //   dataField: "Action",
+  //   caption: 'Action',
+  //   allowFiltering: false, 
+  //   allowSorting: false,
+  //   show: true
+  // },
 ];
 
 export const Primary = Template.bind({});
@@ -238,7 +238,7 @@ Primary.args = {
 
     const data = await response.json();
     return data;
-  }, 
+  },
   onRowClick: (e) => { },
   DetailsComponent: GridMasterTemplate2,
 };
