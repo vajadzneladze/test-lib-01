@@ -159,7 +159,6 @@ export const SelectBoxContainer = styled.div<StyledSelectBoxProps>`
       
       width:auto;
 
-      background:green;
 
       .dx-icon-clear {
 
@@ -175,7 +174,6 @@ export const SelectBoxContainer = styled.div<StyledSelectBoxProps>`
         width:auto;
         height:auto;
 
-        background:red;
         &::before {
           content:"";
           display:block;

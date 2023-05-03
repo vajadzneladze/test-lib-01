@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { memo } from "react";
 import { IconProps } from "./Icon.types";
 import { IconContainer } from "./StyledIcon";
 import * as Icons from "../Icons";
@@ -33,4 +33,4 @@ const Icon = ({ name, color, size, ...props }: IconProps) => {
   );
 };
 
-export default Icon;
+export default memo(Icon);

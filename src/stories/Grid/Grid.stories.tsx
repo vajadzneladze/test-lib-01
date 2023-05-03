@@ -162,7 +162,7 @@ const dataColumns = [
       "<",
       ">",
       "<=",
-      ">=", 
+      ">=",
       "between",
       "isblank",
       "isnotblank",
@@ -205,13 +205,6 @@ const dataColumns = [
     ],
     allowFiltering: false,
   },
-  // {
-  //   dataField: "Action",
-  //   caption: 'Action',
-  //   allowFiltering: false, 
-  //   allowSorting: false,
-  //   show: true
-  // },
 ];
 
 export const Primary = Template.bind({});
@@ -241,6 +234,7 @@ Primary.args = {
   },
   onRowClick: (e) => { },
   DetailsComponent: GridMasterTemplate2,
+  actionHandler: (action, data) => console.log(action, data)
 };
 
 

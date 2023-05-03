@@ -483,7 +483,7 @@ export const StyledGridDeleteSection = styled.div`
     width: auto;
     height: auto;
     path {
-      fill: ${({ theme }) => theme.color.semantic.negative_100}
+      stroke: ${({ theme }) => theme.color.semantic.negative_100}
     }
   }
 `;
@@ -528,8 +528,8 @@ export const StyledGridDialogContainer  = styled.div`
 
   dialog {
     margin-left:100%;
-    transform: translateX(-225px);
-    padding:0px;
+    transform: translateX(-169px);
+    /* padding:0px;
 
     width:180px;
     min-height:72px;
@@ -583,7 +583,7 @@ export const StyledGridDialogContainer  = styled.div`
           }
         }
       }
-    }
+    } */
   }
 
 `;

@@ -18,7 +18,7 @@ const GridDeleteComponent = ({ selectedRowKeys, handleDeleteRows }: GridDeleteCo
             }}
         >
             <div onClick={() => handleDeleteRows(selectedRowKeys)}>
-                <Icon name="Trash" />
+                <Icon name="TrashOutlined" />
             </div>
             <Text
                 text={`Delete ${selectedRowKeys.length} Checked Item`}

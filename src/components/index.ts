@@ -14,3 +14,4 @@ export { default as Tree } from './Tree';
 export { default as SelectBox } from './SelectBox';
 export { default as Grid } from './Grid';
 export { default as GridDrag } from './GridDrag';
+export { default as Settings } from './Settings';

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { SelectBox as DxSelectBox } from "devextreme-react";
+import { SelectBox as DxSelectBox, MultiView } from "devextreme-react";
 import Icon from "../Icon";
 import { InputContainer } from "../Input/StyledInput";
 import { InputDescrpition, SelectBoxContainer } from "./StyledSelectBox";
@@ -42,7 +42,7 @@ const SelectBox = ({
     setIsOpen(true);
   };
 
-  const [selectedValues, setSelectedValues] = React.useState(value);
+  const [selectedValues, setSelectedValues] = React.useState([value]);
 
   const handleDropdownClose = () => {
     setIsOpen(false);
@@ -94,6 +94,8 @@ const SelectBox = ({
         <DxSelectBox
           dataSource={data}
           valueExpr="id"
+          showDropDownButton={true}
+          showSelectionControls={true}
           disabled={disabled}
           displayExpr="name"
           searchEnabled={true}
@@ -102,7 +104,7 @@ const SelectBox = ({
           labelMode="floating"
           label={label}
           value={selectedValues}
-          showClearButton={true}
+          showClearButton={true} 
           //   searchTimeout={100}
           onValueChanged={onValueChanged}
           //   searchPlaceholder="Search..."
@@ -112,7 +114,7 @@ const SelectBox = ({
           dropDownButtonRender={renderDropdownButton}
           itemRender={renderOption}
           {...props}
-        />
+          />
       </SelectBoxContainer>
 
       {description && (

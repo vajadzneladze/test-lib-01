@@ -13,6 +13,7 @@ import GridDeleteComponent from "./GridDeleteComponent";
 import GridDrag from "../GridDrag/GridDrag";
 import Icon from "../Icon/Icon";
 import { StyledMasterDetails } from "../Modal/StyledModal";
+import Settings from "../Settings/Settings";
 
 
 const createCustomStore = (
@@ -33,6 +34,8 @@ const createCustomStore = (
       };
     },
     remove: async (key) => {
+
+      console.log(key, 'asfasfasf');
       // const data = await deleteHandler(key);
     }
   });
@@ -50,6 +53,7 @@ const defaultProps: GridProps = {
   hasDetails: false,
   fetchData: () => { },
   onDelete: () => { },
+  actionHandler: () => { },
   DetailsComponentFixedHeigh: false
 };
 
@@ -72,36 +76,37 @@ const datesHeaderFilter = [{
 
 export const DialogButton = (data: any) => {
 
-  const dialRef = useRef<HTMLDialogElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const clickHandler = (e: any) => {
 
     e.stopPropagation();
+    setIsOpen(prev => !prev);
+  }
 
-    document.querySelectorAll('dialog')?.forEach((item: any) => {
-      item.close()
-    });
-    dialRef.current?.show()
 
-    console.log(dialRef.current?.getBoundingClientRect());
+  const actionClickHandler = (action: any,) => {
+    data.chooseActionHandler(action)
   }
 
   return (
     <StyledGridDialogContainer>
       <div onClick={clickHandler} className="more-btn"> <Icon name="MoreOutlined" /> </div>
-      <dialog ref={dialRef} onClick={(e: any) => {
-        e.stopPropagation();
-        dialRef.current?.close()
-      }}>
-        <ul>
-          <li className='more-action-edit'>
-            <Icon name="EditOutlined" />   Edit
-          </li>
-          <li className="more-action-delete">
-            <Icon name="TrashOutlined" />   Delete
-          </li>
-        </ul>
-      </dialog>
+      <Settings actionList={[
+        {
+          icon: 'EditOutlined',
+          label: 'Edit',
+          action: 'edit'
+        },
+        {
+          icon: 'TrashOutlined',
+          label: 'Delete',
+          action: 'delete'
+        }
+      ]
+      }
+        isOpen={isOpen}
+        clickHandler={actionClickHandler} />
     </StyledGridDialogContainer>
   )
 }
@@ -115,6 +120,7 @@ const Grid = ({
   hasDetails,
   fetchData,
   onDelete,
+  actionHandler,
   DetailsComponentFixedHeigh
 }: GridProps) => {
 
@@ -230,7 +236,7 @@ const Grid = ({
                   dataField={item.dataField}
                   caption={item.dataField === 'Action' ? '' : item.caption}
                   dataType={item.dataType}
-                  cellRender={item.dataField === 'Action' ? (data: any) => <DialogButton /> : item.renderColumn}
+                  cellRender={item.renderColumn}
                   headerCellRender={item.renderHeader}
                   allowFiltering={item.allowFiltering}
                   allowSorting={item.allowSorting}
@@ -254,7 +260,7 @@ const Grid = ({
             width={'36px'}
             key={'more-action'}
             caption=""
-            cellRender={(data: any) => <DialogButton primaryField={primaryField}  {...data.data} />}
+            cellRender={(data: any) => <DialogButton chooseActionHandler={actionHandler ? (action: any) => actionHandler(action, data.data) : () => { }}  {...data.data} />}
             allowFiltering={false}
             allowSorting={false}
             alignment={"left"}
