@@ -207,6 +207,7 @@ export { default as ChartSuccess } from "./ChartSuccess";
 export { default as Chart } from "./Chart";
 export { default as Check } from "./Check";
 export { default as Chrome } from "./Chrome";
+export { default as CircleLoading } from "./CircleLoading";
 export { default as ClipboardClose } from "./ClipboardClose";
 export { default as ClipboardExport } from "./ClipboardExport";
 export { default as ClipboardImport } from "./ClipboardImport";

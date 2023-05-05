@@ -31,13 +31,13 @@ export const StyledGridContainer = styled.div`
     border-top:0px;
 
     .dx-page {
-      color:${ ({ theme }) => theme.color.text.primary};
-      font-family: ${ ({ theme }) => theme.typography.font.regular};
+      color:${({ theme }) => theme.color.text.primary};
+      font-family: ${({ theme }) => theme.typography.font.regular};
 
       &.dx-selection {
-        background-color:${ ({ theme }) => theme.color.text.primary};
-        color:${ ({ theme }) => theme.color.steel.grey_00};
-        font-family: ${ ({ theme }) => theme.typography.font.regular};
+        background-color:${({ theme }) => theme.color.text.primary};
+        color:${({ theme }) => theme.color.steel.grey_00};
+        font-family: ${({ theme }) => theme.typography.font.regular};
       }
     }
   }
@@ -281,7 +281,7 @@ export const StyledGridContainer = styled.div`
         font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
         font-weight: ${({ theme }) => theme.typography.fontWeight.regular};
         line-height: ${({ theme }) => theme.typography.lineHeight.md};
-        font-family: ${({ theme }) => theme.typography.fontFamily};
+        font-family: ${({ theme }) => theme.typography.font.regular}; 
         box-sizing: border-box;
         padding-top: 10px;
       }
@@ -293,6 +293,17 @@ export const StyledGridContainer = styled.div`
 
     .dx-datagrid-rowsview {
       border-top:1px solid ${({ theme }) => theme.color.steel.grey_06};
+
+      .dx-datagrid-nodata {
+        color: ${({ theme }) => theme.color.text.primary};
+        font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+        font-weight: ${({ theme }) => theme.typography.fontWeight.regular};
+        line-height: ${({ theme }) => theme.typography.lineHeight.md};
+        font-family: ${({ theme }) => theme.typography.font.regular}; 
+      }
+      .dx-datagrid-content {
+        background-color: ${({ theme }) => theme.color.steel.grey_00};
+      }
 
       .dx-master-detail-cell {
         background:transparent;
@@ -454,14 +465,14 @@ export const StyledGridContainer = styled.div`
     .dx-loadpanel {
       
       .dx-loadpanel-content {
-        background-color:${ ({ theme }) => theme.color.steel.grey_00} !important;
-        border-color: ${ ({ theme }) => theme.color.steel.grey_06} !important;
+        background-color:${({ theme }) => theme.color.steel.grey_00} !important;
+        border-color: ${({ theme }) => theme.color.steel.grey_06} !important;
 
         .dx-loadpanel-message {
-          font-family: ${ ({ theme }) => theme.typography.font.regular} !important;
-          color: ${ ({ theme }) => theme.color.text.primary} !important;
-          font-size: ${ ({ theme  }) => theme.typography.fontSize.fs_12};
-          line-height: ${ ({ theme }) => theme.typography.lineHeight.md}
+          font-family: ${({ theme }) => theme.typography.font.regular} !important;
+          color: ${({ theme }) => theme.color.text.primary} !important;
+          font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+          line-height: ${({ theme }) => theme.typography.lineHeight.md}
         }
       }
     }
@@ -494,7 +505,7 @@ export const StyledGridDragShowButton = styled.div`
   top: 56px;
   padding-top:5px;
   box-sizing:border-box;
-  z-index:999;
+  z-index:9999;
   cursor:pointer;
   display:flex;
   justify-content: center;
@@ -512,7 +523,7 @@ export const StyledGridDragShowButton = styled.div`
   }
 `;
 
-export const StyledGridDialogContainer  = styled.div`
+export const StyledGridDialogContainer = styled.div`
 
   .more-btn {
     cursor:pointer;
@@ -526,15 +537,30 @@ export const StyledGridDialogContainer  = styled.div`
     }
   }
 
-  dialog {
+  dialog { 
     margin-left:100%;
     transform: translateX(-169px);
+
+    &[open] {
+        animation: dialog-open 200ms ease normal forwards;
+      }
+
+    @keyframes dialog-open{
+        from {
+          transform: translateX(-100px) scale(0);
+
+        }
+        to { 
+          transform: translateX(-169px) scale(1);
+
+        }
+    }
     /* padding:0px;
 
     width:180px;
     min-height:72px;
 
-    background-color: ${ ({ theme }) => theme.color.surface.surface_1};
+    background-color: ${({ theme }) => theme.color.surface.surface_1};
     box-shadow: 0px 0px 4px #C6C6C6;
     border:0px;
     border-radius: ${({ theme }) => theme.size.radius.large};
@@ -559,26 +585,26 @@ export const StyledGridDialogContainer  = styled.div`
 
         font-family: ${({ theme }) => theme.typography.font.regular};
         font-size: ${({ theme }) => theme.typography.fontSize.fs_12px};
-        line-height: ${({ theme  }) => theme.typography.lineHeight.md};
-        color : ${ ({ theme }) => theme.color.text.primary}; 
+        line-height: ${({ theme }) => theme.typography.lineHeight.md};
+        color : ${({ theme }) => theme.color.text.primary}; 
       
 
         svg {
 
           path {
-            stroke :${ ({ theme }) => theme.color.text.primary}; 
+            stroke :${({ theme }) => theme.color.text.primary}; 
           }
         }
         
         &.more-action-delete {
-          color : ${({ theme}) =>theme.color.semantic.negative_100};
+          color : ${({ theme }) => theme.color.semantic.negative_100};
 
           svg {
             width:16px;
             vertical-align: middle;
 
             path {
-              stroke : ${({ theme}) =>theme.color.semantic.negative_100};
+              stroke : ${({ theme }) => theme.color.semantic.negative_100};
             }
           }
         }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { DataGrid, HeaderFilter } from "devextreme-react/data-grid";
+import { DataGrid, HeaderFilter, LoadPanel } from "devextreme-react/data-grid";
 import { StyledGridContainer, StyledGridDialogContainer, StyledGridDragShowButton } from "./StyledGrid";
 import { GridProps } from "./Grid.types";
 import {
@@ -80,11 +80,11 @@ export const DialogButton = (data: any) => {
 
   const clickHandler = (e: any) => {
 
+    document.querySelectorAll('dialog').forEach((item: any) => item.close())
+
     e.stopPropagation();
     setIsOpen(prev => !prev);
   }
-
-
   const actionClickHandler = (action: any,) => {
     data.chooseActionHandler(action)
   }
@@ -213,7 +213,6 @@ const Grid = ({
             }
           }}
 
-
         // selectedRowKeys={selectedRows.map(
         //   (item: any) => item[primaryField || "id"]
         // )}
@@ -247,8 +246,7 @@ const Grid = ({
                 >
                   {
                     item.dataField === 'CreateTime' &&
-                    <HeaderFilter allowSearch={true} dataSource={datesHeaderFilter}
-                    />
+                    <HeaderFilter allowSearch={true} dataSource={datesHeaderFilter} />
                   }
                 </Column>
               );

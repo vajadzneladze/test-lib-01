@@ -8,6 +8,17 @@ export const StyledGridDragContainer = styled.div<any>`
   top: 100px;
   transition: 200ms;
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  animation: showDrag 100ms ease normal forwards;
+
+  @keyframes showDrag{
+      from {
+        transform: scale(0);
+
+      }
+      to { 
+        transform:  scale(1);
+      }
+  }
 
   .dx-datagrid {
     border-radius: ${({ theme }) => theme.size.radius.large};

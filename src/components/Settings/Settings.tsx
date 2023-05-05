@@ -5,12 +5,8 @@ import Icon from '../Icon/Icon';
 
 
 const Settings = ({ isOpen, actionList, clickHandler }: SettingsProps) => {
-
-
-
     return <StyledSettings open={isOpen} onClick={e => e.stopPropagation()}>
         <StyledSettingsActionsWrapper>
-
             {
                 actionList && actionList.length > 0 && actionList.map(({ icon, label, action }: any, index: any) => {
 
