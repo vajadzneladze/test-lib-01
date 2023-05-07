@@ -35,6 +35,7 @@ const defaultProps: TreeProps = {
   searchEnabled: false,
   searchKey: "",
   searchValue: "",
+  onChangeHandler: (data) => { console.log(data, 'default valuees .... ') }
 };
 
 const Tree = ({
@@ -50,15 +51,25 @@ const Tree = ({
   searchMode,
   searchKey,
   searchValue,
+  onChangeHandler,
   ...props
 }: TreeProps) => {
+
   const treeViewItemSelectionChanged = (e: any) => {
+
     // console.log(e.component.getSelectedNodeKeys());
+
+    if (onChangeHandler) {
+
+      onChangeHandler(e.component.getSelectedNodeKeys());
+    }
+
   };
 
   /** ხე მზად არის დასახატად */
   const syncTreeViewSelection = (e: any) => {
     console.log(e);
+
 
     //     const treeView:any = (e.component.selectItem && e.component)
     //       || (treeView && treeView.instance);

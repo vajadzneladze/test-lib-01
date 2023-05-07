@@ -15,3 +15,4 @@ export { default as SelectBox } from './SelectBox';
 export { default as Grid } from './Grid';
 export { default as GridDrag } from './GridDrag';
 export { default as Settings } from './Settings';
+export { default as DropDown } from './DropDown';

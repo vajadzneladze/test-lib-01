@@ -10,7 +10,8 @@ export interface TreeProps {
   searchMode?: 'contains' | 'equals' | 'startswith',
   searchEnabled? : boolean,
   searchKey?: string,
-  searchValue?: string | string[]
+  searchValue?: string | string[],
+  onChangeHandler?: (e:any) => void
 }
 
 export interface TreeItemProps {
