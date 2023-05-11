@@ -11,13 +11,17 @@ export interface TreeProps {
   searchEnabled? : boolean,
   searchKey?: string,
   searchValue?: string | string[],
-  onChangeHandler?: (e:any) => void
+  onChangeHandler?: (e:any) => void,
+  size?: size
 }
-
 export interface TreeItemProps {
   id?: any;
   parentId?: any;
   name?: string;
   icon?: any;
   showIcon?: boolean;
+  size?:size
 }
+
+export type size = 'xs' | 'sm' | 'md' | 'lg' | undefined;
+

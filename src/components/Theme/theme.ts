@@ -98,7 +98,7 @@ const size = {
 };
 
 export const lightTheme = {
-  mode:'day',  
+  mode: 'day',
   typography,
   size,
   color: {
@@ -175,10 +175,10 @@ export const lightTheme = {
       static_disabled: "rgba(255,255,255,0.6)",
     },
   },
-}; 
+};
 
 export const darkTheme = {
-  mode:'night',
+  mode: 'night',
   typography,
   size,
   color: {
@@ -296,12 +296,7 @@ export const GlobalStyles = createGlobalStyle`
 @font-face {
   font-family:  "Helvetica Neue Bold";
   src: url(${HelveticaBold}) format('truetype');
-}
-
-    * {
-      /* font-family: ${({ theme }) => theme.typography.font.regular}; */
-    }
-
+} 
 
     .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-text {
       font-family: ${({ theme }) => theme.typography.font.regular};
@@ -313,16 +308,26 @@ export const GlobalStyles = createGlobalStyle`
       width:1080px;
       padding:50px;
       margin-bottom:80px;
+      display:flex;
+      justify-content: left;
+      min-height:400px;
     }
 
     body  .bg-for-stories-dark {
       background-color: #0F1215;
       width:1080px;
       padding:50px;
+      display:flex;
+      justify-content: left;
+      min-height:400px;
     }
 
     .dx-overlay-wrapper {
       /* transform: translate(17px, 19px) !important; */
+
+      .dx-overlay-content {
+        border-color: ${({ theme }) => theme.color.steel.grey_09} !important;
+      } 
     }
     
     .dx-dropdowneditor-overlay  {

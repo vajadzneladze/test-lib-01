@@ -13,4 +13,7 @@ export interface GridProps {
   fetchData?: any;
   onDelete?: (e: any) => void;
   actionHandler?: (action: any, data: any) => void;
+  moreActions? : boolean;
+  manageColumns?: boolean;
+  actionList?: object[] 
 }

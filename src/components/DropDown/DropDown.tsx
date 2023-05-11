@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { DropDownBox as DxDropDownBox } from "devextreme-react/drop-down-box";
+import React, { useEffect, useRef, useState } from 'react';
+import DropDownBox, { DropDownBox as DxDropDownBox, IDropDownBoxOptions } from "devextreme-react/drop-down-box";
 import { TreeView } from 'devextreme-react';
 import Tree from '../Tree/Tree';
 import DataSource from 'devextreme/data/data_source';
+import { StyledDropDown } from './StyledDropDown';
+import { DropDownProps } from './DropDown.types';
+import Icon from '../Icon/Icon';
 
 
 const treeDataSource = [
@@ -105,82 +108,61 @@ const treeDataSource = [
     }
 ];
 
-
-// const Tree = () => {
-
-//     return <TreeView
-//         // ref={(ref) => { this.treeView = ref; }}
-//         dataSource={treeDataSource}
-//         dataStructure="plain"
-//         keyExpr="ID"
-//         parentIdExpr="categoryId"
-//         selectionMode="multiple"
-//         showCheckBoxesMode="normal"
-//         selectNodesRecursive={false}
-//         displayExpr="name"
-//         selectByClick={true}
-//         // onContentReady={this.syncTreeViewSelection}
-//         // onItemSelectionChanged={this.treeViewItemSelectionChanged}
-//     />
-
-// }
+const defaultProps: DropDownProps = {
+    label: "Drop Down Element",
+    value: [],
+    size: "sm",
+    disabled: false,
+};
 
 
-// const syncTreeViewSelection = (e:any) =>  {
-//     const treeView = (e.component.selectItem && e.component)
-//       || (this.treeView && this.treeView.instance);
-
-//     if (treeView) {
-//       if (e.value === null) {
-//         treeView.unselectAll();
-//       } else {
-//         const values = e.value || this.state.treeBoxValue;
-//         values && values.forEach((value) => {
-//           treeView.selectItem(value);
-//         });
-//       }
-//     }
-
-//     if (e.value !== undefined) {
-//       this.setState({
-//         treeBoxValue: e.value,
-//       });
-//     }
-//   }
-
-
-const DropDown = () => {
+const DropDown = ({ label, value, size, status, style, disabled }: DropDownProps) => {
 
     const [selectedVals, setSelectedVals] = useState([]);
 
     return (
 
-        <div className="dx-field-value">
+        <StyledDropDown size={size} status={status} style={style}>
+
             <DxDropDownBox
                 value={selectedVals}
                 valueExpr="ID"
                 displayExpr="name"
-                placeholder="Select a value..."
+                placeholder=""
                 labelMode="floating"
-                label= 'First Name'
-                showClearButton={true}
+                label={label}
+                showClearButton={selectedVals.length > 0}
                 dataSource={treeDataSource}
-                onValueChanged={(data: any) => console.log(data)}
+                // disabled
+                // onValueChanged={(data: any) => console.log(data)}
+                dropDownButtonRender={(e: any) => <div></div>}
+                // contentRender={() => renderContent()}
                 contentRender={() => <Tree
                     data={treeDataSource}
                     selectionMode="multiple"
                     showCheckBoxesMode="normal"
                     parentKey='categoryId'
                     dataStructure="plain"
+                    size={size}
                     selectAllChild={true}
-                    searchEnabled = { true }
+                    searchEnabled={true}
                     mainKey='ID'
                     onChangeHandler={items => setSelectedVals(items)}
                 />}
+
             />
-        </div>
+
+
+            <div className="selections">
+                {selectedVals.length > 2 && `(+${selectedVals.length - 2})`}
+            </div>
+
+
+
+        </StyledDropDown>
     )
 }
 
+DropDown.defaultProps = defaultProps;
 
 export default DropDown;

@@ -13,7 +13,7 @@ const withColorScheme = (Story: any, { globals }: any) => {
       {
         scheme === 'light' && <ThemeProvider variant='light'>
           <div className="bg-for-stories-light">
-            <Story />
+            <Story  />
           </div>
         </ThemeProvider>
       }
@@ -56,12 +56,7 @@ export default {
 } as ComponentMeta<typeof DropDown>;
 
 const Template: ComponentStory<typeof DropDown> = (props) => (
-  <DropDown />
+  <DropDown {...props} style = {{ width:'350px' }}/>
 );
 
 export const Primary = Template.bind({});
-
-// Primary.args = {
-//   value: 1,
-//   onChange: val => console.log(val)
-// };

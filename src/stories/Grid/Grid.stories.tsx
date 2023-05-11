@@ -8,7 +8,6 @@ const withColorScheme = (Story: any, { globals }: any) => {
 
   let { scheme } = globals;
 
-
   return (
     <div>
       {
@@ -214,6 +213,18 @@ Primary.args = {
   primaryField: "ID", // data: 'https://jsonplaceholder.typicode.com/posts',
   selectedItems: [1, 2],
   selectMode: "none",
+  actionList: [
+    {
+      action:'checked',
+      icon: '',
+      label:' lets go .'
+    },
+    {
+      action:'static ',
+      icon: '',
+      label:' THis is second action .'
+    },
+  ],
   onDelete: (e) => console.log(e),
   fetchData: async (loadOptions: any): Promise<any[]> => {
     const response = await fetch(

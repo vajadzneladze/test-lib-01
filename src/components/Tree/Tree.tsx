@@ -1,26 +1,10 @@
 import TreeView from "devextreme-react/tree-view";
-import React from "react";
+import React, { useEffect } from "react";
 import TreeItem from "./TreeItem";
 import styled from "styled-components";
 import { TreeProps } from "./Tree.types";
 import { StyledTree } from "./StyledTree";
 
-// const StyledTree = styled(TreeView)`
-//   /*
-//     background:white;
-//     max-height:200px; */
-
-//   .dx-treeview-item {
-//     /* font-size: 16px;
-//     color: #333;
-//     padding: 10px;
-//     border-bottom: 1px solid #ccc; */
-//   }
-
-//   .dx-treeview-item-selected {
-//     /* background-color: #f5f5f5; */
-//   }
-// `;
 
 const defaultProps: TreeProps = {
   data: [],
@@ -35,6 +19,7 @@ const defaultProps: TreeProps = {
   searchEnabled: false,
   searchKey: "",
   searchValue: "",
+  size: 'xs',
   onChangeHandler: (data) => { console.log(data, 'default valuees .... ') }
 };
 
@@ -51,16 +36,15 @@ const Tree = ({
   searchMode,
   searchKey,
   searchValue,
+  size,
   onChangeHandler,
   ...props
 }: TreeProps) => {
 
   const treeViewItemSelectionChanged = (e: any) => {
-
-    // console.log(e.component.getSelectedNodeKeys());
-
     if (onChangeHandler) {
 
+      console.log(e.component);
       onChangeHandler(e.component.getSelectedNodeKeys());
     }
 
@@ -69,45 +53,11 @@ const Tree = ({
   /** ხე მზად არის დასახატად */
   const syncTreeViewSelection = (e: any) => {
     console.log(e);
-
-
-    //     const treeView:any = (e.component.selectItem && e.component)
-    //       || (treeView && treeView.instance);
-    //     if (treeView) {
-    //       if (e.value === null) {
-    //         treeView.unselectAll();
-    //       } else {
-    //         const values = e.value || this.state.treeBoxValue;
-    //         values && values.forEach((value) => {
-    //           treeView.selectItem(value);
-    //         });
-    //       }
-    //     }
-    //     if (e.value !== undefined) {
-    //       this.setState({
-    //         treeBoxValue: e.value,
-    //       });
-    //     }
-    //   }
-    //   syncDataGridSelection(e) {
-    //     this.setState({
-    //       gridBoxValue: e.value || [],
-    //     });
-    //   }
-    //   treeViewItemSelectionChanged(e) {
-    //     this.setState({
-    //       treeBoxValue: e.component.getSelectedNodeKeys(),
-    //     });
-    //   }
-    //   dataGridOnSelectionChanged(e) {
-    //     this.setState({
-    //       gridBoxValue: (e.selectedRowKeys.length && e.selectedRowKeys) || [],
-    //     });
-    //   }
   };
 
   return (
     <StyledTree
+      size={size}
       dataSource={data}
       itemRender={(item: any) => (
         <TreeItem

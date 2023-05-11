@@ -28,7 +28,7 @@ export const getInputFontSize = (size: size) => {
     case "md":
       return "14px";
     case "lg":
-      return "16px";
+      return "14px";
     default:
       return "12px";
   }

@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Tree>;
 
 const Template: ComponentStory<typeof Tree> = (props) => (
-  <ThemeProvider>
+  <ThemeProvider >
     <Tree {...props} />
   </ThemeProvider>
 );
@@ -42,4 +42,5 @@ Primary.args = {
     }
   ],
   labelKey:'title',
+  onChangeHandler: (e:any) => console.log('......................', e),
 };

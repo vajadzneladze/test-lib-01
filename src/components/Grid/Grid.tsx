@@ -54,7 +54,21 @@ const defaultProps: GridProps = {
   fetchData: () => { },
   onDelete: () => { },
   actionHandler: () => { },
-  DetailsComponentFixedHeigh: false
+  DetailsComponentFixedHeigh: false,
+  moreActions: false,
+  manageColumns: false,
+  actionList: [
+    {
+      icon: 'EditOutlined',
+      label: 'Edit',
+      action: 'edit'
+    },
+    {
+      icon: 'TrashOutlined',
+      label: 'Delete',
+      action: 'delete'
+    }
+  ]
 };
 
 const allowedPageSizes = [8, 12, 20];
@@ -74,7 +88,7 @@ const datesHeaderFilter = [{
 }];
 
 
-export const DialogButton = (data: any) => {
+export const DialogButton = ({ data, actionList, chooseActionHandler }: any) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -86,25 +100,13 @@ export const DialogButton = (data: any) => {
     setIsOpen(prev => !prev);
   }
   const actionClickHandler = (action: any,) => {
-    data.chooseActionHandler(action)
+    chooseActionHandler(action)
   }
 
   return (
     <StyledGridDialogContainer>
       <div onClick={clickHandler} className="more-btn"> <Icon name="MoreOutlined" /> </div>
-      <Settings actionList={[
-        {
-          icon: 'EditOutlined',
-          label: 'Edit',
-          action: 'edit'
-        },
-        {
-          icon: 'TrashOutlined',
-          label: 'Delete',
-          action: 'delete'
-        }
-      ]
-      }
+      <Settings actionList={actionList}
         isOpen={isOpen}
         clickHandler={actionClickHandler} />
     </StyledGridDialogContainer>
@@ -121,7 +123,10 @@ const Grid = ({
   fetchData,
   onDelete,
   actionHandler,
-  DetailsComponentFixedHeigh
+  DetailsComponentFixedHeigh,
+  moreActions,
+  manageColumns,
+  actionList
 }: GridProps) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
@@ -188,13 +193,19 @@ const Grid = ({
   return (
 
     <div style={{ position: 'relative' }} onClick={() => { if (showDrag) setShowDrag(false) }}>
-      <StyledGridDragShowButton onClick={(e) => {
-        e.stopPropagation()
-        setShowDrag(prev => !prev)
-      }}>
-        <Icon name='AlignHorizontally' size="md" />
-      </StyledGridDragShowButton>
+
+      {
+        manageColumns ?
+          <StyledGridDragShowButton onClick={(e) => {
+            e.stopPropagation()
+            setShowDrag(prev => !prev)
+          }}>
+            <Icon name='AlignHorizontally' size="md" />
+          </StyledGridDragShowButton> : ''
+
+      }
       {showDrag && <GridDrag columns={cols} selectColumnHandler={setSelectedColumnKeys} onReorder={columnDragHandler} isOpen={true} />}
+
       <StyledGridContainer style={style}>
         <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} />
         <DataGrid
@@ -253,20 +264,24 @@ const Grid = ({
             })}
 
 
-
-          <Column
-            width={'36px'}
-            key={'more-action'}
-            caption=""
-            cellRender={(data: any) => <DialogButton chooseActionHandler={actionHandler ? (action: any) => actionHandler(action, data.data) : () => { }}  {...data.data} />}
-            allowFiltering={false}
-            allowSorting={false}
-            alignment={"left"}
-            fixed={true}
-            visible={true}
-          >
-
-          </Column>
+          {
+            moreActions ? <Column
+              width={'36px'}
+              key={'more-action'}
+              caption=""
+              cellRender={
+                (data: any) => <DialogButton
+                  chooseActionHandler={actionHandler ? (action: any) => actionHandler(action, data.data) : () => { }}
+                  actionList={actionList}
+                  {...data.data} />
+              }
+              allowFiltering={false}
+              allowSorting={false}
+              alignment={"left"}
+              fixed={true}
+              visible={true}
+            /> : ''
+          }
 
 
           {/* 

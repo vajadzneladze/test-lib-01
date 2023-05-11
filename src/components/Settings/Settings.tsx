@@ -5,6 +5,7 @@ import Icon from '../Icon/Icon';
 
 
 const Settings = ({ isOpen, actionList, clickHandler }: SettingsProps) => {
+
     return <StyledSettings open={isOpen} onClick={e => e.stopPropagation()}>
         <StyledSettingsActionsWrapper>
             {
