@@ -538,7 +538,7 @@ export const StyledGridDialogContainer = styled.div`
   }
 
   dialog { 
-    margin-left:100%;
+    margin-left:99%;
     transform: translateX(-169px);
 
     &[open] {

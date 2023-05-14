@@ -88,15 +88,19 @@ const datesHeaderFilter = [{
 }];
 
 
-export const DialogButton = ({ data, actionList, chooseActionHandler }: any) => {
+export const DialogButton = ({ actionList, chooseActionHandler }: any) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
   const clickHandler = (e: any) => {
+    e.stopPropagation();
 
     document.querySelectorAll('dialog').forEach((item: any) => item.close())
 
-    e.stopPropagation();
+    const dialogs = document.querySelectorAll('dialog');
+    dialogs[dialogs.length - 1].style.bottom = '19px';
+    dialogs[dialogs.length - 2].style.bottom = '69px';
+
     setIsOpen(prev => !prev);
   }
   const actionClickHandler = (action: any,) => {
