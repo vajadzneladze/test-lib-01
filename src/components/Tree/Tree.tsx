@@ -47,7 +47,6 @@ const Tree = ({
       console.log(e.component);
       onChangeHandler(e.component.getSelectedNodeKeys());
     }
-
   };
 
   /** ხე მზად არის დასახატად */

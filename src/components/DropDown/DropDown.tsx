@@ -138,20 +138,19 @@ const DropDown = ({ label, value, size, status, style, disabled }: DropDownProps
                 dropDownButtonRender={(e: any) => <div></div>}
                 // contentRender={() => renderContent()}
                 contentRender={() => <Tree
-                    data={treeDataSource}
-                    selectionMode="multiple"
-                    showCheckBoxesMode="normal"
+                    data={treeDataSource} 
+                    selectionMode = "multiple"
+                    selectAllChild = {true}
+                    showCheckBoxesMode="selectAll"
                     parentKey='categoryId'
                     dataStructure="plain"
                     size={size}
-                    selectAllChild={true}
-                    searchEnabled={true}
+                    searchEnabled={false}
                     mainKey='ID'
                     onChangeHandler={items => setSelectedVals(items)}
                 />}
 
             />
-
 
             <div className="selections">
                 {selectedVals.length > 2 && `(+${selectedVals.length - 2})`}

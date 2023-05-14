@@ -149,7 +149,8 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
         color:#00ADEE;
         font-family: ${({ theme }) => theme.typography.font.regular};
         font-size: ${({ theme }) => theme.typography.fontSize.fs_12} !important;
-              line-height: ${({ theme }) =>theme.typography.lineHeight.sm} !important;        z-index:99;
+              line-height: ${({ theme }) => theme.typography.lineHeight.sm} !important;        
+              z-index:99;
         margin-left:16px;
         bottom: 2px;
         right: 72px;
@@ -157,6 +158,7 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
         background-color:${({ theme, status }) => theme.color.surface[status === 'disabled' ? 'surface_0' : 'surface_1']};
 
     }
+
 
     width:100%;
     position:relative;
@@ -177,9 +179,23 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
         }
     }};
 
-    .dx-overlay-wrapper {
-        background:red !important;
+
+    &:hover {
+        border: 1px solid 
+        ${({ status }) => {
+            switch (status) {
+                case "success":
+                    return ({ theme }) => theme.color.semantic.positive_100;
+                case "disabled":
+                    return ({ theme }) => theme.color.steel.grey_08;
+                case "error":
+                    return ({ theme }) => theme.color.semantic.negative_100;
+                default:
+                    return ({ theme }) => theme.color.steel.grey_11;
+            }
+        }};
     }
+
 
     .dx-dropdownbox {
         position:relative;
@@ -190,6 +206,8 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
         outline:0px;
         box-shadow: none;
         background-color:${({ theme, status }) => theme.color.surface[status === 'disabled' ? 'surface_0' : 'surface_1']};
+
+       
 
         &.dx-editor-outlined {
             border:none !important;
@@ -224,7 +242,7 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
                         display:flex;
                         align-items:center;
                         justify-content: end;
-                        width:16px;
+                        width:16px; 
 
                         &::before {
                             content: "";
@@ -312,6 +330,8 @@ export const StyledDropDown = styled.div<StyledDropDownProps>`
         }
 
         &.dx-dropdowneditor-active {
+
+            border:1px solid red;
             .dx-texteditor-buttons-container {
 
                 .dx-dropdowneditor-button {
