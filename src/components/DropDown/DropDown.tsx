@@ -7,7 +7,6 @@ import { StyledDropDown } from './StyledDropDown';
 import { DropDownProps } from './DropDown.types';
 import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
-import Text from '../../../dist/cjs/components/Text/Text';
 
 
 const treeDataSource = [
