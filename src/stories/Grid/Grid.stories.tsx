@@ -243,7 +243,7 @@ Primary.args = {
     const data = await response.json();
     return data;
   },
-  onRowClick: (e) => { },
+  onRowClick: (data) => { console.log(data) },
   DetailsComponent: GridMasterTemplate2,
   actionHandler: (action, data) => console.log(action, data)
 };

@@ -129,6 +129,7 @@ const Grid = ({
   actionHandler,
   DetailsComponentFixedHeigh,
   moreActions,
+  onRowClick,
   manageColumns,
   actionList
 }: GridProps) => {
@@ -216,6 +217,7 @@ const Grid = ({
           dataSource={dataSource as CustomStore<any, any>}
           remoteOperations={true}
           columnAutoWidth={false}
+          onRowClick={ onRowClick ?  (e:any) => onRowClick(e.data) : () => {} }
           selection={{ mode: selectedColumnKeys && selectedColumnKeys.length > 0 ? selectMode : 'single' }}
           selectedRowKeys={selectedRowKeys}
           onSelectionChanged={(e) => setSelectedRowKeys(e.selectedRowKeys)}
