@@ -1,6 +1,10 @@
 import { TreeView } from "devextreme-react";
 import styled from "styled-components";
 import { size } from "./Tree.types";
+import ArrowUp from '../../assets/icons/arrow-up-outlined.svg';
+import ArrowUpDark from '../../assets/icons/arrow-up-outlined-dark.svg';
+import ArrowDown from '../../assets/icons/arrow-down-outlined.svg';
+import ArrowDownDark from '../../assets/icons/arrow-down-outlined-dark.svg';
 
 const getTreeItemSizes = (size: size, theme: any) => {
   switch (size) {
@@ -123,18 +127,92 @@ const getCheckBoxSizes = (size: size, theme: any) => {
   }
 };
 
- 
+
 
 
 export const StyledTree = styled<any>(TreeView)`
 
   background-color: ${({ theme }) => theme.color.surface.surface_1} ;
   /* padding-bottom:50px; */
+  margin-right:10px;
+/* 
+  .dx-scrollable-container {
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+    width: 6px;
+    margin-right:10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #7580d9;
+    border-radius: ${({ theme }) => theme.size.radius.large};
+    cursor: pointer;
+    height: 50px;
+  }
+  } */
+
+ 
+
+  
+  .dx-treeview-search {
+    margin:16px;
+    border:1px solid ${({ theme }) =>
+      theme.color.steel.grey_06} !important;
+    box-sizing:border-box;
+
+    .dx-texteditor-input-container {
+
+      background-color: ${({ theme }) =>
+          theme.color.surface.surface_1};
+
+
+      input {
+        font-family: ${({ theme }) => theme.typography.font.regular};
+        font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+        line-height: ${({ theme }) => theme.typography.lineHeight.sm};
+        background-color: ${({ theme }) =>
+          theme.color.steel.grey_005};
+      }
+
+      .dx-placeholder {
+
+        &::before {
+          font-family: ${({ theme }) =>
+            theme.typography.font.regular};
+        }
+      }
+    }
+
+    .dx-texteditor-buttons-container {
+      background-color: ${({ theme }) => theme.color.steel.grey_005};
+
+      .dx-icon-clear {
+
+        &::before {
+          /* content: ""; */
+          aspect-ratio:1/1;
+          transition: 200ms;
+          background-size: 13px;
+          background-position: center;
+          background-repeat: no-repeat;
+    
+          transform:rotate(90deg);
+          transition:100ms;
+        }
+      }
+    }
+  }
 
   .dx-treeview-select-all-item {
     background-color: ${({ theme }) => theme.color.surface.surface_1};
-    ${({ dataStructure }) => dataStructure === 'plain' ? `padding:0px 32px;` : 'padding:0px 16px;'}
-
+    ${({ dataStructure }) => dataStructure === 'plain' ? `padding:0px 18px;` : 'padding:0px 0px;'}
+    border-bottom: 1px solid ${({ theme }) => theme.color.steel.grey_06} !important;
+    margin:0px 16px;
 
     .dx-checkbox-container {
 
@@ -148,6 +226,7 @@ export const StyledTree = styled<any>(TreeView)`
         font-family: ${({ theme }) => theme.typography.font.regular};
         padding-left:16px;
         ${({ theme, size }) => getSelectAllCheckboxSize(size, theme)};
+        color: ${({ theme }) => theme.color.text.primary};
 
       }
     }
@@ -160,6 +239,11 @@ export const StyledTree = styled<any>(TreeView)`
 
     .dx-treeview-node {
       padding:0px 16px;
+
+
+      &.dx-state-selected {
+        /* background-color: ${ ({ theme }) => theme.color.steel.grey_03 }; */
+      }
 
       .dx-item {
         ${({ dataStructure }) => dataStructure === 'plain' ? `margin-left:16px;` : ''}
@@ -184,38 +268,33 @@ export const StyledTree = styled<any>(TreeView)`
 
       .dx-treeview-toggle-item-visibility { 
         left:10px;
+
+        &::before {
+          content: "";
+          aspect-ratio:1/1;
+          transition: 200ms;
+          background-size: 13px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url(  ${({ theme }) => theme.mode === 'day' ? ArrowUp as {} : ArrowUpDark as {}} );
+          transform:rotate(90deg);
+          transition:100ms;
+        }
+
+
+        &.dx-treeview-toggle-item-visibility-opened {
+
+          &::before {
+            transform:rotate(180deg);
+
+            /* background-image: url(  ${({ theme }) => theme.mode === 'day' ? ArrowDown as {} : ArrowDownDark as {}} ); */
+          }
+        }
       }
 
     }
   }
   
-/* border:1p solid ${({ theme }) => theme.color.steel.grey_09}; */
-  
-
-  /* 
-    background:white;
-    max-height:200px; */
-
-    .dx-scrollable-container {
-      /* border:1px solid gray; */
-    }
-    .dx-treeview-node {
-      /* padding-left:; */
-    }
-
-    
-  .dx-treeview-item {
-    /* font-size: 16px;
-    color: #333;
-    padding: 10px;
-    border-bottom: 1px solid #ccc; */
-  }
-
-  .dx-treeview-item-selected {
-    /* background-color: #f5f5f5; */
-  }
-
-
 
 
 

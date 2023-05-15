@@ -142,6 +142,7 @@ const getEmptyInputLabelSizes = (size: size, theme: any) => {
 
 export const StyledDropDown = styled.div<StyledDropDownProps>`
 
+    
     .selections {
         position:absolute;
         width:20px;

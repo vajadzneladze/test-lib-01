@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
-import PrimaryFontFamily from '../../assets/fonts/bpg_nino_mtavruli_bold.ttf';
-import UpGamingFont from '../../assets/fonts/helvetica_ultraLight.ttf';
-import HelveticaUltraLight from '../../assets/fonts/helvetica_ultraLight.ttf';
-import HelveticaThin from '../../assets/fonts/helvetica_thin.ttf';
-import HelveticaLight from '../../assets/fonts/helvetica_light.ttf';
-import HelveticaRegular from '../../assets/fonts/helvetica_regular.ttf';
-import HelveticaMedium from '../../assets/fonts/helvetica_medium.ttf';
-import HelveticaBold from '../../assets/fonts/helvetica_bold.ttf';
+import PrimaryFontFamily from "../../assets/fonts/bpg_nino_mtavruli_bold.ttf";
+import UpGamingFont from "../../assets/fonts/helvetica_ultraLight.ttf";
+import HelveticaUltraLight from "../../assets/fonts/helvetica_ultraLight.ttf";
+import HelveticaThin from "../../assets/fonts/helvetica_thin.ttf";
+import HelveticaLight from "../../assets/fonts/helvetica_light.ttf";
+import HelveticaRegular from "../../assets/fonts/helvetica_regular.ttf";
+import HelveticaMedium from "../../assets/fonts/helvetica_medium.ttf";
+import HelveticaBold from "../../assets/fonts/helvetica_bold.ttf";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -98,7 +98,7 @@ const size = {
 };
 
 export const lightTheme = {
-  mode: 'day',
+  mode: "day",
   typography,
   size,
   color: {
@@ -151,7 +151,6 @@ export const lightTheme = {
       warning_80: "#EEC64F",
       warning_100: "#EBB924",
       warning_120: "#C19C25",
-
     },
     surface: {
       surface_backdrop: "rgba(20, 23, 25, 0.5)",
@@ -162,7 +161,7 @@ export const lightTheme = {
       surface_2: "#F9FAFA ", // day steel grey 03
     },
     brand: {
-      brand_80: "#7580D9"
+      brand_80: "#7580D9",
     },
     text: {
       primary: "#15181A",
@@ -178,7 +177,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  mode: 'night',
+  mode: "night",
   typography,
   size,
   color: {
@@ -241,7 +240,7 @@ export const darkTheme = {
       surface_2: "#F3F5F6 ", // night steel grey 0308
     },
     brand: {
-      brand_80: "#808BDC"
+      brand_80: "#808BDC",
     },
     text: {
       primary: "#F9FAFA",
@@ -322,62 +321,103 @@ export const GlobalStyles = createGlobalStyle`
       min-height:400px;
     }
 
-    .dx-overlay-wrapper {
-      /* transform: translate(17px, 19px) !important; */
 
-      .dx-overlay-content {
-        border-color: ${({ theme }) => theme.color.steel.grey_09} !important;
-      } 
-    }
+
     
-    .dx-dropdowneditor-overlay  {
-      top: 11px !important;
-    }
-    .dx-popup-wrapper >  {
+    .dx-dropdowneditor-overlay {
+
+
+      /* .dx-state-focused {
+        border:none !important;
+      } */
+
       .dx-overlay-content {
-        top:38px !important;
-        border: 1px solid #A5AAAC;
-        border-top-width:1px !important;
-        border-bottom-width:1px;
-        box-shadow: 0px 36px 40px -15px rgba(12, 43, 67, 0.05);
-        border-radius: 4px;
-        transform: translate(0px, 3px) !important;
+        top: 38px !important;
+        transform: translate(0px, 22px) !important;
+         
+        border: 1px solid ${({ theme }) =>
+                  theme.color.steel.grey_06} !important;
+        box-shadow:0px 36px 40px -15px rgba(12, 43, 67, 0.05);
+        border-radius:${({ theme }) => theme.size.radius.medium};
+        background-color:  ${({ theme }) => theme.color.surface.surface_1};
+        /* height:520px !important; */
+        /* max-height: 520px !important;
+        min-height:300px; */
 
-       .dx-scrollable-scrollbar {
-        display:none;
-       }
 
-        .dx-list-item {
-          padding:16px !important;
-          background-color:#F9FAFA !important;
-
-          &.dx-state-active {
-            color: ${({ theme }) => theme.color.text.primary} !important;
-          }
-
-          &.dx-state-focused {
-            color: ${({ theme }) => theme.color.text.primary} !important;
-          }
-        }
         .dx-popup-content {
-          padding:0px !important;
+          padding-left:0px;
+          padding-right:7px;
+          padding-top:0px;
+          position:relative;
+          clear:both;
+          max-height:500px !important;
+          /* overflow:hidden; */
+
+          
+        
+
+          .dx-treeview {
+
+            height:calc(100% - 117px) !important;
 
 
-          .dx-state-hover {
-            background-color: white !important;
+                      
+            .dx-scrollable-container {
+              
+              overflow-y: scroll;
+
+              &::-webkit-scrollbar {
+                width: 2px;
+                margin-right:10px;
+              }
+
+              &::-webkit-scrollbar-track {
+                background: transparent;
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background: #7580d9;
+                border-radius: ${({ theme }) => theme.size.radius.small};
+                cursor: pointer;
+                height: 50px;
+              }
+
+
+
+              .dx-scrollable-scrollbar {
+                display:none;
+              }
+
+              .dx-empty-message{
+                display:none;
+              }
+            }
+          }
+
+          .drop-down-apply-btn {
+            background-color:  ${({ theme }) =>
+              theme.color.surface.surface_1} !important;
+            border-top: 1px solid ${({ theme }) => theme.color.steel.grey_06};
+            height:117px;
+            position:relative;
+            margin:16px;
+            clear:both;
+
+            p {
+              font-family: ${({ theme }) => theme.typography.font.medium};
+              font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+              line-height: ${({ theme }) => theme.typography.lineHeight.md};
+              color: ${({ theme }) => theme.color.text.primary};
+              cursor:pointer;
+            }
+
+            button {
+              width:100%;
+            }
           }
         }
-
-
-        .dx-list-item-selected {
-          background-color: white  !important;
-          box-shadow: inset 2px 0px 0px #10B77F !important;
-
-          &:hover {
-            background-color: #ECE8FE  !important;
-          } 
-        }
-      } 
+      }
     }
 
 `;

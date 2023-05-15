@@ -1,5 +1,5 @@
 import TreeView from "devextreme-react/tree-view";
-import React, { useEffect } from "react";
+import React, { memo, useEffect, useLayoutEffect } from "react";
 import TreeItem from "./TreeItem";
 import styled from "styled-components";
 import { TreeProps } from "./Tree.types";
@@ -37,26 +37,44 @@ const Tree = ({
   searchKey,
   searchValue,
   size,
+  treeRef,
   onChangeHandler,
   ...props
 }: TreeProps) => {
 
   const treeViewItemSelectionChanged = (e: any) => {
-    if (onChangeHandler) {
 
-      console.log(e.component);
+    if (onChangeHandler) {
       onChangeHandler(e.component.getSelectedNodeKeys());
     }
   };
 
   /** ხე მზად არის დასახატად */
   const syncTreeViewSelection = (e: any) => {
-    console.log(e);
+    // console.log(e);
   };
+
+
+
+  // useLayoutEffect(() => {
+  //   const popUp = document.querySelector('.drop-down-apply-btn') as HTMLElement;
+  //   if (popUp) {
+
+  //     setTimeout(() => {
+  //       popUp.closest('.dx-overlay-content ').style.top = '30px !important';
+  //     }, 1000)
+
+
+  //   }
+  // }, []);
+// popUp.style.transform = 'translate(0px, 100px) !important';
+//       popUp.style.marginTop = '25px !important';
+
 
   return (
     <StyledTree
       size={size}
+      ref={treeRef}
       dataSource={data}
       itemRender={(item: any) => (
         <TreeItem
@@ -73,7 +91,7 @@ const Tree = ({
       selectionMode={selectionMode}
       showCheckBoxesMode={showCheckBoxesMode}
       selectNodesRecursive={selectAllChild}
-      displayExpr={"title"}
+      displayExpr={labelKey}
       selectByClick={true}
       searchEnabled={searchEnabled}
       searchMode={searchMode}
@@ -83,7 +101,7 @@ const Tree = ({
       //   onItemClick = { e => { console.log(e) } } // არჩევისდროს დაკლიკვის ივენთი
       //   onItemCollapsed={ e => { console.log('ჩაიკეცა', e)  } } // დაკეცვის დროს ივენთი
       // onItemExpanded = { e => { console.log('ჩამოიშალა' , e) } } // ჩამოშლის დროს ივენთი
-      //   onItemRendered={  e=> <TreeItem />} // ხის დარენდერების ივენთი
+      // onItemRendered={  (e:any ) => console.log(e.component)} // ხის დარენდერების ივენთი
       // onOptionChanged = { e => { console.log('datis cvlilebis', e.name) } } // რა ივენთი მოხდა , hover , focus...
       // rtlEnabled = { true } // მარჯვნიდან მარცხნივ მიმართულებით რენდერი
       // height = '200px' // ხის სიმაღლე
@@ -103,4 +121,4 @@ const Tree = ({
 
 Tree.defaultProps = defaultProps;
 
-export default Tree;
+export default memo(Tree);

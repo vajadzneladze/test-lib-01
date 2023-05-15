@@ -1,3 +1,4 @@
+
 export interface TreeProps {
   data: object[];
   mainKey?: undefined | string;
@@ -12,7 +13,8 @@ export interface TreeProps {
   searchKey?: string,
   searchValue?: string | string[],
   onChangeHandler?: (e:any) => void,
-  size?: size
+  size?: size,
+  treeRef?: any
 }
 export interface TreeItemProps {
   id?: any;

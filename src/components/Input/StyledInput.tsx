@@ -68,7 +68,8 @@ export const InputContainer = styled.div<StyledInputProps>`
   position: relative;
   width: 100%;
   height: ${({ size }) => getHeight(size)};
-
+  box-sizing: border-box;
+ 
   border: 1px solid 
     ${({ status }) => {
     switch (status) {

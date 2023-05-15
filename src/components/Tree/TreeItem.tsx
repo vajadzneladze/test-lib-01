@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Text from "../Text/Text";
 import { TreeItemProps } from "./Tree.types";
 import Icon from "../Icon/Icon";
@@ -23,4 +23,4 @@ const TreeItem = ({ name, icon, showIcon }: TreeItemProps) => {
 
 TreeItem.defaultProps = defaultProps;
 
-export default TreeItem;
+export default memo(TreeItem);
