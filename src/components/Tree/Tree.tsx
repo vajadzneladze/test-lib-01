@@ -70,7 +70,6 @@ const Tree = ({
 // popUp.style.transform = 'translate(0px, 100px) !important';
 //       popUp.style.marginTop = '25px !important';
 
-
   return (
     <StyledTree
       size={size}
@@ -80,7 +79,7 @@ const Tree = ({
         <TreeItem
           showIcon={showCheckBoxesMode === "none"}
           icon={item["icon"]}
-          name={item[labelKey]}
+          name={item[labelKey] }
           {...item}
         />
       )}
@@ -91,7 +90,7 @@ const Tree = ({
       selectionMode={selectionMode}
       showCheckBoxesMode={showCheckBoxesMode}
       selectNodesRecursive={selectAllChild}
-      displayExpr={labelKey}
+      // displayExpr={labelKey}
       selectByClick={true}
       searchEnabled={searchEnabled}
       searchMode={searchMode}
