@@ -200,7 +200,7 @@ const DropDown = ({
                 contentRender={() => <>
                     <Tree
                         treeRef={treeRef}
-                        data={treeDataSource}
+                        data={options}
                         selectionMode={selectionMode}
                         selectAllChild={selectAllChild}
                         labelKey={labelKey}
