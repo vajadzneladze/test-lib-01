@@ -86,8 +86,8 @@ const DropDown = ({
 
             <DxDropDownBox
                 value={selectedVals}
-                valueExpr="ID"
-                displayExpr="name"
+                valueExpr={ mainKey }
+                displayExpr={ labelKey }
                 placeholder=""
                 labelMode="floating"
                 label={label}

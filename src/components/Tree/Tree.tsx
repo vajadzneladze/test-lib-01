@@ -67,8 +67,8 @@ const Tree = ({
 
   //   }
   // }, []);
-// popUp.style.transform = 'translate(0px, 100px) !important';
-//       popUp.style.marginTop = '25px !important';
+  // popUp.style.transform = 'translate(0px, 100px) !important';
+  //       popUp.style.marginTop = '25px !important';
 
   return (
     <StyledTree
@@ -79,12 +79,12 @@ const Tree = ({
         <TreeItem
           showIcon={showCheckBoxesMode === "none"}
           icon={item["icon"]}
-          name={item[labelKey] }
+          name={item[labelKey]}
           {...item}
         />
       )}
       dataStructure={dataStructure}
-      animationEnabled={false}
+      animationEnabled={true}
       keyExpr={mainKey}
       parentIdExpr={parentKey}
       selectionMode={selectionMode}
@@ -117,6 +117,22 @@ const Tree = ({
     />
   );
 };
+
+const form = [
+
+  {
+    data: [],
+    selected: [],
+    mainKey: ''
+    label: 'groups'
+  },
+
+
+
+
+]
+
+
 
 Tree.defaultProps = defaultProps;
 
