@@ -90,7 +90,7 @@ export const StyledModalFooter = styled.div`
 export const StyledModalBody = styled.div`
   height: 300px;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -111,7 +111,7 @@ export const StyledModalBody = styled.div`
 export const StyledMasterDetails = styled.div`
   height: 300px;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 6px;

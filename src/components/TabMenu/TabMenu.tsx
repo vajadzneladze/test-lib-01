@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { StyledTabMenu, StyledTabMenuItems } from './StyledTabMenu';
 import Text from '../Text/Text';
 import { ITabMenuItem, TabMenuProps } from './TabMenu.types';
+import { CheckBox } from 'devextreme-react';
 
 
 
 
-const TabMenu = ({ data = [], setActiveHandler , flexDir = 'row' }: TabMenuProps) => {
+const TabMenu = ({ data = [], setActiveHandler, flexDir = 'row' }: TabMenuProps) => {
 
     const [list, setList] = useState<ITabMenuItem[]>(data);
 
@@ -27,12 +28,12 @@ const TabMenu = ({ data = [], setActiveHandler , flexDir = 'row' }: TabMenuProps
     }
 
     console.log(flexDir)
-    return <StyledTabMenu  flexDir = {flexDir}>
+    return <StyledTabMenu flexDir={flexDir}>
         {
             list && list.length > 0 ? list.map((item, index) => {
 
                 return <StyledTabMenuItems isActive={item.isActive} key={index} onClick={() => clickHandler(index)}>
-                    <Text text={item.label} variant='p4' weight={item.isActive ? 'bold' : 'regular'} ></Text>
+                   <CheckBox value = {item.isActive} /> <Text text={item.label} variant='p4' weight={item.isActive ? 'bold' : 'regular'} ></Text>
                 </StyledTabMenuItems>
 
             }) : null

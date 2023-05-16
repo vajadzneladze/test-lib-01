@@ -112,7 +112,7 @@ export const StyledGridDragContainer = styled.div<any>`
     }
   }
 
-  .dx-checkbox {
+  /* .dx-checkbox {
     .dx-checkbox-icon {
       background: ${({ theme }) => theme.color.steel.grey_01};
       border: 1px solid ${({ theme }) => theme.color.steel.grey_07};
@@ -153,9 +153,9 @@ export const StyledGridDragContainer = styled.div<any>`
         border: 1px solid ${({ theme }) => theme.color.semantic.positive_120};
       }
     }
-  }
+  } */
 
-  .dx-checkbox-indeterminate {
+  /* .dx-checkbox-indeterminate {
     &.dx-state-hover {
       .dx-checkbox-icon {
         background: ${({ theme }) => theme.color.semantic.positive_80};
@@ -188,5 +188,5 @@ export const StyledGridDragContainer = styled.div<any>`
         border-radius: 1px;
       }
     }
-  }
+  } */
 `;

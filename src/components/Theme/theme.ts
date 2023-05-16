@@ -336,7 +336,7 @@ export const GlobalStyles = createGlobalStyle`
         transform: translate(0px, 22px) !important;
          
         border: 1px solid ${({ theme }) =>
-                  theme.color.steel.grey_06} !important;
+    theme.color.steel.grey_06} !important;
         box-shadow:0px 36px 40px -15px rgba(12, 43, 67, 0.05);
         border-radius:${({ theme }) => theme.size.radius.medium};
         background-color:  ${({ theme }) => theme.color.surface.surface_1};
@@ -351,11 +351,10 @@ export const GlobalStyles = createGlobalStyle`
           padding-top:0px;
           position:relative;
           clear:both;
-          max-height:500px !important;
+          max-height:450px !important;
           /* overflow:hidden; */
 
           
-        
 
           .dx-treeview {
 
@@ -365,7 +364,7 @@ export const GlobalStyles = createGlobalStyle`
                       
             .dx-scrollable-container {
               
-              overflow-y: scroll;
+              overflow-y: auto;
 
               &::-webkit-scrollbar {
                 width: 2px;
@@ -397,7 +396,7 @@ export const GlobalStyles = createGlobalStyle`
 
           .drop-down-apply-btn {
             background-color:  ${({ theme }) =>
-              theme.color.surface.surface_1} !important;
+    theme.color.surface.surface_1} !important;
             border-top: 1px solid ${({ theme }) => theme.color.steel.grey_06};
             height:117px;
             position:relative;
@@ -419,5 +418,107 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
+
+
+
+
+
+    .dx-checkbox {
+    .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.steel.grey_01};
+        border: 1px solid ${({ theme }) => theme.color.steel.grey_07}; 
+      }
+
+
+    &.dx-state-hover {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_20};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_80};
+      }
+    }
+
+    &.dx-state-focused {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_20};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_120};
+      }
+    }
+  }
+
+
+  .dx-checkbox-checked {
+    .dx-checkbox-icon {
+      color: ${({ theme }) => theme.color.text.static_primary};
+      background: ${({ theme }) => theme.color.semantic.positive_80};
+      border: 1px solid ${({ theme }) => theme.color.semantic.positive_80};
+    }
+
+    &.dx-state-hover {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_120};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_120};
+      }
+    } 
+
+    &.dx-state-focused {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_80};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_120};
+      }
+    }
+  }
+
+
+
+  .dx-checkbox-indeterminate {
+
+&.dx-state-hover {
+  .dx-checkbox-icon {
+    background: ${({ theme }) => theme.color.semantic.positive_80};
+    border: 1px solid
+      ${({ theme }) => theme.color.semantic.positive_80};
+  }
+}
+
+&.dx-state-focused {
+  .dx-checkbox-icon {
+    background: ${({ theme }) => theme.color.semantic.positive_120};
+    border: 1px solid
+      ${({ theme }) => theme.color.semantic.positive_80};
+  }
+}
+
+.dx-checkbox-icon {
+  background: ${({ theme }) => theme.color.semantic.positive_120};
+  border: 1px solid
+    ${({ theme }) => theme.color.semantic.positive_120};
+
+  &::before {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    margin-top: 0px;
+    margin-left: 0px;
+    
+    width: 8px;
+    height: 2px;
+    background-color: ${({ theme }) => theme.color.text.static_primary};
+    border-radius: 1px;
+  }
+}
+}
+
+
+
+
+
+
+
+    
 
 `;

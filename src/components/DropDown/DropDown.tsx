@@ -52,8 +52,8 @@ const DropDown = ({
     searchValue
 }: DropDownProps) => {
 
-    const [selectedVals, setSelectedVals] = useState([]);
-    const [treeSelectedVals, setTreeSelectedVals] = useState([]);
+    const [selectedVals, setSelectedVals] = useState(value || []);
+    const [treeSelectedVals, setTreeSelectedVals] = useState(value || []);
     const treeRef = useRef<TreeView>(null);
 
     const clearHandler = () => {

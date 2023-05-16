@@ -180,7 +180,7 @@ export const StyledGridContainer = styled.div`
             }
           }
         }
-
+/* 
         .dx-checkbox {
 
           .dx-checkbox-icon {
@@ -204,8 +204,8 @@ export const StyledGridContainer = styled.div`
                 ${({ theme }) => theme.color.semantic.positive_120};
             }
           }
-        }
-
+        } */
+/* 
         .dx-checkbox-checked {
           .dx-checkbox-icon {
             color: ${({ theme }) => theme.color.text.static_primary};
@@ -228,9 +228,9 @@ export const StyledGridContainer = styled.div`
                 ${({ theme }) => theme.color.semantic.positive_120};
             }
           }
-        }
+        } */
 
-        .dx-checkbox-indeterminate {
+        /* .dx-checkbox-indeterminate {
 
 
           &.dx-state-hover {
@@ -269,7 +269,7 @@ export const StyledGridContainer = styled.div`
               border-radius: 1px;
             }
           }
-        }
+        } */
       }
     }
 

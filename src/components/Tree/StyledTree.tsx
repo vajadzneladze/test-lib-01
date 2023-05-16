@@ -296,7 +296,7 @@ export const StyledTree = styled<any>(TreeView)`
   }
   
 
-
+/* 
 
   .dx-checkbox {
     .dx-checkbox-icon {
@@ -371,9 +371,9 @@ export const StyledTree = styled<any>(TreeView)`
           ${({ theme }) => theme.color.semantic.positive_120};
       }
     }
-  }
+  } */
 
-  .dx-checkbox-indeterminate {
+  /* .dx-checkbox-indeterminate {
 
     &.dx-state-hover {
       .dx-checkbox-icon {
@@ -410,5 +410,5 @@ export const StyledTree = styled<any>(TreeView)`
         border-radius: 1px;
       }
     }
-  }
+  } */
 `;

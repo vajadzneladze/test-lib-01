@@ -9,7 +9,7 @@ const withColorScheme = (Story: any, { globals }: any) => {
 
   let { scheme } = globals;
 
-
+ 
   return (
     <div>
       {
@@ -87,6 +87,7 @@ Primary.args = {
       isActive: false,
     },
   ],
+
   setActiveHandler: (index, data) => {
 
     console.log('index', index);
