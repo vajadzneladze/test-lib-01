@@ -1,39 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyledTabMenu, StyledTabMenuItems } from './StyledTabMenu';
 import Text from '../Text/Text';
+import { ITabMenuItem, TabMenuProps } from './TabMenu.types';
 
 
-const data = [
-    {
-        label: 'Item 1',
-        isActive: false,
-    },
-    {
-        label: 'Item 2',
-        isActive: false,
-    },
-    {
-        label: 'Item 3',
-        isActive: false,
-    },
-    {
-        label: 'Item 4',
-        isActive: true,
-    },
-    {
-        label: 'Item 5',
-        isActive: false,
-    },
-];
 
-const TabMenu = () => {
 
-    return <StyledTabMenu>
+const TabMenu = ({ data = [], setActiveHandler , flexDir = 'row' }: TabMenuProps) => {
 
+    const [list, setList] = useState<ITabMenuItem[]>(data);
+
+    const clickHandler = (i: number) => {
+
+        if (!list[i].isActive) {
+            const arr = list.map((item: ITabMenuItem, index: number) => {
+                item.isActive = index === i;
+                return item;
+            });
+
+            setList(arr);
+
+            if (setActiveHandler) {
+                setActiveHandler(i, arr);
+            }
+        }
+    }
+
+    console.log(flexDir)
+    return <StyledTabMenu  flexDir = {flexDir}>
         {
-            data && data.length > 0 ?  data.map((item, index ) => {
+            list && list.length > 0 ? list.map((item, index) => {
 
-                return <StyledTabMenuItems  key = {index} text = {item.label}  variant = 'p4' weight =  {  item.isActive ? 'bold' : 'regular' } isActive = { item.isActive } />
+                return <StyledTabMenuItems isActive={item.isActive} key={index} onClick={() => clickHandler(index)}>
+                    <Text text={item.label} variant='p4' weight={item.isActive ? 'bold' : 'regular'} ></Text>
+                </StyledTabMenuItems>
 
             }) : null
         }

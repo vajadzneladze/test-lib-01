@@ -118,22 +118,6 @@ const Tree = ({
   );
 };
 
-const form = [
-
-  {
-    data: [],
-    selected: [],
-    mainKey: ''
-    label: 'groups'
-  },
-
-
-
-
-]
-
-
-
 Tree.defaultProps = defaultProps;
 
 export default memo(Tree);

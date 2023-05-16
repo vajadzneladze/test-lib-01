@@ -215,14 +215,14 @@ Primary.args = {
   selectMode: "none",
   actionList: [
     {
-      action:'checked',
-      icon: '',
-      label:' lets go .'
+      action:'edit',
+      icon: 'EditOutlined',
+      label:'Edit'
     },
     {
-      action:'static ',
-      icon: '',
-      label:' THis is second action .'
+      action:'delete ',
+      icon: 'TrashOutlined',
+      label:' Delete'
     },
   ],
   onDelete: (e) => console.log(e),

@@ -57,11 +57,40 @@ export default {
 } as ComponentMeta<typeof TabMenu>;
 
 const Template: ComponentStory<typeof TabMenu> = (props) => (
-  <TabMenu />
+  <div>
+    <TabMenu {...props} />
+  </div>
 );
 
 export const Primary = Template.bind({});
 
 Primary.args = {
+  data: [
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+  ],
+  setActiveHandler: (index, data) => {
+
+    console.log('index', index);
+    console.log('data', data);
+  }
 
 };
