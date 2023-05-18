@@ -1,35 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyledCheckBox } from './StyledCheckBox';
 import { CheckBox as DxCheckBox } from 'devextreme-react';
+import Text from '../Text/Text';
+import { CheckBoxProps } from './CheckBox.types';
 
+const defaultProps: CheckBoxProps = {
+    value: false,
+    label: '',
+    labelPosition: 'right'
+};
 
+const CheckBox = ({
+    label,
+    value,
+    labelPosition,
+    className,
+    onChange,
+    ...props
+}: CheckBoxProps) => {
 
-export interface CheckBoxProps {
-    value: boolean
-}
-const checks = [
-    {
-        test: 'terst',
-        checked: false,
-    },
-    {
-        test: 'terst',
-        checked: false
+    const [state, setState] = useState(value);
+
+    const checkHandler = (val: any) => {
+        setState(val);
+        if (onChange) {
+            onChange({ value: val, label: label });
+        }
     }
-]
-
-const ChekcBox = ({ value }: CheckBoxProps) => {
-
 
     return (
-        <StyledCheckBox>
-            {checks.map(el => (
-                <DxCheckBox value={value} />
+        <StyledCheckBox flexDirection={labelPosition} className={className || ''} {...props}>
+            <DxCheckBox
+                value={state}
+                onValueChange={checkHandler}
+                enableThreeStateBehavior={false}
+            />
 
-            ))}
+            {
+                label && <div onClick={() => checkHandler(!state)}>
+                    <Text text={label} variant='p3' style={{ cursor: 'pointer', userSelect: 'none' }} />
+                </div>
+            }
         </StyledCheckBox>
     )
 }
 
 
-export default ChekcBox;
+
+CheckBox.defaultProps = defaultProps;
+
+export default CheckBox;

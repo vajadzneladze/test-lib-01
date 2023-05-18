@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { CheckBox, Icon, Notify, ThemeProvider } from "../../components";
+import { TabMenu, Icon, Notify, ThemeProvider, CheckBoxGroup } from "../../components";
+import { toast } from "react-toastify";
 
 
 
@@ -8,7 +9,7 @@ const withColorScheme = (Story: any, { globals }: any) => {
 
   let { scheme } = globals;
 
-
+ 
   return (
     <div>
       {
@@ -50,17 +51,48 @@ const withColorScheme = (Story: any, { globals }: any) => {
 
 
 export default {
-  title: "UI-COMPONENTS/CheckBox",
+  title: "UI-COMPONENTS/CheckBoxGroup",
   decorators: [withColorScheme],
-  component: CheckBox,
-} as ComponentMeta<typeof CheckBox>;
+  component: CheckBoxGroup,
+} as ComponentMeta<typeof CheckBoxGroup>;
 
-const Template: ComponentStory<typeof CheckBox> = (props) => (
-    <CheckBox {...props} />
+const Template: ComponentStory<typeof CheckBoxGroup> = (props) => (
+    <CheckBoxGroup {...props} />
 );
 
 export const Primary = Template.bind({});
 
 Primary.args = {
-  onChange:  e => console.log('Single CheckBox ' , e)
-}
+  data: [
+    {
+      value: false,
+      label: ''
+    },
+    {
+      value: true,
+      label: 'Label' ,
+      labelPosition: 'right'
+    },
+    {
+      value: true,
+      label: 'Label',
+      labelPosition: 'right'
+    },
+    {
+      value: true,
+      label: 'Label',
+      labelPosition: 'left'
+    },
+    {
+      value: true,
+      label: '',
+      labelPosition: 'left'
+    },
+    {
+      value: true,
+      label: 'Label',
+      labelPosition: 'left'
+    }
+  ],
+  onChangeHandler: e => console.log('CheckBox Group ',  e.target.value)
+};

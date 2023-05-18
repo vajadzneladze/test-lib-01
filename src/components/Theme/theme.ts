@@ -8,6 +8,8 @@ import HelveticaLight from "../../assets/fonts/helvetica_light.ttf";
 import HelveticaRegular from "../../assets/fonts/helvetica_regular.ttf";
 import HelveticaMedium from "../../assets/fonts/helvetica_medium.ttf";
 import HelveticaBold from "../../assets/fonts/helvetica_bold.ttf";
+import CheckedIcon from '../../assets/icons/checked.svg';
+
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -423,10 +425,12 @@ export const GlobalStyles = createGlobalStyle`
 
 
 
-    .dx-checkbox {
+  .dx-checkbox {
     .dx-checkbox-icon {
         background: ${({ theme }) => theme.color.steel.grey_01};
         border: 1px solid ${({ theme }) => theme.color.steel.grey_07}; 
+        width: 18px; 
+        height: 18px;
       }
 
 
@@ -453,6 +457,22 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.color.text.static_primary};
       background: ${({ theme }) => theme.color.semantic.positive_80};
       border: 1px solid ${({ theme }) => theme.color.semantic.positive_80};
+
+      &::before {
+        content: "";
+        background-image: url( ${CheckedIcon as {}});
+        background-repeat: no-repeat;
+        width:100%;
+        height:100%;
+        background-position: center;
+        background-size: 8px 7px;
+        margin: 0px;
+        padding:0px;
+        padding-top: 2px;
+        left: 0px;
+        top: 0px;
+        box-sizing: border-box;
+      }
     }
 
     &.dx-state-hover {

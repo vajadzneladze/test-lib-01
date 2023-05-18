@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { StyledDropDownProps, size } from "./DropDown.types";
 import closeBtnDay from '../../assets/icons/close-circle-outlined.svg'
 import closeBtnNight from '../../assets/icons/close-circle-outlined-night.svg'
+
+
 import ArrowUp from '../../assets/icons/arrow-up-outlined.svg';
 import ArrowUpDark from '../../assets/icons/arrow-up-outlined-dark.svg';
-import ArrowDown from '../../assets/icons/arrow-down-outlined.svg';
+import ArrowDown from '../../assets/icons/arrow-down-outlined.svg'; 
 import ArrowDownDark from '../../assets/icons/arrow-down-outlined-dark.svg';
 
 export const getHeight = (size: size) => {

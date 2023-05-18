@@ -13,7 +13,7 @@ const defaultProps: ButtonProps = {
   isLoading: false,
 };
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   text,
   disabled,
   variant,
@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   isLoading,
   ...props
-}) => {
+}:ButtonProps) => {
   return !isLoading ? (
     <StyledButton
       disabled={disabled}
