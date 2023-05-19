@@ -94,5 +94,5 @@ Primary.args = {
       labelPosition: 'left'
     }
   ],
-  onChangeHandler: e => console.log('CheckBox Group ',  e.target.value)
+  onChangeHandler: e => console.log('CheckBox Group ',  e)
 };

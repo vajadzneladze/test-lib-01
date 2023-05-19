@@ -72,6 +72,18 @@ Primary.args = {
     },
     {
       label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
       isActive: false,
     },
     {
@@ -80,12 +92,632 @@ Primary.args = {
     },
     {
       label: 'Tab menu item 4',
-      isActive: true,
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
     },
     {
       label: 'Tab menu item 5',
       isActive: false,
     },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+
+    {
+      label: 'Tab menu item 1',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 2',
+      isActive: true,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5 asf aswatgwq wqe yqwy q3yq y',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 3',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 4',
+      isActive: false,
+    },
+    {
+      label: 'Tab menu item 5asfasfsafasb awtewaqet qwe tqwet qwetq ',
+      isActive: false,
+    },
+    
   ],
 
   setActiveHandler: (index, data) => {

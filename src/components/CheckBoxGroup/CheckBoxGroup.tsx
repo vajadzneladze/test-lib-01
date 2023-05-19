@@ -26,8 +26,8 @@ const CheckBoxGroup = ({
 
         setList(arr);
 
-        if(onChangeHandler){
-            onChangeHandler({ target: arr[i], list: arr });
+        if (onChangeHandler) {
+            onChangeHandler({ index: i, target: arr[i], list: arr });
         }
     }
 
@@ -37,7 +37,7 @@ const CheckBoxGroup = ({
                 list && list.length ? list.map((item: CheckBoxProps, index: number) => {
 
                     return <div key={index} onClick={() => changeHandler(index)}>
-                        <ChekcBox value={item.value} label={item.label} labelPosition = {item.labelPosition || 'right'} />
+                        <ChekcBox value={item.value} label={item.label} labelPosition={item.labelPosition || 'right'} />
                     </div>
                 }) : ''
             }

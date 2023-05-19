@@ -19,3 +19,4 @@ export { default as DropDown } from './DropDown';
 export { default as TabMenu } from './TabMenu';
 export { default as CheckBox } from './CheckBox';
 export { default as CheckBoxGroup } from './CheckBoxGroup';
+export { default as Radio } from './Radio';

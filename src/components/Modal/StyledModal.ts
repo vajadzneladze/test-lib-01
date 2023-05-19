@@ -65,7 +65,7 @@ export const StyledModalContent = styled.div<{ size: ModalSizes }>`
   box-sizing: border-box;
   padding: ${({ theme, size }) => theme.size.spacing[getPadding(size)]};
   width: ${({ size }) => getWidth(size)};
-  max-height: 80vh;
+  max-height: 746px;
   overflow: hidden;
   position: relative;
 `;
