@@ -27,5 +27,5 @@ export interface VariantProps {
 
 export interface TextProps
   extends StyledTextProps,
-    Pick<React.HTMLProps<HTMLElement>, "style">,
+    Pick<React.HTMLProps<HTMLElement>, "style" | "id" >,
     VariantProps {}
