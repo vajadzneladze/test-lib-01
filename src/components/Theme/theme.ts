@@ -8,8 +8,7 @@ import HelveticaLight from "../../assets/fonts/helvetica_light.ttf";
 import HelveticaRegular from "../../assets/fonts/helvetica_regular.ttf";
 import HelveticaMedium from "../../assets/fonts/helvetica_medium.ttf";
 import HelveticaBold from "../../assets/fonts/helvetica_bold.ttf";
-import CheckedIcon from '../../assets/icons/checked.svg';
-
+import CheckedIcon from "../../assets/icons/checked.svg";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -259,45 +258,45 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
 
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url(${UpGamingFont}) format('truetype');
-}
+    @font-face {
+      font-family: 'Helvetica Neue';
+      src: url(${UpGamingFont}) format('truetype');
+    }
 
 
-@font-face {
-  font-family: "Helvetica Neue UltraLight";
-  src: url(${HelveticaUltraLight}) format('truetype');
-}
+    @font-face {
+      font-family: "Helvetica Neue UltraLight";
+      src: url(${HelveticaUltraLight}) format('truetype');
+    }
 
-@font-face {
-  font-family: "Helvetica Neue Thin";
-  src: url(${HelveticaThin}) format('truetype');
-}
-
-
-@font-face {
-  font-family: "Helvetica Neue Light";
-  src: url(${HelveticaLight}) format('truetype');
-}
+    @font-face {
+      font-family: "Helvetica Neue Thin";
+      src: url(${HelveticaThin}) format('truetype');
+    }
 
 
-@font-face {
-  font-family: "Helvetica Neue Regular";
-  src: url(${HelveticaRegular}) format('truetype');
-}
+    @font-face {
+      font-family: "Helvetica Neue Light";
+      src: url(${HelveticaLight}) format('truetype');
+    }
 
 
-@font-face {
-  font-family: "Helvetica Neue Medium";
-  src: url(${HelveticaMedium}) format('truetype');
-}
+    @font-face {
+      font-family: "Helvetica Neue Regular";
+      src: url(${HelveticaRegular}) format('truetype');
+    }
 
 
-@font-face {
-  font-family:  "Helvetica Neue Bold";
-  src: url(${HelveticaBold}) format('truetype');
-} 
+    @font-face {
+      font-family: "Helvetica Neue Medium";
+      src: url(${HelveticaMedium}) format('truetype');
+    }
+
+
+    @font-face {
+      font-family:  "Helvetica Neue Bold";
+      src: url(${HelveticaBold}) format('truetype');
+    } 
 
     .dx-menu-base .dx-menu-item .dx-menu-item-content .dx-menu-item-text {
       font-family: ${({ theme }) => theme.typography.font.regular};
@@ -328,24 +327,15 @@ export const GlobalStyles = createGlobalStyle`
     
     .dx-dropdowneditor-overlay {
 
-
-      /* .dx-state-focused {
-        border:none !important;
-      } */
-
       .dx-overlay-content {
         top: 38px !important;
         transform: translate(0px, 22px) !important;
          
         border: 1px solid ${({ theme }) =>
-    theme.color.steel.grey_06} !important;
+          theme.color.steel.grey_06} !important;
         box-shadow:0px 36px 40px -15px rgba(12, 43, 67, 0.05);
         border-radius:${({ theme }) => theme.size.radius.medium};
         background-color:  ${({ theme }) => theme.color.surface.surface_1};
-        /* height:520px !important; */
-        /* max-height: 520px !important;
-        min-height:300px; */
-
 
         .dx-popup-content {
           padding-left:0px;
@@ -354,18 +344,11 @@ export const GlobalStyles = createGlobalStyle`
           position:relative;
           clear:both;
           max-height:450px !important;
-          /* overflow:hidden; */
-
-          
 
           .dx-treeview {
-
             height:calc(100% - 117px) !important;
-
-
                       
             .dx-scrollable-container {
-              
               overflow-y: auto;
 
               &::-webkit-scrollbar {
@@ -384,8 +367,6 @@ export const GlobalStyles = createGlobalStyle`
                 height: 50px;
               }
 
-
-
               .dx-scrollable-scrollbar {
                 display:none;
               }
@@ -398,7 +379,7 @@ export const GlobalStyles = createGlobalStyle`
 
           .drop-down-apply-btn {
             background-color:  ${({ theme }) =>
-    theme.color.surface.surface_1} !important;
+              theme.color.surface.surface_1} !important;
             border-top: 1px solid ${({ theme }) => theme.color.steel.grey_06};
             height:117px;
             position:relative;
@@ -417,12 +398,78 @@ export const GlobalStyles = createGlobalStyle`
               width:100%;
             }
           }
+
+         
         }
+
+
       }
     }
 
 
+    
 
+    &[role="tooltip"]{
+
+      background-color: ${({ theme }) => theme.color.steel.grey_21} !important;
+      padding:10px 16px !important; 
+      border:1px solid transparent !important;
+
+      .dx-popover-arrow {
+
+          &::after {
+            border-color : ${({ theme }) =>
+              theme.color.steel.grey_21} !important;
+            background-color: ${({ theme }) =>
+              theme.color.steel.grey_21} !important;
+           
+          }
+      }
+
+      .dx-popup-content {
+        font-family: ${({ theme }) => theme.typography.font.regular};
+        color: ${({ theme }) => theme.color.steel.grey_00};
+        font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+        line-height: ${({ theme }) => theme.typography.lineHeight.md};
+        padding:0px !important;
+
+        max-width: 200px;
+        white-space: normal;
+        
+        div {
+          white-space: normal;
+        }
+      }
+    }
+
+    .dx-position-top {
+      .dx-popover-arrow { 
+        transform: scale(0.4) translateY(8px);
+      }
+    }
+
+    .dx-position-bottom {
+      .dx-popover-arrow { 
+        transform: scale(0.4) translateY(-10px);
+      }
+    }
+
+
+    .dx-position-left {
+      .dx-popover-arrow { 
+        transform: scale(0.4) translateX(10px);
+      }
+    }
+
+
+    .dx-position-right {
+      .dx-popover-arrow { 
+        transform: scale(0.4) translateX(-10px);
+      }
+    }
+
+
+    
 
 
   .dx-checkbox {
@@ -494,198 +541,212 @@ export const GlobalStyles = createGlobalStyle`
 
   .dx-checkbox-indeterminate {
 
-&.dx-state-hover {
-  .dx-checkbox-icon {
-    background: ${({ theme }) => theme.color.semantic.positive_80};
-    border: 1px solid
-      ${({ theme }) => theme.color.semantic.positive_80};
-  }
+    &.dx-state-hover {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_80};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_80};
+      }
+    }
+
+    &.dx-state-focused {
+      .dx-checkbox-icon {
+        background: ${({ theme }) => theme.color.semantic.positive_120};
+        border: 1px solid
+          ${({ theme }) => theme.color.semantic.positive_80};
+      }
+    }
+
+   .dx-checkbox-icon {
+      background: ${({ theme }) => theme.color.semantic.positive_120};
+      border: 1px solid
+        ${({ theme }) => theme.color.semantic.positive_120};
+
+      &::before {
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+        transform: translateX(-50%);
+        margin-top: 0px;
+        margin-left: 0px;
+        
+        width: 8px;
+        height: 2px;
+        background-color: ${({ theme }) => theme.color.text.static_primary};
+        border-radius: 1px;
+      }
+    }
 }
 
-&.dx-state-focused {
-  .dx-checkbox-icon {
-    background: ${({ theme }) => theme.color.semantic.positive_120};
-    border: 1px solid
-      ${({ theme }) => theme.color.semantic.positive_80};
-  }
-}
-
-.dx-checkbox-icon {
-  background: ${({ theme }) => theme.color.semantic.positive_120};
-  border: 1px solid
-    ${({ theme }) => theme.color.semantic.positive_120};
-
-  &::before {
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%);
-    transform: translateX(-50%);
-    margin-top: 0px;
-    margin-left: 0px;
-    
-    width: 8px;
-    height: 2px;
-    background-color: ${({ theme }) => theme.color.text.static_primary};
-    border-radius: 1px;
-  }
-}
-}
 
 
 
+  .dx-radiogroup {
 
-.dx-radiogroup {
+    .dx-collection {
 
-.dx-collection {
-
-    display:flex;
-    gap:10px;
-    flex-wrap: wrap;
-
-    .dx-radiobutton {
         display:flex;
         gap:10px;
+        flex-wrap: wrap;
 
-        .dx-radio-value-container {
-            padding-right:0px;
+        .dx-radiobutton {
+            display:flex;
+            gap:10px;
 
-            .dx-radiobutton-icon {
-                transition:100ms;
-                width: 18px; 
-                height: 18px;
-                box-sizing: border-box;
-                position:relative;
-                margin:0px;
-                position:relative;
+            .dx-radio-value-container {
+                padding-right:0px;
 
-                &::before {
-                    width:18px;
-                    height:18px;
+                .dx-radiobutton-icon {
+                    transition:100ms;
+                    width: 18px; 
+                    height: 18px;
                     box-sizing: border-box;
-                    background: ${({ theme }) => theme.color.steel.grey_05};
-                    border: 1px solid ${({ theme }) => theme.color.steel.grey_09}; 
-
-                    
-                }
-
-                .dx-radiobutton-icon-dot {
-                    
-                    width:12px;
-                    height:12px;
-                    border-radius:6px;
+                    position:relative;
                     margin:0px;
-                    top: 50%;
-                    left: 50%;
-                    position: absolute;
-                    transform: translateY(-50%) translateX(-50%);
-                    position:absolute;
-                }
-
-                &:hover {
-                    &::before {
-                        background: ${({ theme }) => theme.color.semantic.positive_20};
-                        border: 1px solid ${({ theme }) => theme.color.semantic.positive_100}; 
-                    }
-                }
-
-                &:active {
-                    &::before {
-                        background: ${({ theme }) => theme.color.semantic.positive_20};
-                        border: 1px solid ${({ theme }) => theme.color.semantic.positive_120}; 
-                    }
-                }
-
-                &:disabled {
-                    &::before {
-                        background: #F3F5F6;
-                        border: 1px solid #E9EBEC; 
-                    }
-                }
-
-
-                &.dx-radiobutton-icon-checked {
-
+                    position:relative;
 
                     &::before {
-                        border: 1px solid ${({ theme }) => theme.color.semantic.positive_100}; 
-                        background:none ;
-                     
+                        width:18px;
+                        height:18px;
+                        box-sizing: border-box;
+                        background: ${({ theme }) => theme.color.steel.grey_05};
+                        border: 1px solid ${({ theme }) =>
+                          theme.color.steel.grey_09}; 
+
+                        
                     }
 
                     .dx-radiobutton-icon-dot {
-                        background: ${({ theme }) => theme.color.semantic.positive_100};
+                        
+                        width:12px;
+                        height:12px;
+                        border-radius:6px;
+                        margin:0px;
+                        top: 50%;
+                        left: 50%;
+                        position: absolute;
+                        transform: translateY(-50%) translateX(-50%);
+                        position:absolute;
                     }
 
-
                     &:hover {
-
                         &::before {
-                            background: ${({ theme }) => theme.color.semantic.positive_10};
+                            background: ${({ theme }) =>
+                              theme.color.semantic.positive_20};
+                            border: 1px solid ${({ theme }) =>
+                              theme.color.semantic.positive_100}; 
+                        }
+                    }
+
+                    &:active {
+                        &::before {
+                            background: ${({ theme }) =>
+                              theme.color.semantic.positive_20};
+                            border: 1px solid ${({ theme }) =>
+                              theme.color.semantic.positive_120}; 
+                        }
+                    }
+
+                    &:disabled {
+                        &::before {
+                            background: #F3F5F6;
+                            border: 1px solid #E9EBEC; 
                         }
                     }
 
 
-                    &:active {
+                    &.dx-radiobutton-icon-checked {
+
 
                         &::before {
-                            background: ${({ theme }) => theme.color.semantic.positive_10};
-                            border: 1px solid ${({ theme }) => theme.color.semantic.positive_120}; 
-
+                            border: 1px solid ${({ theme }) =>
+                              theme.color.semantic.positive_100}; 
+                            background:none ;
+                        
                         }
 
                         .dx-radiobutton-icon-dot {
-                            background: ${({ theme }) => theme.color.semantic.positive_120};
+                            background: ${({ theme }) =>
+                              theme.color.semantic.positive_100};
+                        }
+
+
+                        &:hover {
+
+                            &::before {
+                                background: ${({ theme }) =>
+                                  theme.color.semantic.positive_10};
+                            }
+                        }
+
+
+                        &:active {
+
+                            &::before {
+                                background: ${({ theme }) =>
+                                  theme.color.semantic.positive_10};
+                                border: 1px solid ${({ theme }) =>
+                                  theme.color.semantic.positive_120}; 
+
+                            }
+
+                            .dx-radiobutton-icon-dot {
+                                background: ${({ theme }) =>
+                                  theme.color.semantic.positive_120};
+                            }
+
                         }
 
                     }
-
                 }
             }
-        }
-        
-        .dx-item-content {
-            color: ${({ theme }) => theme.color.text.primary};
-            font-family: ${({ theme }) => theme.typography.font.regular};
-            text-align: left;
-            font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
-            line-height: ${({ theme }) => theme.typography.lineHeight.md};
+            
+            .dx-item-content {
+                color: ${({ theme }) => theme.color.text.primary};
+                font-family: ${({ theme }) => theme.typography.font.regular};
+                text-align: left;
+                font-size: ${({ theme }) => theme.typography.fontSize.fs_12};
+                line-height: ${({ theme }) => theme.typography.lineHeight.md};
 
-        }
-    }
-}
-
-
-&.dx-state-disabled {
-
-    .dx-radiobutton-icon {
-        &::before {
-            background: #F3F5F6 !important;
-            border: 1px solid #E9EBEC !important; 
+            }
         }
     }
 
 
-    .dx-radiobutton-checked { 
-
+    &.dx-state-disabled {
 
         .dx-radiobutton-icon {
             &::before {
-                background: #F9FAFA;
-                border: 1px solid #E1E4E5; 
-
-                background:red;
+                background: #F3F5F6 !important;
+                border: 1px solid #E9EBEC !important; 
             }
+        }
 
 
-            .dx-radiobutton-icon-dot {
-                background: #E1E4E5 !important;
+        .dx-radiobutton-checked { 
+
+
+            .dx-radiobutton-icon {
+                &::before {
+                    background: #F9FAFA;
+                    border: 1px solid #E1E4E5; 
+
+                    background:red;
+                }
+
+
+                .dx-radiobutton-icon-dot {
+                    background: #E1E4E5 !important;
+                }
             }
         }
     }
-}
 
 
 
-}
+  }
+
+
+
 
 `;

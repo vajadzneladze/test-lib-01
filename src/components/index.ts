@@ -1,10 +1,7 @@
-import SelectBox from './SelectBox/SelectBox';
-import FormToggle from './FormToggle/FormToggle';
 export { default as ThemeProvider } from "./Theme";
 export { default as Modal } from "./Modal";
 export { default as Button } from "./Button";
 export { default as ButtonLoading } from "./ButtonLoading";
-export { default as Text } from './Text';
 export { default as Notify } from './ToastNotification';
 export { default as Toggle } from './Toggle';
 export { default as FormToggle } from './FormToggle';
@@ -20,3 +17,5 @@ export { default as TabMenu } from './TabMenu';
 export { default as CheckBox } from './CheckBox';
 export { default as CheckBoxGroup } from './CheckBoxGroup';
 export { default as Radio } from './Radio';
+export { default as Tooltip } from './ToolTip';
+export { default as Text } from './Text';
