@@ -212,7 +212,8 @@ const Grid = ({
       {showDrag && <GridDrag columns={cols} selectColumnHandler={setSelectedColumnKeys} onReorder={columnDragHandler} isOpen={true} />}
 
       <StyledGridContainer style={style}>
-        <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} />
+       
+        { selectMode === 'single' || selectMode === 'multiple' ?  <GridDeleteComponent selectedRowKeys={selectedRowKeys} handleDeleteRows={handleDeleteRows} /> : '' }  
         <DataGrid
           dataSource={dataSource as CustomStore<any, any>}
           remoteOperations={true}
